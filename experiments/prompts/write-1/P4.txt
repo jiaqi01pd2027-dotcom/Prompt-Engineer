@@ -1,0 +1,13 @@
+Write a reply to the customer complaint below. The customer is a paying Pro user whose
+CSV export failed twice today. Keep it short.
+
+Constraints: under 150 words. Apologise once, briefly. Do not say "thank you for your
+patience", "limited access", or "we apologise for any inconvenience". Do not ask them to
+try again. Do not include a subject line. End with a concrete next step and a time.
+
+<complaint>
+This is the second time today your CSV export has failed on me. I clicked Export,
+waited ten minutes, and got a "something went wrong" error both times. I'm paying for
+the Pro plan specifically for exports and I have a board meeting tomorrow morning. What
+is going on?
+</complaint>

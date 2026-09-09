@@ -1,0 +1,18 @@
+Write a reply to the customer complaint below. Before writing, ask me any clarifying
+questions you need (plan, cause, timeline, voice, length). I have answered them below;
+use the answers.
+
+<complaint>
+This is the second time today your CSV export has failed on me. I clicked Export,
+waited ten minutes, and got a "something went wrong" error both times. I'm paying for
+the Pro plan specifically for exports and I have a board meeting tomorrow morning. What
+is going on?
+</complaint>
+
+Q: What plan is the customer on and does it matter? A: Pro plan, paid; exports are a
+Pro feature so it matters.
+Q: Do we know the cause? A: Yes, a confirmed bug in the export worker; fix deploying now.
+Q: What can we promise? A: We will email their completed export within 24 hours.
+Q: Voice and length? A: Warm but concise, under 150 words, signed "The Support Team".
+Q: Anything to avoid? A: Filler like "thank you for your patience"; don't ask them to
+retry; no subject line.

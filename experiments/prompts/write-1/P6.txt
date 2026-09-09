@@ -1,0 +1,29 @@
+Write a reply to the customer complaint below. The customer is a paying Pro user whose
+CSV export failed twice today. Keep it short.
+
+Here are two replies in the voice we want:
+
+<example>
+Complaint: "My invoice PDF shows the wrong company name. I need this fixed before I can
+submit it for reimbursement."
+Reply: "You're right, the PDF is pulling the old company name from your billing
+profile, and that's on us. Sorry for the hassle right before a deadline. We've corrected
+the record and regenerated the invoice; it's attached, and future invoices will use the
+right name. If reimbursement needs anything else, reply here and we'll turn it around
+same day. The Support Team"
+</example>
+
+<example>
+Complaint: "Two-factor codes aren't arriving by SMS. I've been locked out for an hour."
+Reply: "Being locked out for an hour is a bad way to spend a morning, and we're sorry.
+Our SMS provider is having a regional outage; we've switched your account to email
+codes so you can sign in right now. SMS will be restored automatically once the
+provider recovers, and we'll confirm by email when it is. The Support Team"
+</example>
+
+<complaint>
+This is the second time today your CSV export has failed on me. I clicked Export,
+waited ten minutes, and got a "something went wrong" error both times. I'm paying for
+the Pro plan specifically for exports and I have a board meeting tomorrow morning. What
+is going on?
+</complaint>

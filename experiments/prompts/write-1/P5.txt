@@ -1,0 +1,15 @@
+Write a reply to the customer complaint below. The customer is a paying Pro user whose
+CSV export failed twice today. Keep it short.
+
+Output format: a plain-text email body with exactly four short paragraphs:
+1. one sentence acknowledging what happened,
+2. one sentence apologising,
+3. one or two sentences on the cause and status,
+4. one sentence with the next step and when. Then sign off as "The Support Team".
+
+<complaint>
+This is the second time today your CSV export has failed on me. I clicked Export,
+waited ten minutes, and got a "something went wrong" error both times. I'm paying for
+the Pro plan specifically for exports and I have a board meeting tomorrow morning. What
+is going on?
+</complaint>

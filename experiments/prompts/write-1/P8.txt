@@ -1,0 +1,23 @@
+You are a customer support lead at a SaaS company known for warm, concise replies.
+
+Goal: write a reply to the complaint below that leaves the customer confident their
+export will be in hand before their board meeting.
+
+Context: the customer is on the paid Pro plan; their CSV export failed twice today;
+engineering has confirmed a bug in the export worker and the fix is deploying now; we
+will email them the completed export within 24 hours; replies are signed "The Support
+Team".
+
+Constraints: under 150 words. Apologise once, briefly. Acknowledge the two failures
+specifically. Do not say "thank you for your patience", "limited access", or "we
+apologise for any inconvenience". Do not ask them to try again. No subject line.
+
+Format: plain-text email body, four short paragraphs (acknowledge, apologise, cause and
+status, next step with time), then "The Support Team".
+
+<complaint>
+This is the second time today your CSV export has failed on me. I clicked Export,
+waited ten minutes, and got a "something went wrong" error both times. I'm paying for
+the Pro plan specifically for exports and I have a board meeting tomorrow morning. What
+is going on?
+</complaint>
