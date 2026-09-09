@@ -1,0 +1,44 @@
+Write a scoped implementation plan for the product brief below, with milestones and
+risks. It is for the engineering team that will build the first version, and it should
+be short enough to review in a meeting.
+
+Here are two plans written from equally thin briefs, in the style we want:
+
+<example>
+Brief: "Customers want to export their data."
+Scope (in): a one-click export of an account's records to a ZIP of CSVs, generated in
+the background, delivered by an emailed link that expires in 7 days.
+Non-goals: scheduled exports, exports of other accounts' data, PDF or XLSX formats,
+partial exports by date range.
+Assumptions and open questions: (assumption) an existing background job runner can be
+reused; (question) which tables count as "their data" for compliance purposes?
+(question) is there a size ceiling we should refuse above?
+Milestones: 1. job and storage, 1 week. 2. email delivery and expiring links, 3 days.
+3. UI button and status, 3 days. 4. load test on the largest account and release, 4
+days.
+Risks: largest accounts time out the job: chunk the export and stream to storage.
+Export link leaks data if forwarded: require login to download. Export contains
+personal data of other users in the account: agree the table list with legal before
+milestone 1.
+</example>
+
+<example>
+Brief: "We need better search."
+Scope (in): replace the substring match on the records list with a ranked search over
+title and notes, with type-ahead, for the existing web app.
+Non-goals: search across accounts, searching file attachments, saved searches, a
+search API.
+Assumptions and open questions: (assumption) Postgres full-text search is enough at
+current data sizes, no new search service; (question) what queries do support tickets
+show users trying and failing? (question) is latency under 300 ms acceptable?
+Milestones: 1. index and query, 1 week. 2. ranking and type-ahead endpoint, 1 week.
+3. UI and instrumentation, 1 week. 4. compare click-through against the old search on
+10% of traffic, 1 week.
+Risks: ranking feels worse than substring match for exact titles: boost exact matches.
+Index rebuild locks a large table: build concurrently off-peak. Type-ahead load spikes
+the database: debounce and cache the top queries.
+</example>
+
+<brief>
+We want a dashboard so customers can see their usage.
+</brief>

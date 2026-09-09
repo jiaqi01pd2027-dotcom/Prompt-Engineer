@@ -1,0 +1,29 @@
+Write a LinkedIn post of about 250 words on what we learned from moving our company, a
+10-person fully remote developer-mentorship business, to a 4-day work week. It is for
+founders and CEOs of small companies. Use the fact sheet below.
+
+Output format: plain text, no title line, five short paragraphs:
+1. one or two sentences on what we did and when,
+2. what went up (productivity, satisfaction), with the one number we have,
+3. what did not change (revenue) and what problems we hit,
+4. the two or three things we would tell another founder,
+5. a single closing question to readers.
+No hashtags, no emojis, no bullet points.
+
+<factsheet>
+Company: Northstar Mentors, a fully remote developer-mentorship company. 10 people
+(6 mentors, 2 operations, 2 founders).
+Change: moved from a 5-day to a 4-day work week (Fridays off, same pay) six months ago,
+after a 3-month trial that we then extended.
+Who the post is for: founders and CEOs of small companies.
+Results after six months:
+- Productivity: mentoring sessions delivered per person per week went up, about 8%.
+- Revenue: flat compared with the six months before the switch.
+- Team satisfaction: up in our internal survey; nobody has left.
+- Problems: none we did not expect. Coordinating with clients on Fridays needed a
+  shared calendar note and a clear auto-reply, that was it.
+What we would tell another founder: decide the metric you will watch before you start,
+keep the trial fixed-length, and do not sell it internally as a perk; treat it as an
+operating change.
+Tone: candid, no hype, no emojis, no hashtags. End with one question to readers.
+</factsheet>

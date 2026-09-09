@@ -1,0 +1,44 @@
+Write a LinkedIn post of about 250 words on what we learned from moving our company, a
+10-person fully remote developer-mentorship business, to a 4-day work week. It is for
+founders and CEOs of small companies. Use the fact sheet below.
+
+Here are two posts in the voice we want:
+
+<example>
+We dropped daily standups in March. Not because they were broken, but because nobody
+could tell me what decision the last twenty had produced. We replaced them with a
+written update by 10am and one thirty-minute call on Wednesdays. Three months in:
+fewer interruptions, the written updates are searchable, and two people told me they
+were relieved. The cost is real too. Newer hires get less ambient context, so we pair
+them with someone for their first month. I would not call this a productivity win; I
+would call it a trade we understand. What would you need to see before making the same
+trade?
+</example>
+
+<example>
+Last quarter we killed a product line that brought in about a fifth of our revenue. It
+was profitable. It was also the source of most of our support tickets and the reason
+our best engineer was thinking about leaving. We told customers eight weeks ahead,
+refunded the ones who asked, and moved the engineer onto the core product. Revenue is
+down, margin is up, the team is calmer, and I still get a slightly sick feeling when I
+look at the chart. If you have shut something down that was making money, what told you
+it was time?
+</example>
+
+<factsheet>
+Company: Northstar Mentors, a fully remote developer-mentorship company. 10 people
+(6 mentors, 2 operations, 2 founders).
+Change: moved from a 5-day to a 4-day work week (Fridays off, same pay) six months ago,
+after a 3-month trial that we then extended.
+Who the post is for: founders and CEOs of small companies.
+Results after six months:
+- Productivity: mentoring sessions delivered per person per week went up, about 8%.
+- Revenue: flat compared with the six months before the switch.
+- Team satisfaction: up in our internal survey; nobody has left.
+- Problems: none we did not expect. Coordinating with clients on Fridays needed a
+  shared calendar note and a clear auto-reply, that was it.
+What we would tell another founder: decide the metric you will watch before you start,
+keep the trial fixed-length, and do not sell it internally as a perk; treat it as an
+operating change.
+Tone: candid, no hype, no emojis, no hashtags. End with one question to readers.
+</factsheet>

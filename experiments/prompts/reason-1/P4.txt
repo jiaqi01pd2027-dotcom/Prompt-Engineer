@@ -1,0 +1,13 @@
+Solve the word problem below and give the exact amount of change Sarah receives, in
+dollars and cents.
+
+Constraints: do not estimate or round until the tax step, and then round to the nearest
+cent. Do not apply the coupon to the pens. Do not apply tax before the discount. Give
+exactly one final answer; do not offer alternatives. Show every intermediate amount.
+
+<problem>
+A stationery store sells pens for $2.25 each and notebooks for $5.40 each. Sarah buys
+7 pens and 3 notebooks. She has a coupon for 15% off that applies only to the
+notebooks. Sales tax of 8% is added to the whole purchase after the discount. She pays
+with a $50 bill. How much change does she receive?
+</problem>

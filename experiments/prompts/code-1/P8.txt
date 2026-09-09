@@ -1,0 +1,29 @@
+You are a senior Python engineer who writes small, well-tested standard-library
+utilities.
+
+Goal: write `parse_iso_duration(s)` so that a billing service can convert any ISO-8601
+duration string it stores into a total number of seconds, and reliably reject bad data.
+
+Context: the service stores subscription intervals as duration strings such as
+"P1Y2M3DT4H5M6S", "P2W", "PT1.5S", "PT36H" and "P1DT12H"; it only needs total seconds,
+so the team fixed 1 year = 365 days and 1 month = 30 days. Weeks always appear alone.
+Fractions only ever appear on seconds. Malformed strings must raise ValueError so they
+never reach the database.
+
+Constraints: standard library only. Exactly one function with that exact name and
+signature; no classes, no CLI, no print statements. Reject "P" and "PT" with no
+components, any time unit without the "T" separator, fractions on anything except
+seconds, and any unknown characters. Raise ValueError specifically. Do not return 0 or
+None for bad input.
+
+Format: one fenced ```python block containing the function with a docstring that lists
+the unit assumptions, then a bullet list titled "Assumptions" with at most five bullets.
+Nothing else.
+
+<spec>
+Function name and signature: parse_iso_duration(s: str) -> float | int
+Input examples that must work: "P1Y2M3DT4H5M6S", "P2W", "PT1.5S", "PT36H", "P1DT12H"
+Unit lengths: 1 year = 365 days, 1 month = 30 days, 1 week = 7 days, 1 day = 24 hours.
+Invalid input (no leading P, an empty "P", a time unit such as S or H without the T
+separator, fractions anywhere except seconds, unknown characters) must raise ValueError.
+</spec>

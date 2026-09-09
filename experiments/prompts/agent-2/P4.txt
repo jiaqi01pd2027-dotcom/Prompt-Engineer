@@ -1,0 +1,14 @@
+Write a scoped implementation plan for the product brief below, with milestones and
+risks. It is for the engineering team that will build the first version, and it should
+be short enough to review in a meeting.
+
+Constraints: the brief is deliberately thin, so do not invent facts; where something is
+not stated, write it down as an assumption or a question for the PM. Include an
+explicit non-goals section. Give each milestone a rough size in days or weeks. List at
+least three risks specific to this project, each with a mitigation; do not list generic
+risks like "scope creep" without saying what would creep. Do not propose more than one
+version; this is a v1 plan.
+
+<brief>
+We want a dashboard so customers can see their usage.
+</brief>

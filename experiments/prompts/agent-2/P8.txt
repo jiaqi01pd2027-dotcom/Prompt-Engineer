@@ -1,0 +1,45 @@
+You are a technical product manager who turns one-line briefs into plans engineers can
+estimate.
+
+Goal: write a v1 implementation plan for the brief below that the two engineers can
+start on Monday, that ships to pilot accounts two weeks before the deadline, and that
+leaves nothing about scope open to interpretation.
+
+Context: I asked the PM the questions I would normally ask; the answers are below and
+are the full set of facts available.
+
+Constraints: do not invent facts beyond the PM's answers; where something is still not
+stated, write it as an assumption or a question. Include an explicit non-goals section
+that matches the PM's list. Give each milestone a rough size in days or weeks, and make
+the total fit the budget and deadline. List at least three risks specific to this
+project, each with a mitigation. Plan one version only.
+
+Format, with exactly these headings in this order: "Scope (in)", "Non-goals",
+"Assumptions and open questions" (each marked (assumption) or (question)),
+"Milestones" (table: #, Milestone, Deliverable, Size), "Risks" (three to five bullets
+of the form "<risk>: <mitigation>"). No introduction, no closing summary.
+
+<brief>
+We want a dashboard so customers can see their usage.
+</brief>
+
+<pm_answers>
+1. Users: about 1,200 customer accounts on paid plans. The person looking at it is
+   usually the account admin, who is not technical.
+2. Data source: usage events already land in a Postgres table `usage_events`
+   (account_id, metric, quantity, timestamp), written by the billing pipeline. There
+   is no aggregated or rollup table yet.
+3. Refresh rate: daily is fine. The billing pipeline finishes by 03:00 UTC. Nobody
+   needs real-time.
+4. Auth: customers already log in to the existing web app (session-based). The
+   dashboard must live behind that login, and an admin sees only their own account.
+5. Budget: two engineers (one backend, one frontend) for six weeks, plus a designer
+   for the first week. No new infrastructure spend beyond what already exists.
+6. Deadline: must be in front of customers before the pricing change on November 2.
+   A soft launch to 20 pilot accounts two weeks before that is wanted.
+7. Must-haves: current-month usage per metric against the plan limit; last six months
+   of trend per metric; CSV download of the monthly numbers; an email alert when an
+   account reaches 80% of a limit (the only notification wanted).
+8. Non-goals for v1: no billing or invoice display, no per-user breakdown within an
+   account, no public API, no mobile app, no custom date ranges.
+</pm_answers>

@@ -1,0 +1,70 @@
+Compare the three project management tools described below for a team of 8 people that
+may grow to 10, and recommend one. The team needs a Gantt/timeline view and a native
+GitHub integration, wants monthly billing with no annual commitment, and can spend at
+most $100 per month. Cover features, limits and pricing, and say why you rule out the
+other two.
+
+Here is the kind of comparison we want, from a different evaluation:
+
+<example>
+Requirement: 4-person team, needs SSO, budget $40/month.
+Datasheets: Alpha $12/user (SSO on all plans); Beta $5/user (SSO on Enterprise only,
+$25/user); Gamma $30 flat up to 5 users (no SSO).
+Output:
+| Tool | Plan needed | Cost at 4 users | SSO |
+| Alpha | Standard | $48 | yes |
+| Beta | Enterprise | $100 | yes |
+| Gamma | Flat | $30 | no |
+Recommendation: none of the three meets both requirements; Alpha is the closest
+(SSO, $8 over budget). Beta's SSO plan is 2.5x the budget; Gamma has no SSO at all.
+</example>
+
+<example>
+Requirement: 12-person team, needs a mobile app, monthly billing.
+Datasheets: Delta $7/user monthly (mobile app); Echo $60 flat up to 10 users then $90
+up to 20 (mobile app); Foxtrot $6/user annual only (mobile app).
+Output:
+| Tool | Plan needed | Cost at 12 users | Mobile | Monthly billing |
+| Delta | Pro | $84 | yes | yes |
+| Echo | Tier 2 | $90 | yes | yes |
+| Foxtrot | Standard | $72 | yes | no |
+Recommendation: Delta Pro. Foxtrot is cheapest but annual-only, which fails the billing
+requirement; Echo costs $6 more than Delta and its tier jump at 10 users makes growth
+more expensive.
+</example>
+
+<tools>
+PLANLET (planlet.example)
+Plans: Free (up to 5 users, 3 projects). Team: $6 per user/month billed annually, or $8
+per user/month billed monthly. Business: $12 per user/month billed annually, or $15 per
+user/month billed monthly. Paid plans require a minimum of 3 seats. 14-day trial of
+Business.
+Views: Kanban, list and calendar on all paid plans. Gantt/timeline view on Business only.
+Integrations: Slack, GitHub, Google Drive (Team and above).
+Automations: 250 runs per month on Team; unlimited on Business.
+Storage: 10 GB per workspace on Team; 100 GB on Business.
+Guests: unlimited free guests (view and comment only).
+Time tracking: not available.
+
+TASKFORGE (taskforge.example)
+Plans: Free (up to 3 users, 2 projects). Pro: $9 per user/month, same price on monthly
+or annual billing. No minimum seats. 30-day trial.
+Views: Kanban, list, calendar and Gantt on Pro.
+Integrations: Slack, GitHub, GitLab, Figma.
+Automations: unlimited.
+Storage: 100 GB per workspace.
+Guests: guests count as full paid seats.
+Time tracking: built in.
+API: 1,000 requests per hour per workspace.
+
+HIVEMIND BOARDS (hivemindboards.example)
+Plans: Starter: $49 per month flat for up to 10 users. Growth: $99 per month flat for up
+to 25 users. Annual billing gives two months free. 14-day trial. Adding an 11th user on
+Starter requires upgrading to Growth.
+Views: Kanban, calendar and Gantt on all plans.
+Integrations: Slack, Google Drive, Zapier. No native GitHub or GitLab integration.
+Automations: 1,000 runs per month on Starter; 5,000 on Growth.
+Storage: 25 GB on Starter; 100 GB on Growth.
+Guests: up to 5 free guests.
+Time tracking: only via a Zapier connection to a third-party tracker.
+</tools>

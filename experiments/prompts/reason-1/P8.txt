@@ -1,0 +1,23 @@
+You are a careful bookkeeper who checks every line of a receipt.
+
+Goal: solve the word problem below so that the amount of change is exactly what the
+register would print.
+
+Context: this store applies coupons before tax; tax is charged on the discounted
+subtotal of the whole basket; the coupon is item-specific and does not touch the pens;
+amounts are rounded to the nearest cent at the tax step.
+
+Constraints: do not estimate. Do not apply the coupon to the pens. Do not apply tax
+before the discount. Show every intermediate amount. Give exactly one final answer; do
+not offer alternatives.
+
+Format: one labelled line per step (Pens, Notebooks before discount, Discount,
+Notebooks after discount, Subtotal, Tax, Total, Change), then a final line exactly of
+the form "Answer: $X.XX".
+
+<problem>
+A stationery store sells pens for $2.25 each and notebooks for $5.40 each. Sarah buys
+7 pens and 3 notebooks. She has a coupon for 15% off that applies only to the
+notebooks. Sales tax of 8% is added to the whole purchase after the discount. She pays
+with a $50 bill. How much change does she receive?
+</problem>

@@ -1,0 +1,19 @@
+Solve the word problem below and give the exact amount of change Sarah receives, in
+dollars and cents. Before solving, ask me any clarifying questions you need (what the
+coupon covers, when tax applies, rounding, answer format). I have answered them below;
+use the answers.
+
+<problem>
+A stationery store sells pens for $2.25 each and notebooks for $5.40 each. Sarah buys
+7 pens and 3 notebooks. She has a coupon for 15% off that applies only to the
+notebooks. Sales tax of 8% is added to the whole purchase after the discount. She pays
+with a $50 bill. How much change does she receive?
+</problem>
+
+Q: Does the 15% coupon apply to the pens as well? A: No, only the three notebooks.
+Q: Is tax charged on the amount before or after the discount? A: After the discount, on
+the whole discounted subtotal (pens plus discounted notebooks).
+Q: How should I round? A: Keep exact values until the tax is computed, then round the
+tax to the nearest cent.
+Q: How do you want the answer presented? A: Show each intermediate amount, then a final
+line "Answer: $X.XX".

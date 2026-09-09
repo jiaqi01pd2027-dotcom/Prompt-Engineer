@@ -1,0 +1,58 @@
+Write an implementation plan (steps only, no code) for adding an optional due date to
+each todo in the app described below, plus an `overdue` filter on GET /todos where
+overdue means the due date is in the past and the todo is not done. The plan is for a
+developer who will implement it.
+
+Here are two plans for other features in this codebase, in the style we want:
+
+<example>
+Feature: add a `priority` field (low, normal, high; default normal).
+1. app/models.py: add `priority` string column, not null, default "normal".
+2. alembic/versions/0002_add_priority.py: add the column with a server default so
+   existing rows are backfilled.
+3. app/schemas.py: add `priority` to TodoCreate (optional, default normal), TodoUpdate
+   (optional) and TodoOut; validate against the three allowed values.
+4. app/routes.py: no filter changes; create and patch pass the field through.
+5. tests/test_todos.py: create with default priority, create with explicit priority,
+   reject an invalid value, patch priority; note tests build tables from models so the
+   model change alone makes them pass, the migration is checked by running
+   `alembic upgrade head` locally.
+Risks: an invalid value slipping through if validation is only in the schema and not
+the model; agree it lives in the schema.
+</example>
+
+<example>
+Feature: search todos by title substring.
+1. app/routes.py: add optional query param `q` to GET /todos, filter with a
+   case-insensitive LIKE; combine with the existing `done` filter.
+2. app/schemas.py, app/models.py: no changes.
+3. No migration needed.
+4. tests/test_todos.py: match on substring, case-insensitive match, no match returns
+   empty list, `q` combined with `done`.
+Risks: LIKE with user input needs the wildcard characters escaped; SQLite LIKE is
+case-insensitive only for ASCII.
+</example>
+
+<codebase>
+Repository: todo-api (Python 3.12, FastAPI, SQLAlchemy 2.0, SQLite, Alembic, pytest).
+Six files matter:
+
+app/models.py        SQLAlchemy models. One table, `todos`, with columns id (int,
+                     primary key), title (str, required), done (bool, default false),
+                     created_at (datetime, UTC, set on insert).
+app/schemas.py       Pydantic request/response models: TodoCreate (title),
+                     TodoUpdate (title optional, done optional), TodoOut (id, title,
+                     done, created_at).
+app/routes.py        FastAPI router. GET /todos (optional query param `done` filters by
+                     status), POST /todos, GET /todos/{id}, PATCH /todos/{id},
+                     DELETE /todos/{id}. Uses the `get_db` dependency from app/db.py.
+app/db.py            Engine and session factory for sqlite:///todo.db, plus the
+                     `get_db` dependency. Nothing else lives here.
+alembic/versions/    One migration so far, 0001_create_todos.py, which creates the
+                     todos table. `alembic upgrade head` applies migrations in
+                     production. The test suite does NOT run migrations: it uses a
+                     fresh in-memory SQLite database and creates tables directly
+                     from the models.
+tests/test_todos.py  pytest plus FastAPI TestClient. Twelve tests cover create, list,
+                     list filtered by `done`, get, patch, delete. All green.
+</codebase>

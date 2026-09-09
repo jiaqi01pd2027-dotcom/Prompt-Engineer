@@ -1,0 +1,34 @@
+Write an implementation plan (steps only, no code) for adding an optional due date to
+each todo in the app described below, plus an `overdue` filter on GET /todos where
+overdue means the due date is in the past and the todo is not done. The plan is for a
+developer who will implement it.
+
+Constraints: only reference files that exist in the description, plus one new migration
+file. Do not write code; describe changes in prose. Do not skip the database migration.
+Do not leave testing as a single "add tests" step; name the cases. Flag at least one
+risk and say how to handle it. Do not propose new dependencies, services, or a
+frontend.
+
+<codebase>
+Repository: todo-api (Python 3.12, FastAPI, SQLAlchemy 2.0, SQLite, Alembic, pytest).
+Six files matter:
+
+app/models.py        SQLAlchemy models. One table, `todos`, with columns id (int,
+                     primary key), title (str, required), done (bool, default false),
+                     created_at (datetime, UTC, set on insert).
+app/schemas.py       Pydantic request/response models: TodoCreate (title),
+                     TodoUpdate (title optional, done optional), TodoOut (id, title,
+                     done, created_at).
+app/routes.py        FastAPI router. GET /todos (optional query param `done` filters by
+                     status), POST /todos, GET /todos/{id}, PATCH /todos/{id},
+                     DELETE /todos/{id}. Uses the `get_db` dependency from app/db.py.
+app/db.py            Engine and session factory for sqlite:///todo.db, plus the
+                     `get_db` dependency. Nothing else lives here.
+alembic/versions/    One migration so far, 0001_create_todos.py, which creates the
+                     todos table. `alembic upgrade head` applies migrations in
+                     production. The test suite does NOT run migrations: it uses a
+                     fresh in-memory SQLite database and creates tables directly
+                     from the models.
+tests/test_todos.py  pytest plus FastAPI TestClient. Twelve tests cover create, list,
+                     list filtered by `done`, get, patch, delete. All green.
+</codebase>

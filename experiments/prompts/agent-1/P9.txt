@@ -1,0 +1,44 @@
+Write an implementation plan (steps only, no code) for adding an optional due date to
+each todo in the app described below, plus an `overdue` filter on GET /todos where
+overdue means the due date is in the past and the todo is not done. The plan is for a
+developer who will implement it. Before writing, ask me any clarifying questions you
+need (field type, API shape, migrations, timezones, testing). I have answered them
+below; use the answers.
+
+<codebase>
+Repository: todo-api (Python 3.12, FastAPI, SQLAlchemy 2.0, SQLite, Alembic, pytest).
+Six files matter:
+
+app/models.py        SQLAlchemy models. One table, `todos`, with columns id (int,
+                     primary key), title (str, required), done (bool, default false),
+                     created_at (datetime, UTC, set on insert).
+app/schemas.py       Pydantic request/response models: TodoCreate (title),
+                     TodoUpdate (title optional, done optional), TodoOut (id, title,
+                     done, created_at).
+app/routes.py        FastAPI router. GET /todos (optional query param `done` filters by
+                     status), POST /todos, GET /todos/{id}, PATCH /todos/{id},
+                     DELETE /todos/{id}. Uses the `get_db` dependency from app/db.py.
+app/db.py            Engine and session factory for sqlite:///todo.db, plus the
+                     `get_db` dependency. Nothing else lives here.
+alembic/versions/    One migration so far, 0001_create_todos.py, which creates the
+                     todos table. `alembic upgrade head` applies migrations in
+                     production. The test suite does NOT run migrations: it uses a
+                     fresh in-memory SQLite database and creates tables directly
+                     from the models.
+tests/test_todos.py  pytest plus FastAPI TestClient. Twelve tests cover create, list,
+                     list filtered by `done`, get, patch, delete. All green.
+</codebase>
+
+Q: Is the due date required, and is it a date or a datetime? A: Optional and nullable;
+a datetime, because the mobile app shows times.
+Q: How do clients send it and how should it be stored? A: ISO-8601 strings, possibly
+with an offset. Store in UTC; treat naive values as UTC.
+Q: What exactly is "overdue"? A: `due_date` earlier than the current UTC time and `done`
+is false. Items with no due date are never overdue.
+Q: What is the API shape? A: `due_date` on POST and PATCH bodies and in responses;
+`?overdue=true` on GET /todos, combinable with the existing `done` filter.
+Q: Do I need a migration? A: Yes, a new Alembic revision. Remember the tests do not run
+migrations; they build tables from the models.
+Q: How thorough should the tests be? A: Name each case: with and without due date,
+patch sets and clears it, overdue includes past-and-not-done, excludes done, excludes
+future, excludes null.

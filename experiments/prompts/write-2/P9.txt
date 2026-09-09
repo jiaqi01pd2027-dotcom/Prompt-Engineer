@@ -1,0 +1,35 @@
+Write a LinkedIn post of about 250 words on what we learned from moving our company, a
+10-person fully remote developer-mentorship business, to a 4-day work week. It is for
+founders and CEOs of small companies. Use the fact sheet below. Before writing, ask me
+any clarifying questions you need (audience, tone, numbers, length, what to avoid). I
+have answered them below; use the answers.
+
+<factsheet>
+Company: Northstar Mentors, a fully remote developer-mentorship company. 10 people
+(6 mentors, 2 operations, 2 founders).
+Change: moved from a 5-day to a 4-day work week (Fridays off, same pay) six months ago,
+after a 3-month trial that we then extended.
+Who the post is for: founders and CEOs of small companies.
+Results after six months:
+- Productivity: mentoring sessions delivered per person per week went up, about 8%.
+- Revenue: flat compared with the six months before the switch.
+- Team satisfaction: up in our internal survey; nobody has left.
+- Problems: none we did not expect. Coordinating with clients on Fridays needed a
+  shared calendar note and a clear auto-reply, that was it.
+What we would tell another founder: decide the metric you will watch before you start,
+keep the trial fixed-length, and do not sell it internally as a perk; treat it as an
+operating change.
+Tone: candid, no hype, no emojis, no hashtags. End with one question to readers.
+</factsheet>
+
+Q: Who exactly is reading and what do they already believe? A: Founders and CEOs of
+small companies; most have only heard the hype version and are sceptical.
+Q: Can I cite numbers beyond the fact sheet? A: No. The only numbers are the ones in
+the sheet; if in doubt, describe the direction rather than a figure.
+Q: How should I handle revenue being flat? A: Say it plainly. Do not frame it as a win
+or hide it in a subordinate clause.
+Q: Tone and formatting? A: Candid, first person, no hype words, no hashtags, no emojis,
+no title line, 200-300 words.
+Q: Anything to avoid at the start or end? A: Do not open with "I'm excited to share".
+End with exactly one question to readers and nothing after it.
+Q: Is this a recruiting post? A: No, we are not hiring.

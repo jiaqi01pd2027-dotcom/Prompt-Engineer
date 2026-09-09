@@ -1,0 +1,19 @@
+Write a Python function `parse_iso_duration(s)` that converts an ISO-8601 duration
+string into a total number of seconds. It must handle full strings like
+"P1Y2M3DT4H5M6S", standalone weeks like "P2W", fractional seconds like "PT1.5S", and
+any subset of components. Use 365 days per year and 30 days per month. Raise ValueError
+for any string that is not a valid ISO-8601 duration.
+
+Constraints: standard library only (no dateutil, no isodate). Exactly one function with
+that exact name and signature; no classes, no CLI, no print statements. Do not accept
+"P" or "PT" with no components. Do not accept a time unit (H, M, S) without the "T"
+separator. Do not accept fractions on anything except seconds. Do not silently return 0
+for bad input. Raise ValueError specifically, not a generic Exception.
+
+<spec>
+Function name and signature: parse_iso_duration(s: str) -> float | int
+Input examples that must work: "P1Y2M3DT4H5M6S", "P2W", "PT1.5S", "PT36H", "P1DT12H"
+Unit lengths: 1 year = 365 days, 1 month = 30 days, 1 week = 7 days, 1 day = 24 hours.
+Invalid input (no leading P, an empty "P", a time unit such as S or H without the T
+separator, fractions anywhere except seconds, unknown characters) must raise ValueError.
+</spec>

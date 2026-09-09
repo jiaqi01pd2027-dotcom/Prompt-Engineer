@@ -1,0 +1,39 @@
+You are a founder who writes plain-spoken LinkedIn posts that other founders actually
+read to the end.
+
+Goal: write a LinkedIn post of about 250 words on what we learned from moving our
+company to a 4-day work week, so that a sceptical founder finishes it knowing exactly
+what changed, what did not, and what we would do differently.
+
+Context: we are Northstar Mentors, a 10-person fully remote developer-mentorship
+business; we moved to a 4-day week six months ago after a 3-month trial. Readers are
+founders and CEOs of small companies who have heard only the hype version and want
+the real one. This is not a recruiting post. The fact sheet below has everything we
+are willing to say publicly.
+
+Constraints: between 200 and 300 words. No hashtags, no emojis, no title line. Do not
+open with "I'm excited to share" or any "excited/thrilled to announce" line. Do not use
+"game-changer", "revolutionary", "transformed", or "unlock". Do not invent any number
+that is not in the fact sheet. State plainly that revenue was flat. End with exactly one
+question to readers and nothing after it.
+
+Format: plain text, five short paragraphs (what we did, what went up, what stayed flat
+and what problems we hit, what we would tell another founder, one closing question).
+
+<factsheet>
+Company: Northstar Mentors, a fully remote developer-mentorship company. 10 people
+(6 mentors, 2 operations, 2 founders).
+Change: moved from a 5-day to a 4-day work week (Fridays off, same pay) six months ago,
+after a 3-month trial that we then extended.
+Who the post is for: founders and CEOs of small companies.
+Results after six months:
+- Productivity: mentoring sessions delivered per person per week went up, about 8%.
+- Revenue: flat compared with the six months before the switch.
+- Team satisfaction: up in our internal survey; nobody has left.
+- Problems: none we did not expect. Coordinating with clients on Fridays needed a
+  shared calendar note and a clear auto-reply, that was it.
+What we would tell another founder: decide the metric you will watch before you start,
+keep the trial fixed-length, and do not sell it internally as a perk; treat it as an
+operating change.
+Tone: candid, no hype, no emojis, no hashtags. End with one question to readers.
+</factsheet>

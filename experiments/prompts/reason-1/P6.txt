@@ -1,0 +1,29 @@
+Solve the word problem below and give the exact amount of change Sarah receives, in
+dollars and cents.
+
+Here are two worked examples in the style we want:
+
+<example>
+Problem: Mugs are $3.50 each and plates are $6.00 each. Tom buys 4 mugs and 2 plates.
+He has a 10% coupon that applies only to plates. Tax of 5% is added after the
+discount. He pays with $40. What is his change?
+Solution: Mugs 4 x 3.50 = 14.00. Plates 2 x 6.00 = 12.00; 10% off = 1.20; plates after
+discount 10.80. Subtotal 14.00 + 10.80 = 24.80. Tax 5% of 24.80 = 1.24. Total 26.04.
+Change 40.00 - 26.04 = 13.96.
+Answer: $13.96
+</example>
+
+<example>
+Problem: Shirts are $12.00 each. Priya buys 3 shirts with a 20% coupon that applies to
+shirts. Tax of 6% is added after the discount. She pays with $40. What is her change?
+Solution: Shirts 3 x 12.00 = 36.00; 20% off = 7.20; after discount 28.80. Tax 6% of
+28.80 = 1.728, rounds to 1.73. Total 30.53. Change 40.00 - 30.53 = 9.47.
+Answer: $9.47
+</example>
+
+<problem>
+A stationery store sells pens for $2.25 each and notebooks for $5.40 each. Sarah buys
+7 pens and 3 notebooks. She has a coupon for 15% off that applies only to the
+notebooks. Sales tax of 8% is added to the whole purchase after the discount. She pays
+with a $50 bill. How much change does she receive?
+</problem>

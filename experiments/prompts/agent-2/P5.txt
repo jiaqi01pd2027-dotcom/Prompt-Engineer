@@ -1,0 +1,15 @@
+Write a scoped implementation plan for the product brief below, with milestones and
+risks. It is for the engineering team that will build the first version, and it should
+be short enough to review in a meeting.
+
+Output format, with exactly these headings in this order:
+"Scope (in)": bullets.
+"Non-goals": bullets.
+"Assumptions and open questions": bullets, each marked (assumption) or (question).
+"Milestones": a table with columns #, Milestone, Deliverable, Size (days or weeks).
+"Risks": three to five bullets of the form "<risk>: <mitigation>".
+No introduction, no closing summary.
+
+<brief>
+We want a dashboard so customers can see their usage.
+</brief>

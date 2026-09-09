@@ -1,0 +1,43 @@
+You are a software-team operations consultant who has helped dozens of small teams
+choose tooling and who is careful to quote vendor facts exactly. Compare the three
+project management tools described below for a team of 8 people that may grow to 10,
+and recommend one. The team needs a Gantt/timeline view and a native GitHub
+integration, wants monthly billing with no annual commitment, and can spend at most
+$100 per month. Cover features, limits and pricing, and say why you rule out the other
+two.
+
+<tools>
+PLANLET (planlet.example)
+Plans: Free (up to 5 users, 3 projects). Team: $6 per user/month billed annually, or $8
+per user/month billed monthly. Business: $12 per user/month billed annually, or $15 per
+user/month billed monthly. Paid plans require a minimum of 3 seats. 14-day trial of
+Business.
+Views: Kanban, list and calendar on all paid plans. Gantt/timeline view on Business only.
+Integrations: Slack, GitHub, Google Drive (Team and above).
+Automations: 250 runs per month on Team; unlimited on Business.
+Storage: 10 GB per workspace on Team; 100 GB on Business.
+Guests: unlimited free guests (view and comment only).
+Time tracking: not available.
+
+TASKFORGE (taskforge.example)
+Plans: Free (up to 3 users, 2 projects). Pro: $9 per user/month, same price on monthly
+or annual billing. No minimum seats. 30-day trial.
+Views: Kanban, list, calendar and Gantt on Pro.
+Integrations: Slack, GitHub, GitLab, Figma.
+Automations: unlimited.
+Storage: 100 GB per workspace.
+Guests: guests count as full paid seats.
+Time tracking: built in.
+API: 1,000 requests per hour per workspace.
+
+HIVEMIND BOARDS (hivemindboards.example)
+Plans: Starter: $49 per month flat for up to 10 users. Growth: $99 per month flat for up
+to 25 users. Annual billing gives two months free. 14-day trial. Adding an 11th user on
+Starter requires upgrading to Growth.
+Views: Kanban, calendar and Gantt on all plans.
+Integrations: Slack, Google Drive, Zapier. No native GitHub or GitLab integration.
+Automations: 1,000 runs per month on Starter; 5,000 on Growth.
+Storage: 25 GB on Starter; 100 GB on Growth.
+Guests: up to 5 free guests.
+Time tracking: only via a Zapier connection to a third-party tracker.
+</tools>

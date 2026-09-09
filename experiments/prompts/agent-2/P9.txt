@@ -1,0 +1,28 @@
+Write a scoped implementation plan for the product brief below, with milestones and
+risks. It is for the engineering team that will build the first version, and it should
+be short enough to review in a meeting. Before writing, ask me any clarifying questions
+you need (users, data, refresh, auth, budget, deadline, must-haves, non-goals). I have
+answered them below; use the answers.
+
+<brief>
+We want a dashboard so customers can see their usage.
+</brief>
+
+Q: Who are the users and how many? A: About 1,200 paid customer accounts; the viewer
+is usually the account admin, who is not technical.
+Q: Where does the usage data come from? A: A Postgres table `usage_events`
+(account_id, metric, quantity, timestamp) written by the billing pipeline. No rollup
+table exists yet.
+Q: How fresh does it need to be? A: Daily is fine; the billing pipeline finishes by
+03:00 UTC. Nobody needs real-time.
+Q: How do users authenticate? A: Through the existing session-based web app login. The
+dashboard sits behind it and an admin sees only their own account.
+Q: What is the budget? A: Two engineers (one backend, one frontend) for six weeks, a
+designer for the first week, and no new infrastructure spend.
+Q: What is the deadline? A: In front of customers before the pricing change on
+November 2, with a soft launch to 20 pilot accounts two weeks before that.
+Q: What must v1 have? A: Current-month usage per metric against the plan limit; six
+months of trend per metric; CSV download of monthly numbers; one email alert at 80% of
+a limit.
+Q: What is out of scope? A: Billing or invoice display, per-user breakdown within an
+account, a public API, a mobile app, custom date ranges.

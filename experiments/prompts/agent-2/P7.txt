@@ -1,0 +1,12 @@
+Write a scoped implementation plan for the product brief below, with milestones and
+risks. It is for the engineering team that will build the first version, and it should
+be short enough to review in a meeting.
+
+Before writing the plan, think step by step: what is the brief not telling you, which
+of those gaps change the plan most, what is the smallest version that would satisfy
+the sentence, what should be explicitly left out, and where is the plan most likely to
+slip. Show your reasoning briefly, then give the plan under a heading "Plan:".
+
+<brief>
+We want a dashboard so customers can see their usage.
+</brief>

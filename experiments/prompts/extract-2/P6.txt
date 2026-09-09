@@ -1,0 +1,82 @@
+Extract the following from each of the five receipts below and return a JSON array with
+one object per receipt, in order: "name" (the merchant), "date" (the date the payment
+was made, in ISO 8601 YYYY-MM-DD), "amount" (the total actually paid, as a number with
+no currency symbol), and "category" (one of: Food, Transport, Office, Software,
+Travel).
+
+Examples of the extraction we want:
+
+<example>
+Receipt: "RAILNORTH e-ticket / Leeds to York / Travel date 02.05.2026 / Purchased
+30.04.2026 / Fare GBP 14,20 / Booking fee 1,00 / Total paid GBP 15,20"
+Output: {"name": "Railnorth", "date": "2026-04-30", "amount": 15.20, "category": "Transport"}
+</example>
+
+<example>
+Receipt: "Cloudnest Backup - Invoice / Plan: 2 TB monthly / Charged on 11/02/2025
+(US) / Subtotal $9.99 / Tax $0.80 / Total $10.79 / Next charge 12/02/2025"
+Output: {"name": "Cloudnest Backup", "date": "2025-11-02", "amount": 10.79, "category": "Software"}
+</example>
+
+<receipts>
+=== Receipt 1 ===
+*** BLUE FERN CAFE ***
+12 Larch St    Tel 555-0142
+03/14/2026  08:12    Cashier: 04
+Flat white              4.90
+Avocado toast          11.50
+Orange juice            2.00
+SUBTOTAL               18.40
+TIP                     0.00
+TOTAL                 $18.40
+VISA ****4471  APPROVED
+THANK YOU FOR VISITING!
+Rate us online for a free coffee
+
+=== Receipt 2 ===
+CityCab Taxi - Trip receipt
+Ride ID 7F3K-22
+Pickup: Sat 14 Mar 2026 22:41, Northgate Station
+Dropoff: 23:03, 8 Elm Row
+Fare   EUR 23,50
+Tip    EUR  2,00
+Total charged: €25,50
+Paid with saved card. No signature required.
+Questions? help@citycab.example
+
+=== Receipt 3 ===
+PAPERWORKS LTD            VAT REG GB 402 1188 73
+Invoice/Receipt no. PW-018842
+Date of issue: 2026-02-28        Due: on receipt
+2 x A4 copier paper (box) ........ 29.98
+1 x Stapler, heavy duty ........... 11.69
+Net                                 41.67
+VAT 20%                              8.33
+TOTAL GBP                           50.00
+PAID IN FULL - card
+Returns within 28 days with this receipt
+
+=== Receipt 4 ===
+Notemark Inc.
+Receipt #NM-55120
+Thanks for your purchase!
+Item: Notemark Pro (annual)
+Billing period: 1 Apr 2026 - 31 Mar 2027
+Billed on: April 1, 2026
+Amount paid: US$96.00 (incl. $0.00 tax)
+Next renewal: April 1, 2027 for US$96.00
+Manage your subscription at notemark.example/account
+
+=== Receipt 5 ===
+HARBOR VIEW INN
+Folio 3391    Room 214
+Guest: J. Okafor
+Arrival 25.02.2026    Departure 27.02.2026
+25.02  Room night          105.00
+26.02  Room night          105.00
+27.02  City tax              6.00
+       Balance             216.00
+Paid 27.02.2026 by Mastercard   216.00
+Balance due: 0.00
+We hope you enjoyed your stay
+</receipts>

@@ -1,0 +1,124 @@
+You are an experienced chief of staff who takes precise, minimal meeting minutes. Read
+the meeting transcript below and produce two lists: the decisions that were made, and
+the action items with the owner and due date for each. Include only things that were
+actually decided or assigned in the meeting.
+
+<transcript>
+Lumen product sync, Monday 14 September, 10:02
+
+Priya: Okay, I think we have everyone. Dan, is your mic working this time?
+
+Dan: It is. New headset. The old one finally died on Thursday.
+
+Mei: The one held together with tape?
+
+Dan: Rest in peace.
+
+Priya: Alright. Housekeeping: the coffee machine on four is fixed, so stop stealing from three. Tom, that means you.
+
+Tom: I have no idea what you're talking about.
+
+Priya: Sure. Okay, main item is the calendar sync beta. Dan, where are we?
+
+Dan: Google side is basically done. Two-way sync works, conflicts are handled, retry queue is in. Outlook is another story. The API permissions took two weeks and we still get token refresh failures on maybe one in twenty accounts. No fix yet.
+
+Priya: So if we hold the beta for Outlook, what does that do to the date?
+
+Dan: Honestly, it pushes it into October, maybe late October. If we go Google-only I can be ready by the sixth.
+
+Sofia: I pulled the ticket tags last week. Roughly eighty percent of sync requests are Google Calendar. Outlook is mostly the two enterprise trials.
+
+Tom: The enterprise trials are exactly who I'd want to impress, though.
+
+Priya: I hear that, but I won't hold eighty percent of demand for a flaky twenty. Decision: the beta ships with Google only; Outlook is out of scope for this beta. We revisit after we see beta data.
+
+Tom: Fine. Can we at least say "Outlook coming soon" on the page?
+
+Priya: "Coming soon" is fine as long as we don't put a date on it.
+
+Dan: Agreed. So the date is the sixth. I'll note that the original plan said the first. We're formally moving beta launch to October 6.
+
+Priya: Yes, that's the decision. October 6, Google only.
+
+Mei: Does that change the onboarding flow? I have the mock-ups half done with an Outlook tile in them.
+
+Priya: Drop the tile, or grey it out with the coming soon label. Can you get me the final onboarding mock-ups by Thursday?
+
+Mei: Thursday is fine if nobody adds anything else to my plate this week.
+
+Tom: No promises.
+
+Mei: Tom.
+
+Priya: Mei owns final onboarding mock-ups, Thursday. Dan, I'd also like a written rollout runbook for the beta, who flips what flag, rollback steps, the usual. Can that be Friday?
+
+Dan: Friday works. I'll draft it tomorrow and have Raj sanity check the monitoring section.
+
+Priya: Great, Dan owns the runbook, due Friday. Raj, on that note, we need to actually see what beta users are doing. Can you build a beta usage dashboard, sync success rate, conflicts per user, that kind of thing?
+
+Raj: Yes. I need the event names from Dan but I can have a first version by October 3, that gives a few days before launch to fix whatever is broken in it.
+
+Priya: Raj, beta usage dashboard, October 3. Perfect.
+
+Sofia: Speaking of tickets, I have a lot of sync-related feedback sitting in the queue from before the beta even existed. Do you want that?
+
+Priya: Yes. Pull the top twenty tickets about calendar sync and post them in the product channel. Tuesday?
+
+Sofia: Tuesday is doable.
+
+Priya: Sofia, top twenty sync tickets in #product by Tuesday. Next: pricing. Tom, you had the numbers.
+
+Tom: Short version: the Team plan at eight dollars a seat is underpriced against every competitor. Finance modelled ten. Churn risk looked small if we grandfather existing customers.
+
+Priya: And the recommendation was new customers only?
+
+Tom: New customers only, starting November 1. Existing customers stay at eight until at least next year, and we tell them that proactively so nobody panics.
+
+Dan: I have no engineering concerns, the plan IDs are already separate.
+
+Priya: Then let's call it. Team plan goes to ten dollars per seat for new customers from November 1. Existing customers are grandfathered at eight. Tom, can you draft the email to existing customers explaining this? Next Wednesday is fine, it doesn't go out until October anyway.
+
+Tom: Draft by next Wednesday, yes.
+
+Priya: Tom owns the pricing email draft, next Wednesday. Okay, a quick one. This meeting on a Monday keeps colliding with the support handover and Dan's on-call review.
+
+Dan: And with my will to live.
+
+Priya: Noted. I'm proposing we move this sync to Wednesdays, same time. Any objections?
+
+Mei: Wednesday is better for me actually.
+
+Sofia: Same.
+
+Priya: Done. Weekly sync moves to Wednesday from next week.
+
+Raj: Does that mean this week we meet twice?
+
+Priya: No, Raj, it means we skip Monday and meet Wednesday.
+
+Raj: Just checking.
+
+Priya: Last thing, naming. The workspace feature. Engineering says Spaces, Mei's mock-ups say Rooms, and support says "the folder thing".
+
+Sofia: To be fair, customers call it the folder thing.
+
+Mei: Rooms tested better in the five user interviews, people understood you invite someone into a room. Spaces sounded like storage.
+
+Tom: Rooms is also easier to say in a sentence. "Create a room for the launch."
+
+Priya: Any objection to Rooms? No? Then we go with Rooms, officially, everywhere. I'll update the roadmap doc with everything from today, the date change, the scope, pricing, the name, and send it to leadership by end of week.
+
+Dan: Can you also add a line that we might look at Outlook in Q1? Not committing, just so it's on the page.
+
+Priya: I'll add it as a maybe. Not deciding that today.
+
+Tom: Someone should also look at the competitor pricing page again at some point, they changed it last month.
+
+Priya: At some point, yes. Nobody's owning that right now. Okay, that's everything. Enjoy the coffee on four.
+
+Dan: Enjoy the new headset.
+
+Mei: Enjoy Tom not touching my mock-ups.
+
+Priya: Meeting ended 10:31.
+</transcript>

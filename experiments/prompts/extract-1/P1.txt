@@ -1,0 +1,13 @@
+Turn each of the six user-feedback lines below into a support ticket title. Each title
+must be in the format "[Area] brief description", where Area is one of: Billing, Login,
+Export, Mobile, Notifications, Performance. Keep every title under 60 characters, one
+title per line, in the same order as the input.
+
+<feedback>
+1. I got charged twice this month for the same subscription, my card statement shows two $29 charges on the 3rd.
+2. Every time I try to sign in with Google it just spins for a bit and then dumps me back on the login page.
+3. The PDF export cuts off the last column of my table, it's been like this since the update last week.
+4. On my iPhone the bottom navigation bar covers the Save button so I literally can't save anything.
+5. I keep getting email notifications for comments I've already read, like five a day, it's driving me nuts.
+6. The dashboard takes 20+ seconds to load now that I have more than a hundred projects.
+</feedback>

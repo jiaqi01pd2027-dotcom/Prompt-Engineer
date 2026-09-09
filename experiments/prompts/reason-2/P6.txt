@@ -1,0 +1,37 @@
+Solve the scheduling puzzle below. Give the presenter for each of the five slots, and
+make sure the assignment satisfies all six constraints.
+
+Here are two solved puzzles in the style we want:
+
+<example>
+Puzzle: Kim, Lee and Max each present once in the 2pm, 3pm or 4pm slot. Lee presents
+immediately after Kim. Max is not last.
+Solution: Kim and Lee form an adjacent pair, so they are at (2pm,3pm) or (3pm,4pm).
+If (2pm,3pm), Max is at 4pm, which is last, not allowed. So Kim is at 3pm, Lee at 4pm
+and Max at 2pm. Checks: Lee right after Kim (ok), Max not last (ok).
+Answer: 2pm=Max, 3pm=Kim, 4pm=Lee
+</example>
+
+<example>
+Puzzle: Nia, Omar, Priya and Quinn each present once in slots 1 to 4. Quinn is last.
+Priya is not first. Nia presents immediately after Priya. Omar presents before Nia.
+Solution: Quinn takes slot 4, leaving 1-3 for the others. Priya and Nia form an
+adjacent pair inside slots 1-3, so (1,2) or (2,3); Priya is not first, so (2,3). Omar
+takes slot 1, which is before Nia (ok).
+Answer: 1=Omar, 2=Priya, 3=Nia, 4=Quinn
+</example>
+
+<puzzle>
+Five people, Aisha, Ben, Carla, Dev and Elena, each give one presentation at a one-day
+workshop. There are five one-hour slots: 9am, 10am, 11am, 12pm and 1pm. Each person
+presents in exactly one slot and each slot has exactly one presenter.
+
+1. Aisha does not present in the 9am slot.
+2. Ben presents in the slot immediately after Carla's.
+3. Dev presents earlier in the day than Aisha.
+4. Elena does not present at 11am.
+5. Elena presents later in the day than Ben.
+6. Aisha and Elena are not in adjacent slots.
+
+Who presents in each slot?
+</puzzle>

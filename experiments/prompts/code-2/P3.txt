@@ -1,0 +1,37 @@
+Find and fix the bugs in the Python snippet below. It contains two genuine bugs: for
+each one, say which function it is in, explain why it is wrong, and show the corrected
+code. Do not change anything that already works.
+
+Background you should use: this module is part of a data-cleaning pipeline. Users
+reported that records processed later in a batch pick up duplicate "processed" tags,
+and that the moving average of a 4-item list with window 2 comes back with only two
+values when the analyst expects three. The line-numbering helper feeds a diff viewer
+whose lines are numbered from 1, matching how editors display them.
+
+<code>
+def tag_records(records, tags=[]):
+    """Attach `tags` plus a 'processed' marker to every record."""
+    tags.append("processed")
+    return [dict(record, tags=list(tags)) for record in records]
+
+
+def moving_average(values, window):
+    """Return the average of every consecutive `window`-sized slice."""
+    averages = []
+    for start in range(len(values) - window):
+        chunk = values[start:start + window]
+        averages.append(sum(chunk) / window)
+    return averages
+
+
+def number_lines(lines):
+    """Prefix each line with its 1-based line number, e.g. '1: first'."""
+    return [f"{index}: {line}" for index, line in enumerate(lines, start=1)]
+
+
+if __name__ == "__main__":
+    print(tag_records([{"id": 1}]))
+    print(tag_records([{"id": 2}]))
+    print(moving_average([1, 2, 3, 4], 2))
+    print(number_lines(["alpha", "beta"]))
+</code>

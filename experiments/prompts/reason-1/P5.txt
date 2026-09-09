@@ -1,0 +1,20 @@
+Solve the word problem below and give the exact amount of change Sarah receives, in
+dollars and cents.
+
+Output format: one labelled line per step, in this order, each with a dollar amount:
+Pens:
+Notebooks before discount:
+Discount:
+Notebooks after discount:
+Subtotal:
+Tax:
+Total:
+Change:
+Then a final line exactly of the form "Answer: $X.XX". No other text.
+
+<problem>
+A stationery store sells pens for $2.25 each and notebooks for $5.40 each. Sarah buys
+7 pens and 3 notebooks. She has a coupon for 15% off that applies only to the
+notebooks. Sales tax of 8% is added to the whole purchase after the discount. She pays
+with a $50 bill. How much change does she receive?
+</problem>

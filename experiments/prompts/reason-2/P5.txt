@@ -1,0 +1,22 @@
+Solve the scheduling puzzle below. Give the presenter for each of the five slots, and
+make sure the assignment satisfies all six constraints.
+
+Output format: first a short section headed "Reasoning:" (at most eight lines), then a
+five-row table with columns Slot and Presenter in time order, then a final line exactly
+of the form "Answer: 9am=<name>, 10am=<name>, 11am=<name>, 12pm=<name>, 1pm=<name>".
+No other text.
+
+<puzzle>
+Five people, Aisha, Ben, Carla, Dev and Elena, each give one presentation at a one-day
+workshop. There are five one-hour slots: 9am, 10am, 11am, 12pm and 1pm. Each person
+presents in exactly one slot and each slot has exactly one presenter.
+
+1. Aisha does not present in the 9am slot.
+2. Ben presents in the slot immediately after Carla's.
+3. Dev presents earlier in the day than Aisha.
+4. Elena does not present at 11am.
+5. Elena presents later in the day than Ben.
+6. Aisha and Elena are not in adjacent slots.
+
+Who presents in each slot?
+</puzzle>
