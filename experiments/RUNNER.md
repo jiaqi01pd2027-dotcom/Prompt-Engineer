@@ -19,3 +19,13 @@ For one task id T (e.g. write-1):
 4. Do not edit, trim, or "clean up" outputs. Do not score them.
 5. When done, write experiments/results/T/manifest.json listing every file with its
    word count, and reply with a one-line summary.
+
+## Isolation (mandatory)
+
+Subagents inherit the session's working directory. The runs must be launched from a
+session whose working directory is an EMPTY sandbox, never from the project folder:
+a first attempt from the project folder was contaminated because a subagent found the
+task spec (with the hidden rubric) in experiments/ and read it. All harness paths in
+the runner prompt are absolute. After a batch, run experiments/check_contamination.py
+on the task; any output that mentions the experiment, a rubric, a fixture, or a
+file path in the project is marked contaminated and re-run.
