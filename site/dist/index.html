@@ -1,4 +1,4 @@
-<title>Same Model, Different Words</title>
+<title>Prompt Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -147,6 +147,17 @@ select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:
 .steps{padding-left:20px;max-width:var(--maxw)}
 .steps li{margin-bottom:6px}
 .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--line-2);color:var(--ink-2);font-size:.78rem;font-weight:600;margin-right:6px}
+.btn{display:inline-block;font-weight:600;border-radius:var(--radius);padding:10px 18px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-decoration:none}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost{background:transparent}
+.btn code{font-size:.9em;color:inherit}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-width:820px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat .n{font-family:var(--display);font-weight:800;font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+.stat .n small{font-size:.9rem;font-weight:600;color:var(--ink-3)}
+.stat .l{font-size:.86rem;color:var(--ink-2);margin-top:6px}
+.cards.collapsed .card:nth-child(n+7){display:none}
+section:first-child{padding-top:36px}
 [hidden]{display:none!important}
 .status{font-size:.86rem;color:var(--ink-3)}
 .streaming{white-space:pre-wrap;font-size:.92rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;max-height:520px;overflow:auto}
@@ -155,71 +166,32 @@ select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:
 
 <div class="layout">
 <nav class="rail" aria-label="Contents">
-  <div class="brand">Same Model,<br>Different Words</div>
-  <a href="#thesis">The claim</a>
-  <a href="#findings">What we found</a>
-  <a href="#patterns">Pattern library</a>
+  <div class="brand">Prompt<br>Engineer</div>
   <a href="#grader">Grade a prompt</a>
+  <a href="#skill">Install the skill</a>
+  <a href="#patterns">Cheat sheet</a>
+  <a href="#findings">The evidence</a>
   <a href="#rate">Rate outputs</a>
-  <a href="#skill">The skill</a>
   <a href="#paper">The paper</a>
   <div class="foot">Tiger Zhang, 2026<br><a href="https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer">Source on GitHub</a></div>
 </nav>
 
 <main>
-<section id="thesis">
-  <div class="eyebrow">Prompt engineering, measured on Claude</div>
-  <h1 style="margin:10px 0 18px">The model is the same. <span class="mark">The words are the lever.</span></h1>
-  <p class="lede">Two prompts for the same customer complaint, sent to the same model, with nothing else in the context. One is what most people type. The other names the goal, the facts, the limits, and the shape. Read both replies and decide which one you would send.</p>
-  <div class="hero-grid" id="hero"></div>
-  <p class="note" style="margin-top:12px">Real outputs from the experiment, unedited. Twelve tasks, ten phrasings each, three Claude models, scored blind. <a href="#findings">See the numbers.</a></p>
-</section>
-
-<section id="findings">
-  <div class="eyebrow">Results</div>
-  <h2>What we found</h2>
-  <p class="lede">Each task was written in ten patterns that hold the job fixed and change only the wording, then run as a fresh subagent on Fable 5.1, Opus 5, and Sonnet 5. A separate judge scored every output blind on correctness, completeness, adherence, usefulness, and concision.</p>
-  <ol class="findings" id="findings-list"></ol>
-
-  <figure class="wide">
-    <div class="chart" id="c-pattern"></div>
-    <figcaption>Mean judge score (0 to 10, average of five dimensions) by prompt pattern, across all tasks and models. Hover a bar for the value; the table below has every number.</figcaption>
-    <details class="tbl"><summary>Table view</summary><div id="t-pattern"></div></details>
-  </figure>
-
-  <figure class="wide">
-    <div class="heat" id="c-heat"></div>
-    <figcaption>Pattern by domain. Darker is better. The best pattern is not the same in every column: format wins extraction, context and constraints win writing and analysis, and reasoning barely moves.</figcaption>
-  </figure>
-
-  <figure class="wide">
-    <div class="chart" id="c-model"></div>
-    <div class="legend"><span style="--c:var(--s1)">Fable 5.1</span><span style="--c:var(--s2)">Opus 5</span><span style="--c:var(--s3)">Sonnet 5</span></div>
-    <figcaption>The same patterns on three models. The ranking of patterns holds across models; the gap between a bare prompt and a full one is what changes.</figcaption>
-    <details class="tbl"><summary>Table view</summary><div id="t-model"></div></details>
-  </figure>
-
-  <div class="prose">
-    <h3>How to read this</h3>
-    <p>One run per cell means single-task numbers are noisy; read the pattern and domain averages, not one task. The judge is a Claude model scoring Claude outputs, so absolute scores are less trustworthy than the ordering. Objective checks (exact answers, JSON validity, word limits) back the ordering where the task allowed them. Human ratings from the <a href="#rate">rating page</a> are collected separately and never mixed into these charts.</p>
+<section id="top">
+  <div class="eyebrow">A Claude Code skill, a grader, and the research behind them</div>
+  <h1 style="margin:10px 0 18px">Same model. <span class="mark">Better words.</span></h1>
+  <p class="lede">Paste a prompt and get it graded out of 100, then rewritten three ways with the patterns named. The rules come from 360 blind-judged runs on Fable 5.1, Opus 5, and Sonnet 5, not from folklore.</p>
+  <div class="row" style="margin:20px 0 26px">
+    <a class="btn primary" href="#grader">Grade a prompt</a>
+    <a class="btn" href="#skill">Install <code>/prompt-engineer</code></a>
+    <a class="btn ghost" href="#findings">See the evidence</a>
   </div>
+  <div class="stats" id="stats"></div>
 </section>
-
-<section id="patterns">
-  <div class="eyebrow">Reference</div>
-  <h2>Pattern library</h2>
-  <p class="lede">Thirteen patterns, each with the phrasing that works, when it helps, when it hurts, and how strong the evidence is. Strength combines published studies, Anthropic's current guidance, and our runs.</p>
-  <div class="cards" id="cards"></div>
-  <div class="prose" style="margin-top:28px">
-    <h3>Ration or avoid</h3>
-    <p>Tips, threats, and emotional appeals: no reliable gain on 2025 models and high per-question variance. ALL CAPS, "CRITICAL", stacked "always" and "never": current Claude models over-trigger on them, and emphasis spent everywhere is emphasis spent nowhere. Contradictory rules: the top failure mode named by both Anthropic and OpenAI. Politeness or rudeness as a lever: the sign flips between models and years.</p>
-  </div>
-</section>
-
 <section id="grader">
-  <div class="eyebrow">Tool</div>
+  <div class="eyebrow">Try it</div>
   <h2>Grade a prompt</h2>
-  <p class="lede">Paste a draft. The page scores it against the seven-dimension rubric the skill uses, then asks Claude for the full treatment: scorecard with evidence, the questions worth asking, and three rewrites.</p>
+  <p class="lede">Paste what you were about to send. Quick score runs in the page. Full treatment asks Claude for the scorecard with evidence, the questions worth answering, and three rewrites.</p>
   <div class="wide">
     <textarea id="draft" spellcheck="false" placeholder="Paste the prompt you were about to send.">write tests for the parser</textarea>
     <div class="row">
@@ -244,37 +216,11 @@ select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:
     </div>
   </div>
 </section>
-
-<section id="rate">
-  <div class="eyebrow">Your turn</div>
-  <h2>Rate outputs blind</h2>
-  <p class="lede">Two outputs for the same task from the same model. One came from a bare prompt, one from the full-stack prompt. Which one would you use? Your vote is stored with everyone else's and reported next to the judge's scores.</p>
-  <div class="wide">
-    <div class="row">
-      <label class="note" for="pair-sel">Task</label>
-      <select id="pair-sel"></select>
-      <span class="status" id="rate-status"></span>
-    </div>
-    <details><summary class="note" style="cursor:pointer">Show the task the model was given (the shared material)</summary><pre id="pair-task" style="margin-top:8px"></pre></details>
-    <div class="pair">
-      <div class="panel"><h4>Output A</h4><div class="out" id="out-a"></div></div>
-      <div class="panel"><h4>Output B</h4><div class="out" id="out-b"></div></div>
-    </div>
-    <div class="row">
-      <button class="primary" data-vote="A">A is better</button>
-      <button class="primary" data-vote="B">B is better</button>
-      <button data-vote="tie">About the same</button>
-    </div>
-    <div class="reveal" id="reveal" hidden></div>
-    <div class="tally" id="tally"></div>
-  </div>
-</section>
-
 <section id="skill">
   <div class="eyebrow">Claude Code</div>
-  <h2>The <code>/prompt-engineer</code> skill</h2>
+  <h2>Install the skill</h2>
   <div class="prose">
-    <p>The skill runs the same workflow inside Claude Code, where it can read the project. It collects context from CLAUDE.md, the README, manifests, recent commits, and any file your draft names. It grades the draft out of 100, asks three to six questions in one batch (skipping any the repo already answers), and gives three rewrites with the patterns named and a section on what would push the score higher.</p>
+    <p>Inside Claude Code the same workflow can read your project first. It pulls the real test command, the file your draft points at, the rules in CLAUDE.md, and an existing example to imitate, then grades, asks a batch of questions, and rewrites. That substitution of your project's facts for generic nouns is where most of the gain comes from.</p>
     <ol class="steps">
       <li><b>Install.</b> Clone the repo and link the skill into your user skills folder:</li>
     </ol>
@@ -311,10 +257,76 @@ To push it higher: add the expected behaviour ("after logout, GET /api/me
 returns 401") for a projected 90+.</pre>
   </div>
 </section>
+<section id="patterns">
+  <div class="eyebrow">Cheat sheet</div>
+  <h2>The patterns, ranked</h2>
+  <p class="lede">What to add to a prompt, in the order it pays off. Each card has the phrasing, when it helps, when it hurts, and the evidence.</p>
+  <div class="cards" id="cards"></div>
+  <div class="row"><button id="more-cards">Show all 13 patterns</button></div>
+  <div class="prose" style="margin-top:28px">
+    <h3>Ration or avoid</h3>
+    <p>Tips, threats, and emotional appeals: no reliable gain on 2025 models and high per-question variance. ALL CAPS, "CRITICAL", stacked "always" and "never": current Claude models over-trigger on them, and emphasis spent everywhere is emphasis spent nowhere. Contradictory rules: the top failure mode named by both Anthropic and OpenAI. Politeness or rudeness as a lever: the sign flips between models and years.</p>
+  </div>
+</section>
+<section id="findings">
+  <div class="eyebrow">The evidence</div>
+  <h2>What 360 runs showed</h2>
+  <p class="lede">Twelve tasks across six domains, each written in ten phrasings that keep the job fixed, each run fresh on three Claude models, scored blind on five dimensions.</p>
+  <ol class="findings" id="findings-list"></ol>
 
+  <figure class="wide">
+    <div class="chart" id="c-pattern"></div>
+    <figcaption>Mean judge score (0 to 10, average of five dimensions) by prompt pattern, across all tasks and models. Hover a bar for the value; the table below has every number.</figcaption>
+    <details class="tbl"><summary>Table view</summary><div id="t-pattern"></div></details>
+  </figure>
+
+  <figure class="wide">
+    <div class="heat" id="c-heat"></div>
+    <figcaption>Pattern by domain. Darker is better. The best pattern is not the same in every column: format wins extraction, context and constraints win writing and analysis, and reasoning barely moves.</figcaption>
+  </figure>
+
+  <figure class="wide">
+    <div class="chart" id="c-model"></div>
+    <div class="legend"><span style="--c:var(--s1)">Fable 5.1</span><span style="--c:var(--s2)">Opus 5</span><span style="--c:var(--s3)">Sonnet 5</span></div>
+    <figcaption>The same patterns on three models. The ranking of patterns holds across models; the gap between a bare prompt and a full one is what changes.</figcaption>
+    <details class="tbl"><summary>Table view</summary><div id="t-model"></div></details>
+  </figure>
+
+  <h3 style="margin-top:36px">See the difference</h3>
+  <p class="note">Two prompts for the same customer complaint, same model, nothing else in the context. Real outputs from the experiment, unedited.</p>
+  <div class="hero-grid" id="hero"></div>
+  <div class="prose">
+    <h3>How to read this</h3>
+    <p>One run per cell means single-task numbers are noisy; read the pattern and domain averages, not one task. The judge is a Claude model scoring Claude outputs, so absolute scores are less trustworthy than the ordering. Objective checks (exact answers, JSON validity, word limits) back the ordering where the task allowed them. Human ratings from the <a href="#rate">rating page</a> are collected separately and never mixed into these charts.</p>
+  </div>
+</section>
+<section id="rate">
+  <div class="eyebrow">Your turn</div>
+  <h2>Rate outputs blind</h2>
+  <p class="lede">Two outputs for the same task from the same model. One came from a bare prompt, one from the full-stack prompt. Which one would you use? Your vote is stored with everyone else's and reported next to the judge's scores.</p>
+  <div class="wide">
+    <div class="row">
+      <label class="note" for="pair-sel">Task</label>
+      <select id="pair-sel"></select>
+      <span class="status" id="rate-status"></span>
+    </div>
+    <details><summary class="note" style="cursor:pointer">Show the task the model was given (the shared material)</summary><pre id="pair-task" style="margin-top:8px"></pre></details>
+    <div class="pair">
+      <div class="panel"><h4>Output A</h4><div class="out" id="out-a"></div></div>
+      <div class="panel"><h4>Output B</h4><div class="out" id="out-b"></div></div>
+    </div>
+    <div class="row">
+      <button class="primary" data-vote="A">A is better</button>
+      <button class="primary" data-vote="B">B is better</button>
+      <button data-vote="tie">About the same</button>
+    </div>
+    <div class="reveal" id="reveal" hidden></div>
+    <div class="tally" id="tally"></div>
+  </div>
+</section>
 <section id="paper">
   <div class="eyebrow">Research</div>
-  <h2>The paper</h2>
+  <h2>Read the paper</h2>
   <div class="prose">
     <p><i>Same Model, Different Words: How Prompt Phrasing Changes What Claude Produces.</i> Tiger Zhang, September 2026.</p>
     <p id="abstract"></p>
@@ -338,7 +350,7 @@ const fmt = n => (n==null||isNaN(n)) ? "" : Number(n).toFixed(2);
 (function(){
   const h = document.getElementById('hero');
   const p = (DATA.pairs||[]).find(x=>x.task==='write-1') || (DATA.pairs||[])[0];
-  if(!p){ h.innerHTML = '<div class="panel"><p class="note">Experiment outputs load here once the runs are in.</p></div>'; return; }
+  if(!p){ h.innerHTML = '<div class="panel"><p class="note">Outputs load here.</p></div>'; return; }
   const short = s => s.length>900 ? s.slice(0,900)+" …" : s;
   h.innerHTML = `
     <div class="panel"><span class="tag bare">Bare prompt</span><pre>${esc(short(p.promptA))}</pre><div class="out">${esc(p.A)}</div></div>
@@ -420,22 +432,34 @@ function modelChart(id, tableId){
 }
 barChart('c-pattern','t-pattern'); heat('c-heat'); modelChart('c-model','t-model');
 
+/* ---------- stats strip ---------- */
+(function(){ const bp=S.by_pattern||{}; const el=document.getElementById('stats'); if(!el) return;
+  const v=p=>bp[p]?bp[p].mean_total.toFixed(2):"";
+  el.innerHTML = `
+   <div class="stat"><div class="n">${v('P0')} <small>to</small> ${v('P8')}</div><div class="l">Judge score, bare command vs full prompt (0 to 10)</div></div>
+   <div class="stat"><div class="n">3 <small>of 3</small></div><div class="l">Claude models with the same pattern ranking</div></div>
+   <div class="stat"><div class="n">${Math.round((bp.P8?.objective_rate||0)*100)}%</div><div class="l">Objective checks passed by the full prompt (bare: ${Math.round((bp.P0?.objective_rate||0)*100)}%)</div></div>
+   <div class="stat"><div class="n">360</div><div class="l">Runs: 12 tasks, 10 phrasings, 3 models, blind judged</div></div>`;
+})();
+
 /* ---------- pattern cards ---------- */
 const CARDS = [
- {id:"P1",t:"Specific deliverable",s:"strong",d:"State what is produced, for whom, and what done looks like. The jump from a command to a deliverable is the largest single step.",ph:"Write a <thing> for <audience> that <does what>. Done means <check>.",h:"Every task type.",x:"Nothing, unless the specifics are wrong.",e:"Yang et al. 2025: models infer unstated requirements 41% of the time. Anthropic: the colleague test. Ours: 7.09 vs 5.46 for the bare command; the largest step in extraction and agentic planning."},
- {id:"P3",t:"Context and the why",s:"strong",d:"Give the situation, the numbers, the files, the audience, and the reason behind each rule. A rule with a reason generalises to cases you did not list.",ph:"Background: <facts>. This matters because <reason>.",h:"Anything where the model would otherwise guess facts.",x:"Long generic overviews; facts buried mid-prompt.",e:"Liu et al. 2023 (lost in the middle); Gloaguen et al. 2026 (generic repo overviews add cost, not success). Anthropic: Claude generalises from the explanation. Ours: decisive where the task needed unknown facts (1.93 to 7.40 on the support reply), neutral elsewhere."},
- {id:"P4",t:"Constraints that name the failure",s:"strong",d:"Length, tone, scope, and do-not items that say why. 'Do not ask them to retry; they already tried twice' beats the bare rule.",ph:"Under N words. Do not <X>, because <failure it causes>. Prefer <Y>.",h:"Adherence and concision; any reader who notices filler.",x:"Stacking many constraints; naming a forbidden word primes it.",e:"IFEval (Zhou 2023): GPT-4 missed one in four verifiable prompts. Rana 2026: 87% of violations are priming failures. Ours: adherence 7.50 vs 6.33, concision 7.75 vs 6.75 over the specific statement."},
- {id:"P5",t:"Output format with a shape",s:"strong",d:"Exact structure: sections, counts, a JSON schema, a file path, or one filled example.",ph:"Return only <shape>. Example: <one filled instance>.",h:"Extraction, classification, anything parsed or scanned.",x:"Creative writing when the format is imposed for no reason.",e:"Sclar et al. 2023: formatting alone moves up to 76 points. He et al. 2024: up to 40% on smaller models. Ours: best single addition at 8.40; on coding tasks it decided whether code landed in the reply at all."},
- {id:"P6",t:"Few-shot examples",s:"moderate",d:"Two or three input/output pairs in the wanted voice, wrapped in tags, diverse enough not to be copied.",ph:"<example>Input: … Output: …</example> (2 to 3, varied)",h:"Style, house voice, label sets, ticket titles.",x:"Reasoning models; examples that get parroted; bad ordering.",e:"Min et al. 2022: examples teach format more than content. Lu et al. 2022: order is a hidden hyperparameter. Anthropic: 3 to 5, relevant, diverse."},
  {id:"P8",t:"The full stack, ordered",s:"strong",d:"Role (if real), goal, context, constraints, format. Important thing first; the task last, after any long material.",ph:"Role. Goal. Context. Constraints. Format. <material> Task.",h:"Any non-trivial one-shot request.",x:"Trivial tasks; contradictions inside the stack.",e:"Bsharat et al. 2023: structural principles replicate; incentive ones do not (Wharton 2025). Anthropic: query at the end, up to 30% better on long inputs. Ours: 9.12, first on every model, 99% of objective checks passed."},
- {id:"P9",t:"Interview first",s:"strong",d:"Tell the model to ask its questions before acting, or ask the user yourself and fold the answers in. Ask only when different answers would change the work.",ph:"Before writing, ask me up to 5 questions about anything that would change the result. Then write it.",h:"When the user does not know what context matters; under-specified coding tasks.",x:"Autonomous runs where nobody can answer; trivial tasks.",e:"ClarifyGPT (Mu 2023): +10 pass@1. Ambig-SWE (2025): up to 74% better with interaction. Anthropic: check in only when readings would differ materially."},
- {id:"P10",t:"Verification and done-criteria",s:"strong",d:"Say how the model can check its own work and demand evidence, not a claim.",ph:"Run <command>. Report the output. If it fails, say whether the test or the code is wrong; do not change the test to pass.",h:"Agentic and coding tasks.",x:"Opus 5 over-verifies when told to double-check.",e:"Reflexion (Shinn 2023): 91% vs 80% on HumanEval. OpenAI GPT-4.1 guide: +20 SWE-bench points from persistence and planning reminders. Anthropic: show evidence rather than asserting success."},
+ {id:"P1",t:"Specific deliverable",s:"strong",d:"State what is produced, for whom, and what done looks like. The jump from a command to a deliverable is the largest single step.",ph:"Write a <thing> for <audience> that <does what>. Done means <check>.",h:"Every task type.",x:"Nothing, unless the specifics are wrong.",e:"Yang et al. 2025: models infer unstated requirements 41% of the time. Anthropic: the colleague test. Ours: 7.09 vs 5.46 for the bare command; the largest step in extraction and agentic planning."},
  {id:"P13",t:"Project substitution",s:"strong",d:"Replace every generic noun with the project's own: the real test command, the real file, an existing example, the real audience, the branch. This is where most of the gain in Claude Code comes from.",ph:"Match tests/test_dates.py. Run `pytest -q`. Follow the no-mocks rule in CLAUDE.md.",h:"Anything run inside a project.",x:"Nothing; it costs only the minute spent looking.",e:"Gloaguen 2026: context files help only when they carry non-standard facts. Cheng and Mastropaolo 2026: copied defaults lower correctness. Anthropic: only add context Claude does not already have."},
- {id:"P2",t:"Role",s:"weak",d:"'You are a senior B2B copywriter.' Sets voice and taste. Does not add knowledge.",ph:"You are a <specific role> writing for <audience>.",h:"Writing, replies, anything where the audience's taste matters.",x:"Factual and reasoning tasks; tasks with no real expert.",e:"Zheng et al. 2023: 162 personas, no accuracy gain. Wharton 2025: nine significant degradations, no consistent gains. Ours: 6.94, below the specific statement it was added to."},
- {id:"P7",t:"Chain-of-thought cue",s:"weak",d:"'Think step by step, then answer.' Large historic gains on arithmetic; on models that reason internally it mostly adds length.",ph:"Think thoroughly before answering. (Not a hand-written step plan.)",h:"Multi-step logic when the model is asked for a bare answer.",x:"Pattern-recognition tasks; latency budgets; Opus 5 with verification cues.",e:"Kojima 2022 (historic). Sprague 2024: gains concentrate on math. Wharton 2025: reasoning models gain ~3% for 20 to 80% more latency. Ours: 6.99; highest correctness of the single additions, lowest concision of any pattern."},
+ {id:"P5",t:"Output format with a shape",s:"strong",d:"Exact structure: sections, counts, a JSON schema, a file path, or one filled example.",ph:"Return only <shape>. Example: <one filled instance>.",h:"Extraction, classification, anything parsed or scanned.",x:"Creative writing when the format is imposed for no reason.",e:"Sclar et al. 2023: formatting alone moves up to 76 points. He et al. 2024: up to 40% on smaller models. Ours: best single addition at 8.40; on coding tasks it decided whether code landed in the reply at all."},
+ {id:"P4",t:"Constraints that name the failure",s:"strong",d:"Length, tone, scope, and do-not items that say why. 'Do not ask them to retry; they already tried twice' beats the bare rule.",ph:"Under N words. Do not <X>, because <failure it causes>. Prefer <Y>.",h:"Adherence and concision; any reader who notices filler.",x:"Stacking many constraints; naming a forbidden word primes it.",e:"IFEval (Zhou 2023): GPT-4 missed one in four verifiable prompts. Rana 2026: 87% of violations are priming failures. Ours: adherence 7.50 vs 6.33, concision 7.75 vs 6.75 over the specific statement."},
+ {id:"P9",t:"Interview first",s:"strong",d:"Tell the model to ask its questions before acting, or ask the user yourself and fold the answers in. Ask only when different answers would change the work.",ph:"Before writing, ask me up to 5 questions about anything that would change the result. Then write it.",h:"When the user does not know what context matters; under-specified coding tasks.",x:"Autonomous runs where nobody can answer; trivial tasks.",e:"ClarifyGPT (Mu 2023): +10 pass@1. Ambig-SWE (2025): up to 74% better with interaction. Anthropic: check in only when readings would differ materially."},
+ {id:"P3",t:"Context and the why",s:"strong",d:"Give the situation, the numbers, the files, the audience, and the reason behind each rule. A rule with a reason generalises to cases you did not list.",ph:"Background: <facts>. This matters because <reason>.",h:"Anything where the model would otherwise guess facts.",x:"Long generic overviews; facts buried mid-prompt.",e:"Liu et al. 2023 (lost in the middle); Gloaguen et al. 2026 (generic repo overviews add cost, not success). Anthropic: Claude generalises from the explanation. Ours: decisive where the task needed unknown facts (1.93 to 7.40 on the support reply), neutral elsewhere."},
+ {id:"P6",t:"Few-shot examples",s:"moderate",d:"Two or three input/output pairs in the wanted voice, wrapped in tags, diverse enough not to be copied.",ph:"<example>Input: … Output: …</example> (2 to 3, varied)",h:"Style, house voice, label sets, ticket titles.",x:"Reasoning models; examples that get parroted; bad ordering.",e:"Min et al. 2022: examples teach format more than content. Lu et al. 2022: order is a hidden hyperparameter. Anthropic: 3 to 5, relevant, diverse."},
+ {id:"P10",t:"Verification and done-criteria",s:"strong",d:"Say how the model can check its own work and demand evidence, not a claim.",ph:"Run <command>. Report the output. If it fails, say whether the test or the code is wrong; do not change the test to pass.",h:"Agentic and coding tasks.",x:"Opus 5 over-verifies when told to double-check.",e:"Reflexion (Shinn 2023): 91% vs 80% on HumanEval. OpenAI GPT-4.1 guide: +20 SWE-bench points from persistence and planning reminders. Anthropic: show evidence rather than asserting success."},
  {id:"P11",t:"Decompose and chain",s:"moderate",d:"One ask per prompt, or ordered steps with a stop condition. Inspect intermediate outputs on pipelines.",ph:"Step 1: … Stop and show me. Step 2: …",h:"Long pipelines; anything you need to inspect midway.",x:"Tasks the model already chains internally.",e:"Anthropic: chaining still useful for inspecting intermediates; draft, review, refine is the common self-correction chain."},
  {id:"P12",t:"Positive framing",s:"moderate",d:"Say what to do, then rule out the nearest misreading with a contrast pair.",ph:"Brief is good; silent is not.",h:"Style and behaviour rules.",x:"Safety rules, where an explicit prohibition is clearer.",e:"Truong 2023: negation parsed unreliably. Anthropic: tell Claude what to do instead of what not to do."},
+ {id:"P2",t:"Role",s:"weak",d:"'You are a senior B2B copywriter.' Sets voice and taste. Does not add knowledge.",ph:"You are a <specific role> writing for <audience>.",h:"Writing, replies, anything where the audience's taste matters.",x:"Factual and reasoning tasks; tasks with no real expert.",e:"Zheng et al. 2023: 162 personas, no accuracy gain. Wharton 2025: nine significant degradations, no consistent gains. Ours: 6.94, below the specific statement it was added to."},
+ {id:"P7",t:"Chain-of-thought cue",s:"weak",d:"'Think step by step, then answer.' Large historic gains on arithmetic; on models that reason internally it mostly adds length.",ph:"Think thoroughly before answering. (Not a hand-written step plan.)",h:"Multi-step logic when the model is asked for a bare answer.",x:"Pattern-recognition tasks; latency budgets; Opus 5 with verification cues.",e:"Kojima 2022 (historic). Sprague 2024: gains concentrate on math. Wharton 2025: reasoning models gain ~3% for 20 to 80% more latency. Ours: 6.99; highest correctness of the single additions, lowest concision of any pattern."},
 ];
+document.getElementById('cards').classList.add('collapsed');
+document.getElementById('more-cards').addEventListener('click',e=>{ document.getElementById('cards').classList.remove('collapsed'); e.target.remove(); });
 document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3><span>${esc(c.t)} <span class="id">${c.id}</span></span><span class="str ${c.s}">${c.s}</span></h3><p>${esc(c.d)}</p><pre>${esc(c.ph)}</pre><div class="hh"><div><b>Helps</b>${esc(c.h)}</div><div><b>Hurts</b>${esc(c.x)}</div></div><div class="ev">${esc(c.e)}</div></div>`).join("");
 
 /* ---------- grader ---------- */
