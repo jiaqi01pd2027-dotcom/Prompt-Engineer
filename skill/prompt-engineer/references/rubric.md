@@ -10,7 +10,7 @@ evidence per dimension quoting the prompt (or noting the absence).
 | 2 | Context | 20 | None; the model must guess the situation | Some background, key facts missing | Situation, audience, relevant numbers/files/constraints from the project are present |
 | 3 | Constraints and negatives | 15 | None | Length or tone only | Length, tone, scope, and explicit "do not" items that name the failure mode |
 | 4 | Output format | 15 | Unspecified | Loosely stated ("a list") | Exact shape: sections, count, schema, file path, or example |
-| 5 | Role and audience | 10 | Neither | One of the two | Both, and the role is specific to the domain |
+| 5 | Role and audience | 10 | Neither | One of the two | Both, and the role is specific to the domain. If no meaningful expert persona exists for the task, score audience alone out of 10 |
 | 6 | Reasoning and verification | 10 | None | "Think carefully" only | Asks for a plan, checks, tests, or self-review appropriate to the task |
 | 7 | Scope and decomposition | 10 | Many unrelated asks in one prompt | One ask but with hidden sub-steps | One ask, or ordered steps with a stop condition |
 
@@ -21,7 +21,7 @@ evidence per dimension quoting the prompt (or noting the absence).
 - 40-64: the model will guess most of the important things. Interview needed.
 - 0-39: a command, not a prompt. Rewrite from the goal up.
 
-## Adjustments (apply after summing)
+## Adjustments (apply after summing; show each as its own row before the total)
 
 - Agentic target (Claude Code, tools, files): if the prompt does not say how to verify
   (tests, screenshots, lint) subtract 5; if it asks for a plan before editing on a

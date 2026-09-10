@@ -3,8 +3,9 @@
 Each pattern: what it is, the phrasing that works, when it helps, when it hurts, and
 the evidence. "Lit" cites published studies (full citations in the project paper).
 "Anthropic" cites Claude's current prompting docs. "Exp" cites this project's own
-blind-judged runs (12 tasks x 10 patterns x 3 Claude models); see
-`experiments/results/summary.md` in the repo for the numbers.
+blind-judged runs (12 tasks x 10 patterns x 3 Claude models). The headline numbers are
+below; the full tables are in the project repository (github.com/jiaqi01pd2027-dotcom/Prompt-Engineer,
+experiments/results/summary.md).
 
 Evidence strength: strong = replicated across studies and our runs; moderate = one
 solid source or consistent in our runs; weak = contested or model-specific.

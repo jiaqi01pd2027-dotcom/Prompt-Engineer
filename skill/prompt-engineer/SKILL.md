@@ -11,10 +11,29 @@ changes the result. This skill does four things in order: collects context, grad
 draft out of 100, asks the few questions that would change the rewrite, then gives three
 rewrites and explains which patterns each one uses and why.
 
-Read `references/patterns.md` once per session for the pattern catalogue and the
-evidence behind it. Read `references/rubric.md` when grading and
-`references/context-adaptation.md` when collecting context. `references/examples.md`
-has worked before/after cases to match in tone and length.
+Read `references/rubric.md` when grading and `references/context-adaptation.md` when
+collecting context. The pattern table below is enough to name patterns and their
+evidence; read `references/patterns.md` only when the user asks why a pattern works
+or when a case is unusual. `references/examples.md` has worked before/after cases to
+match in tone and length; skim one when unsure how long the reply should be.
+
+## Pattern table (from 360 blind-judged runs on Fable 5.1, Opus 5, Sonnet 5; 0 to 10)
+
+| id | pattern | evidence | mean score | one-line use |
+|---|---|---|---|---|
+| P1 | specific deliverable | strong | 7.09 (bare: 5.46) | say what, for whom, what done means |
+| P3 | context and the why | strong where facts are missing | 7.13 | facts the model cannot infer, with the reason |
+| P4 | constraints naming the failure | strong | 7.88 | limits and do-nots that say why |
+| P5 | output format with a shape | strong | 8.40 | exact structure, where the output goes |
+| P6 | few-shot by example or pointer | moderate | 8.12 | 2 to 3 examples or "match file X" |
+| P8 | full stack, ordered | strong | 9.12 | role (if real), goal, context, constraints, format |
+| P9 | interview first | strong when facts are missing | 8.75 | ask up to N questions, then act |
+| P10 | verification and done-criteria | strong (agentic) | see P8 | run the check, report evidence, stop rule |
+| P11 | decompose and chain | moderate | | one ask, or ordered steps with a stop |
+| P12 | positive framing | moderate | | say what to do, then rule out the misreading |
+| P13 | project substitution | strong (agentic) | | real files, commands, examples, audience |
+| P2 | role | weak (tone only) | 6.94 | only when a real expert persona exists |
+| P7 | chain-of-thought cue | weak on current Claude | 6.99 | only for bare-answer multi-step logic |
 
 ## Workflow
 
@@ -32,8 +51,11 @@ that pastes an email is chat); otherwise it is the first interview question.
 ### 2. Collect project context before judging
 
 Follow `references/context-adaptation.md`. In a repo, read CLAUDE.md, README, the
-manifest, `git log --oneline -15`, and any file the prompt names. Pull exact
-identifiers, commands, and conventions. Everything you learn here is material for the
+manifest, `git log --oneline -15`, and any file the prompt names. If the prompt names
+a concept rather than a file ("the parser", "the login flow"), find the file that
+implements it. Pull exact identifiers, commands, and conventions. Note whether the
+project's check (tests, build, lint) can actually run in this environment; if it
+cannot, the rewrite should tell the model to report that rather than install things. Everything you learn here is material for the
 rewrite and removes interview questions. Read only; never modify.
 
 If there is no project, skip to grading and collect the same facts in the interview.
@@ -48,13 +70,17 @@ Score it with `references/rubric.md` and show a scorecard:
 | ... | | |
 | **Total** | **41/100** | band: the model will guess most of what matters |
 
-One line of evidence per row, quoting the draft or noting the absence. Do not pad the
-table with praise. Then state the two dimensions whose fix would move the grade most.
+One line of evidence per row, quoting the draft or noting the absence. Show any
+adjustment from the rubric (the agentic verification penalty, contradictions) as its
+own row before the total. Do not pad the table with praise. Then state the two
+dimensions whose fix would move the grade most.
 
 ### 4. Interview, batched
 
-Use AskUserQuestion with three to six questions in one call, never one at a time. Ask
-only about gaps that would make the rewrites materially different. Each question offers
+Use AskUserQuestion with three to six questions in one call, never one at a time. If
+that tool is not available, put the same questions in one numbered list with the
+recommended default marked, and continue with the defaults if the user does not
+answer. Ask only about gaps that would make the rewrites materially different. Each question offers
 concrete options with a recommended default first, plus room for free text. Skip any
 question the project context already answers and say what you inferred instead
 ("I am assuming the tests are `pytest -q`, from the Makefile").
@@ -129,7 +155,8 @@ examples in `references/examples.md`; a short draft gets a short reply.
 
 Draft: "write tests for the parser"
 
-Scorecard total 34/100. Context found: Python repo, `pytest -q`, tests live in
+Scorecard total 18/100 (task named, success undefined; no file, no check; the
+agentic penalty applies). Context found: Python repo, `pytest -q`, tests live in
 `tests/`, `parse_iso_duration` in `src/durations.py`, CLAUDE.md says "no mocks".
 
 Recommended rewrite (B):
