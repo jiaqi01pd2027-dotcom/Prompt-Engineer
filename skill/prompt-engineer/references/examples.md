@@ -13,9 +13,10 @@ context that was collected, the recommended rewrite, and the patterns note.
 CLAUDE.md says "never edit files under `generated/`", last three commits touch
 `lib/auth/session.ts`, an open issue titled "Session cookie not cleared on logout".
 
-**Scorecard:** 22/100. Goal 4/20 (which bug?), context 2/20, constraints 0/15, format
-2/15, role 0/10, verification 0/10, scope 4/10. Fixes with most leverage: goal and
-verification.
+**Scorecard:** 22/100. Goal 8/20 (a bug is named, which one is not), context 4/20
+(the repo is implied), constraints 3/15 (CLAUDE.md rules are implied), format 4/15
+(a fix is the obvious artifact), role and audience 2/10, verification 2/10, scope 4/10;
+agentic verification penalty -5. Fixes with most leverage: goal and verification.
 
 **Interview:** skipped two questions the repo answered (test command, forbidden dirs);
 asked one: "Is the bug the logout cookie issue in the open issue, or something else?"
@@ -83,7 +84,7 @@ persona pushes toward hype).
 **Context collected:** the user's app ingests support feedback and posts to Linear;
 titles must be under 60 characters; areas are a fixed list of six.
 
-**Rewrite B:**
+**Rewrite C (system slot, variables, one example):**
 
 ```
 System:

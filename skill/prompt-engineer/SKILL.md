@@ -102,24 +102,38 @@ Give three options, each in its own fenced block so it can be copied whole. Keep
 user's voice and any exact wording they clearly chose. Never invent facts; unknowns
 become `[bracketed placeholders]`.
 
-- **A. Minimal.** The draft with only the two highest-value fixes. Same length or
-  shorter. For people who want their prompt, not a new one.
+- **A. Minimal.** The draft with only the two highest-value fixes, as short as those
+  fixes allow; for a draft under fifteen words, up to three sentences. For people who
+  want their prompt, not a new one.
 - **B. Structured.** Role (only if a real expert persona exists), goal, context from
   the project, constraints with the failure modes they prevent, output format, and how
   to verify. Ordered so the important thing comes first.
 - **C. Interview or agentic.** For chat: the model is told to ask up to N questions
   before answering. For Claude Code: plan first, name the files and commands, define
   done, say how to verify, say whether to proceed without confirming. For system
-  prompts: identity and rules in the system slot, per-request material with
-  `{{variables}}`, one worked example.
+  prompts: B is one self-contained block; C splits identity and rules into the system
+  slot and per-request material into `{{variables}}`, with one worked example. For a
+  subagent brief: A is the one-line ask the user gives the parent, B is the
+  self-contained brief (every fact, read-only rules, return shape), C is B plus a
+  stop rule and an exact return schema.
+
+Placeholders: for chat and Claude Code targets, unknowns become `[bracketed
+placeholders]`. For a system prompt or any file the project loads as-is, put no
+placeholders inside the block; list unknowns under "Before deploying, fill in:" after
+the block, or turn them into interview questions.
+
+Every agentic rewrite (B and C for Claude Code or a subagent) ends with three named
+parts: the check to run; what to deliver when the check cannot run or a needed fact is
+missing (a named file, a question to the user, or a report); and a stop rule that says
+whether to halt the whole task or skip that step and continue with the rest.
 
 Pick which of the three to recommend and say why in one sentence.
 
 ### 6. Explain the patterns applied
 
 Under "Patterns applied", list each pattern used with a short reason and the evidence
-tag from `references/patterns.md` (for example "constraints and negatives: largest
-single gain in our adherence scores; see patterns.md P4"). Also list one or two
+column and mean score from the pattern table above (for example "constraints naming
+the failure, strong, 7.88"); open `references/patterns.md` only if the user asks why. Also list one or two
 patterns you deliberately did not apply and why (for example "no chain-of-thought
 cue: Claude already reasons on this task; the cue added length without accuracy").
 
@@ -145,7 +159,11 @@ examples in `references/examples.md`; a short draft gets a short reply.
   multi-step logic and the draft asks for a bare answer.
 - Do not stack "always" and "never" on style rules; say what to do and why.
 - Name the project's real files, commands, audiences, and examples instead of generic
-  nouns. That substitution is where most of the gain comes from.
+  nouns. That substitution is where most of the gain comes from. It includes commit
+  hashes instead of "the last commit", function names instead of "the stubs", package
+  names instead of "the deps", and an absolute repo path in any subagent brief.
+- When you add no role, name the reader and what they do with the output in one
+  clause ("for the on-call engineer who triages the board").
 - Constraints name the failure mode ("do not ask them to retry; they already did
   twice"), not just the rule.
 - For agentic prompts, always include how to verify and what not to touch.
