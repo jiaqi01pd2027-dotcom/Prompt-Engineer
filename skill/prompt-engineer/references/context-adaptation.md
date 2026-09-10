@@ -62,5 +62,7 @@ When rewriting, replace every generic phrase with the project's own:
 - "the tests" -> the actual command (`pytest -q`, `npm test`)
 - "the style guide" -> the CLAUDE.md rule or a linked file
 - "the user" -> the real audience from README or product docs
-- "recent changes" -> the commit or branch name
+- "recent changes" -> the commit hash or branch name
 - "a good example" -> a path to an existing example in the repo
+- "the stubs", "the deps", "the handler" -> the function, package, or file by name
+- "the repo" in a subagent brief -> the absolute path (the subagent has no cwd context)
