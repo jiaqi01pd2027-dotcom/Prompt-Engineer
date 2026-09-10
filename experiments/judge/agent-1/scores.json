@@ -1,0 +1,427 @@
+{
+  "O01": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 8,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Compact reasoning-then-plan that hits all five files, four-quadrant tests, PATCH null semantics and a concrete UTC recommendation; only blemish is the closing 'shareable page' filler."
+  },
+  "O02": {
+    "correctness": 8,
+    "completeness": 9,
+    "adherence": 6,
+    "usefulness": 8,
+    "concision": 7,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": false
+    },
+    "notes": "Thorough steps, tests and risks, but adds a README/API-docs step and floats putting a helper in app/db.py, both outside the described change set."
+  },
+  "O03": {
+    "correctness": 8,
+    "completeness": 8,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 9,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Tight and correct, but the migration is tacked on as step 10 after the routes, making it feel like an afterthought."
+  },
+  "O04": {
+    "correctness": 8,
+    "completeness": 9,
+    "adherence": 6,
+    "usefulness": 5,
+    "concision": 5,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": false
+    },
+    "notes": "Strong on migration verification and PATCH semantics, but long, renames the field to due_at, and adds a README step."
+  },
+  "O05": {
+    "correctness": 8,
+    "completeness": 8,
+    "adherence": 7,
+    "usefulness": 6,
+    "concision": 5,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Covers everything but hedges repeatedly ('decide and document', 'confirm with the team') and floats a new utils module or touching db.py, so a developer still has decisions to make."
+  },
+  "O06": {
+    "correctness": 9,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 4,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Exhaustive and correct with 21 named tests and a clean done-criteria file list, but roughly three times longer than needed."
+  },
+  "O07": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 8,
+    "usefulness": 9,
+    "concision": 9,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Very concise yet complete: every file, four-quadrant tests, exclude_unset, and a concrete UTC normalization recommendation; only deviation is renaming the field to due_at."
+  },
+  "O08": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 6,
+    "usefulness": 8,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": false
+    },
+    "notes": "Precise, well-motivated steps with fixed far-past/far-future test dates, but mentions a README wrap-up step and renames the field to due_at."
+  },
+  "O09": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 6,
+    "usefulness": 8,
+    "concision": 5,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": false
+    },
+    "notes": "Highly detailed and technically sharp on NULL logic and PATCH handling, but long and includes a README update step."
+  },
+  "O10": {
+    "correctness": 8,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 8,
+    "concision": 9,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Concise and on target, but names the new migration 0003 when only 0001 exists and uses the deprecated datetime.utcnow()."
+  },
+  "O11": {
+    "correctness": 9,
+    "completeness": 10,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Extremely complete with named tests and paired risk/mitigation, though it drifts into near-code detail and changes created_at serialization as a side effect."
+  },
+  "O12": {
+    "correctness": 9,
+    "completeness": 8,
+    "adherence": 9,
+    "usefulness": 8,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Sound reasoning and correct plan, but the reasoning section largely duplicates the plan and the done/overdue interaction is left as 'decide and document'."
+  },
+  "O13": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 8,
+    "usefulness": 9,
+    "concision": 7,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Clean decisions-first plan with good tests and an explicit rollout order; minor issues are the due_at rename and a closing artifact offer."
+  },
+  "O14": {
+    "correctness": 5,
+    "completeness": 4,
+    "adherence": 5,
+    "usefulness": 4,
+    "concision": 7,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Treats the required overdue filter as optional, pivots to due_before and sorting, adds an index, and never names the four overdue test cases."
+  },
+  "O15": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 5,
+    "usefulness": 7,
+    "concision": 3,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": false
+    },
+    "notes": "Technically excellent on SQLite tz handling and NULL negation, but nearly 2000 words, proposes a new app/time.py, and adds a README step."
+  },
+  "O16": {
+    "correctness": 9,
+    "completeness": 10,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Complete and correct with 16 named tests, four risks, and no invented files; only cost is length."
+  },
+  "O17": {
+    "correctness": 4,
+    "completeness": 3,
+    "adherence": 4,
+    "usefulness": 3,
+    "concision": 7,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Uses a Date column, makes the overdue filter a 'consider adding' option, gives generic tests, and offers no timezone recommendation."
+  },
+  "O18": {
+    "correctness": 9,
+    "completeness": 10,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Migration-first plan with exact test names, fixed-year test dates, and specific risk mitigations; long but every sentence is actionable."
+  },
+  "O19": {
+    "correctness": 6,
+    "completeness": 7,
+    "adherence": 7,
+    "usefulness": 6,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Chooses a calendar Date column compared against UTC 'today', which departs from the datetime spec and glosses over client-local-date vs UTC-date mismatch."
+  },
+  "O20": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 8,
+    "usefulness": 9,
+    "concision": 7,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Precise numbered steps with a single overdue-clause helper and a correctly reasoned NULL-safe negation; renames the field to due_at."
+  },
+  "O21": {
+    "correctness": 9,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 3,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Excellent analysis of the model/migration drift trap and NULL negation bug, but the reasoning preamble roughly doubles the length."
+  },
+  "O22": {
+    "correctness": 8,
+    "completeness": 7,
+    "adherence": 9,
+    "usefulness": 8,
+    "concision": 8,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Clear, migration-first plan with ten named tests, but lists only the timezone risk and skips SQLite batch mode for the downgrade."
+  },
+  "O23": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 10,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Under 500 words yet names all five files, thirteen specific tests, exclude_unset semantics, and a concrete naive-UTC normalization rule with three risks."
+  },
+  "O24": {
+    "correctness": 8,
+    "completeness": 8,
+    "adherence": 8,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Solid coverage but the migration comes after routes, overdue=false is left undecided, and several items are 'confirm/decide' rather than instructions."
+  },
+  "O25": {
+    "correctness": 8,
+    "completeness": 9,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 5,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Thorough with rollout notes, but suggests a helper in app/db.py or a new app/clock.py and expands scope to changing created_at output."
+  },
+  "O26": {
+    "correctness": 8,
+    "completeness": 8,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 3,
+    "objective": {
+      "names_all_files_and_migration": false,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Deep on failure modes but very long, never names schemas.py, and defers several decisions back to the team."
+  },
+  "O27": {
+    "correctness": 9,
+    "completeness": 8,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 10,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Shortest complete plan: right files, right order, PATCH clearing, four-quadrant tests and a concrete UTC risk; omits the downgrade and the explicit future-date test."
+  },
+  "O28": {
+    "correctness": 8,
+    "completeness": 9,
+    "adherence": 7,
+    "usefulness": 8,
+    "concision": 6,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Well-specified with a UTCDateTime TypeDecorator, but its stated work order puts the migration after tests, and it closes with an artifact offer."
+  },
+  "O29": {
+    "correctness": 8,
+    "completeness": 8,
+    "adherence": 9,
+    "usefulness": 7,
+    "concision": 8,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Correct file set and order with the four-quadrant tests, but leans on 'decide and document' for PATCH and filter semantics instead of deciding."
+  },
+  "O30": {
+    "correctness": 6,
+    "completeness": 4,
+    "adherence": 5,
+    "usefulness": 4,
+    "concision": 8,
+    "objective": {
+      "names_all_files_and_migration": true,
+      "mentions_timezone_or_utc": true,
+      "no_code_block_over_5_lines": true,
+      "no_banned_files": true
+    },
+    "notes": "Makes the overdue filter optional, offers only five tests, puts the migration last, and uses code blocks and a plain drop_column that may fail on SQLite."
+  },
+  "top3": [
+    "O23",
+    "O01",
+    "O07"
+  ]
+}

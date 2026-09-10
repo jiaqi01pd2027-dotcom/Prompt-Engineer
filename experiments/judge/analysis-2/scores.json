@@ -1,0 +1,517 @@
+{
+ "O01": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 6,
+  "usefulness": 8,
+  "concision": 5,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Fully correct and covers the contractor/guest nuance well, but at ~506 words it runs past the 400-word limit."
+ },
+ "O02": {
+  "correctness": 10,
+  "completeness": 7,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Tight, error-free table plus one-line recommendation, though Planlet/Hivemind storage, automation and guest limits are not covered."
+ },
+ "O03": {
+  "correctness": 9,
+  "completeness": 7,
+  "adherence": 6,
+  "usefulness": 5,
+  "concision": 5,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": false
+  },
+  "notes": "Correct step-by-step elimination, but no comparison table, over 400 words, and Planlet/Hivemind limits are skipped."
+ },
+ "O04": {
+  "correctness": 9,
+  "completeness": 8,
+  "adherence": 5,
+  "usefulness": 7,
+  "concision": 4,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": false
+  },
+  "notes": "Accurate requirement-by-requirement table, undermined by ~512 words and a closing offer to make a one-pager."
+ },
+ "O05": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Complete limits coverage for all three tools in one correct table with a single clear recommendation, under 300 words."
+ },
+ "O06": {
+  "correctness": 9,
+  "completeness": 7,
+  "adherence": 5,
+  "usefulness": 7,
+  "concision": 4,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Correct three-step elimination, but the answer is over 500 words and omits Planlet/Hivemind storage, guest and automation limits."
+ },
+ "O07": {
+  "correctness": 7,
+  "completeness": 6,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Claims unlimited automations are unique to Taskforge (Planlet Business also has them) and skips storage/guest/API limits entirely."
+ },
+ "O08": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 8,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Error-free table with every limit for all three tools and a clear single recommendation, just under the word limit."
+ },
+ "O09": {
+  "correctness": 9,
+  "completeness": 7,
+  "adherence": 4,
+  "usefulness": 6,
+  "concision": 3,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Well-argued and accurate but ~585 words with no side-by-side comparison of the three tools."
+ },
+ "O10": {
+  "correctness": 9,
+  "completeness": 6,
+  "adherence": 4,
+  "usefulness": 5,
+  "concision": 2,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": false
+  },
+  "notes": "Accurate but ~600 words of prose that restates the Planlet pricing argument twice and has no table."
+ },
+ "O11": {
+  "correctness": 10,
+  "completeness": 7,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": false
+  },
+  "notes": "Correct arithmetic laid out cleanly, but limits for Planlet/Hivemind are missing and the recommendation is restated in a summary."
+ },
+ "O12": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Compact, correct table and recommendation; guest and automation limits for Planlet/Hivemind are not listed."
+ },
+ "O13": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Correct cost table and clear reasoning, with Taskforge limits fully covered but Planlet limits thin."
+ },
+ "O14": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 9,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Correct parallel-bullet comparison; one garbled sentence ('must-haves are must-haves') and no guest/API detail for the rivals."
+ },
+ "O15": {
+  "correctness": 7,
+  "completeness": 9,
+  "adherence": 6,
+  "usefulness": 6,
+  "concision": 5,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Table wrongly says 10 users on Hivemind requires Growth at $99 (Starter covers up to 10), contradicting its own prose, and it is over 400 words."
+ },
+ "O16": {
+  "correctness": 9,
+  "completeness": 6,
+  "adherence": 7,
+  "usefulness": 6,
+  "concision": 8,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": false,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "P0-style hedge that still conditions the pick on needs and points software teams to TaskForge, but never states the $72/$90 costs."
+ },
+ "O17": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 8,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Complete, error-free limits table for all three tools with a single clear recommendation under 400 words."
+ },
+ "O18": {
+  "correctness": 9,
+  "completeness": 6,
+  "adherence": 7,
+  "usefulness": 6,
+  "concision": 7,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Conditions the choice on needs and stays factually accurate, but its cost table uses Planlet Team (no Gantt) and annual rates, so the 8/10-user monthly case is never computed."
+ },
+ "O19": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 5,
+  "usefulness": 7,
+  "concision": 4,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Accurate and thorough, but ~530 words, recommendation buried at the end, and closes with an artifact offer."
+ },
+ "O20": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Shortest complete answer: full-limits table with correct numbers, though the recommendation line itself omits the $72/$90 totals."
+ },
+ "O21": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Complete side-by-side table including trials, API and seat minimums, all correct, with a clear single recommendation."
+ },
+ "O22": {
+  "correctness": 9,
+  "completeness": 8,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": false,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Correct and well-structured; the '$20 over budget' phrase trips the literal banned-price check and the Zapier-consumes-automation-runs claim is an unsupported inference."
+ },
+ "O23": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Full, correct comparison table covering every limit and trial length, clear recommendation, under 400 words."
+ },
+ "O24": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Correct cost table that also shows Planlet Team for contrast, with full limits coverage and a one-line bottom line."
+ },
+ "O25": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 7,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Correct table and reasoning but restates the requirements up front and ends with an artifact offer."
+ },
+ "O26": {
+  "correctness": 9,
+  "completeness": 7,
+  "adherence": 5,
+  "usefulness": 6,
+  "concision": 4,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Opens with irrelevant 'no files to inspect' meta-comment, runs over 400 words, and never computes the 8/10-user monthly case despite pointing software teams to TaskForge."
+ },
+ "O27": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 5,
+  "usefulness": 8,
+  "concision": 4,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Accurate and complete, but ~540 words with a next-step section and an artifact offer that the requester would cut."
+ },
+ "O28": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 5,
+  "usefulness": 8,
+  "concision": 4,
+  "objective": {
+   "word_count_le_400": false,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": false
+  },
+  "notes": "Accurate and complete, but ~480 words and closes with an offer to build a comparison page."
+ },
+ "O29": {
+  "correctness": 10,
+  "completeness": 7,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Correct and readable but no table, rival limits (storage, guests, automations) omitted, and a filler closing offer."
+ },
+ "O30": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "word_count_le_400": true,
+   "contains_Taskforge": true,
+   "contains_$49": true,
+   "contains_$72_or_$90": true,
+   "contains_Business": true,
+   "no_absent_price_strings": true,
+   "no_Hivemind_GitHub_sentence_without_negation": true
+  },
+  "notes": "Concise correct table with a clear recommendation and both Taskforge caveats; Planlet storage/automation limits not listed."
+ },
+ "top3": [
+  "O05",
+  "O21",
+  "O23"
+ ]
+}

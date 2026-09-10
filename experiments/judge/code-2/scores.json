@@ -1,0 +1,517 @@
+{
+  "O01": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 10,
+    "usefulness": 10,
+    "concision": 10,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Clean Function/Problem/Fix format with a full corrected file that passes every check."
+  },
+  "O02": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct fixes but only per-function fragments (no full runnable snippet) and explanations run well past three sentences."
+  },
+  "O03": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 7,
+    "usefulness": 7,
+    "concision": 8,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct, tight per-function fixes but never assembles the full corrected snippet."
+  },
+  "O04": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 7,
+    "usefulness": 7,
+    "concision": 8,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct Problem/Fix entries but only per-function fragments instead of the full corrected snippet."
+  },
+  "O05": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 5,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct findings buried under a long reasoning trace and no full corrected snippet."
+  },
+  "O06": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 10,
+    "usefulness": 10,
+    "concision": 10,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Exact requested structure, full corrected file, all checks pass, no filler."
+  },
+  "O07": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct and verified fixes but per-function fragments only and verbose explanations."
+  },
+  "O08": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 9,
+    "usefulness": 10,
+    "concision": 8,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Full corrected file passes everything; minor redundancy from showing the fixes twice."
+  },
+  "O09": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 5,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct findings but a long trace precedes them and there is no full corrected snippet."
+  },
+  "O10": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 10,
+    "usefulness": 10,
+    "concision": 9,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Concise prose plus a full corrected file that passes every check."
+  },
+  "O11": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct fixes but only per-function fragments and over-long explanations."
+  },
+  "O12": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 5,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct findings after a lengthy reasoning trace; no full corrected snippet."
+  },
+  "O13": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 10,
+    "usefulness": 10,
+    "concision": 9,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Exact requested structure, full corrected file, all checks pass, plus a brief verification line."
+  },
+  "O14": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 5,
+    "usefulness": 6,
+    "concision": 4,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct fixes but no full snippet, over-long prose, and a leaked scratch-file dump and path at the end."
+  },
+  "O15": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct fixes with clear proofs but per-function fragments only and multi-paragraph explanations."
+  },
+  "O16": {
+    "correctness": 7,
+    "completeness": 8,
+    "adherence": 9,
+    "usefulness": 7,
+    "concision": 10,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Full file and good format, but the tag_records fix still appends to a caller-supplied list."
+  },
+  "O17": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 5,
+    "usefulness": 6,
+    "concision": 4,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct and verified fixes undermined by leaked orig.py/fixed.py dumps and no assembled corrected snippet."
+  },
+  "O18": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 10,
+    "concision": 7,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Full corrected file passes; trailing meta-note about folding issues is padding."
+  },
+  "O19": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 10,
+    "usefulness": 10,
+    "concision": 10,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Exact requested structure, full corrected file, all checks pass."
+  },
+  "O20": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 9,
+    "usefulness": 10,
+    "concision": 9,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Full corrected file and verified output; explanations placed after the code but complete."
+  },
+  "O21": {
+    "correctness": 7,
+    "completeness": 8,
+    "adherence": 9,
+    "usefulness": 7,
+    "concision": 10,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Concise full file, but the tag_records fix still mutates a caller-supplied list."
+  },
+  "O22": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct fixes with clear proofs but only per-function fragments and no full snippet."
+  },
+  "O23": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 6,
+    "usefulness": 8,
+    "concision": 7,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Passes all checks but invents a window<=0 guard and drops the __main__ block."
+  },
+  "O24": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 7,
+    "usefulness": 7,
+    "concision": 7,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct, clearly explained fixes but only per-function fragments instead of the full corrected snippet."
+  },
+  "O25": {
+    "correctness": 9,
+    "completeness": 7,
+    "adherence": 7,
+    "usefulness": 7,
+    "concision": 8,
+    "objective": {
+      "tag_records_default_twice": false,
+      "caller_list_unmutated": false,
+      "moving_average": true,
+      "number_lines": false,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Correct, concise per-function fixes but no full corrected snippet."
+  },
+  "O26": {
+    "correctness": 9,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 9,
+    "concision": 8,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Full corrected file passes, but it cites a runnable copy at a path that does not exist."
+  },
+  "O27": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 9,
+    "usefulness": 10,
+    "concision": 9,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Concise, full corrected file, all checks pass."
+  },
+  "O28": {
+    "correctness": 10,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 10,
+    "concision": 9,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": false,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Full corrected file passes; explanation never uses the phrase 'mutable default' so the prose grep fails."
+  },
+  "O29": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 10,
+    "concision": 6,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Full corrected file passes, but code is duplicated and explanations are padded."
+  },
+  "O30": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 10,
+    "usefulness": 10,
+    "concision": 10,
+    "objective": {
+      "tag_records_default_twice": true,
+      "caller_list_unmutated": true,
+      "moving_average": true,
+      "number_lines": true,
+      "prose_mutable_default": true,
+      "prose_off_by_one": true,
+      "herring_untouched": true
+    },
+    "notes": "Exact requested structure, full corrected file, all checks pass."
+  },
+  "top3": [
+    "O01",
+    "O06",
+    "O19"
+  ]
+}

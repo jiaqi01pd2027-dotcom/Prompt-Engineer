@@ -1,0 +1,457 @@
+{
+ "O01": {
+  "correctness": 7,
+  "completeness": 4,
+  "adherence": 5,
+  "usefulness": 5,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": false,
+   "facts_nov2_and_nongoals_respected": false
+  },
+  "notes": "Sharp blocking-vs-watch risk triage, but the plan body is off-page and non-goals, milestones and assumptions are never actually listed; Nov 2 is not mentioned."
+ },
+ "O02": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 7,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Decision-forcing no-facts plan with a small labelled scope and specific mitigations; exclusions live only in the reasoning section without a non-goals heading."
+ },
+ "O03": {
+  "correctness": 7,
+  "completeness": 5,
+  "adherence": 5,
+  "usefulness": 5,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Reasonable structure, but milestone sizing, assumptions and risks are only described in aggregate behind the artifact link."
+ },
+ "O04": {
+  "correctness": 6,
+  "completeness": 5,
+  "adherence": 4,
+  "usefulness": 5,
+  "concision": 5,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": false,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Insightful on invoice reconciliation, but phases carry no per-phase sizing, risks lack mitigations, and the scope (including alerts) is not small."
+ },
+ "O05": {
+  "correctness": 9,
+  "completeness": 8,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "Tight, fact-accurate plan with dated weekly milestones and specific risks; light on explicit assumptions and asks only one open question."
+ },
+ "O06": {
+  "correctness": 7,
+  "completeness": 4,
+  "adherence": 5,
+  "usefulness": 4,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Sensible framing, but risks, assumptions and questions are summarised in aggregate rather than shown, so the reply is not usable on its own."
+ },
+ "O07": {
+  "correctness": 7,
+  "completeness": 5,
+  "adherence": 5,
+  "usefulness": 5,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Good labelled assumptions, but the plan body is off-page and the message opens with tooling noise."
+ },
+ "O08": {
+  "correctness": 9,
+  "completeness": 10,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 6,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "The most complete fact-matched plan (every must-have, all five non-goals, day-level sizing that fits the budget), but ten milestones instead of 3-6 and a length that strains a meeting read."
+ },
+ "O09": {
+  "correctness": 9,
+  "completeness": 10,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 6,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "Exhaustive and internally consistent with the facts and dates, but ten milestones and dense assumption lists make it long for a review meeting."
+ },
+ "O10": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "Clean on-budget plan hitting every fact with six sized milestones; slightly less precise on dates and mitigations than the best."
+ },
+ "O11": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Model no-facts plan: every gap labelled A or Q, tight provisional scope, sized milestones, and specific mitigations."
+ },
+ "O12": {
+  "correctness": 7,
+  "completeness": 7,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Serviceable and compact, but scope and estimates are generic and hedged rather than provisional and specific."
+ },
+ "O13": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Strong assumptions-with-impact table and go/no-go gate; scope is larger than minimal and exclusions are labelled Out rather than non-goals."
+ },
+ "O14": {
+  "correctness": 8,
+  "completeness": 5,
+  "adherence": 5,
+  "usefulness": 6,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": false,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "Sharpest schedule insight in the set (pilot-ready by Oct 16 leaves five build weeks), but the plan body is off-page and no assumptions or questions appear in the reply."
+ },
+ "O15": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Compact and specific with a good mid-period plan-change risk; only two assumptions and risks are prose rather than a list."
+ },
+ "O16": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Crisp and specific, closing with the two questions that actually change the build; risks are prose rather than a list."
+ },
+ "O17": {
+  "correctness": 7,
+  "completeness": 5,
+  "adherence": 5,
+  "usefulness": 5,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": false,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "Good scope-cut ordering and the plan-limits question, but GA lands on Nov 2 rather than before it and the plan body is not shown."
+ },
+ "O18": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 7,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "Solid weekly backend/frontend plan with eight specific risks; lacks a labelled non-goals section and an explicit assumptions list, and full launch sits on Nov 2 rather than before."
+ },
+ "O19": {
+  "correctness": 7,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 6,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Thorough and well-structured, but the v1 scope (presets, breakdown, product analytics) is large for a one-sentence brief."
+ },
+ "O20": {
+  "correctness": 7,
+  "completeness": 6,
+  "adherence": 6,
+  "usefulness": 6,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Good minimal-scope reasoning and exit criteria, but the milestones carry no sizing at all."
+ },
+ "O21": {
+  "correctness": 6,
+  "completeness": 7,
+  "adherence": 6,
+  "usefulness": 6,
+  "concision": 6,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": false,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Useful architecture sketch and questions, but v1 scope is broad and one-engineer phase sizing is an afterthought."
+ },
+ "O22": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": true
+  },
+  "notes": "Best balance in the set: every fact honoured, six sized milestones with GA before Nov 2, specific mitigations, and it fits on a page."
+ },
+ "O23": {
+  "correctness": 7,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Complete and consistent, though hourly freshness and a range picker widen v1 beyond the minimum."
+ },
+ "O24": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Compact and specific with a practical retention/growth risk; risks are prose rather than a list."
+ },
+ "O25": {
+  "correctness": 6,
+  "completeness": 4,
+  "adherence": 4,
+  "usefulness": 4,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": false,
+   "milestones_sized": false,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Reasonable discovery framing, but milestones, risks and non-goals are not shown in the reply."
+ },
+ "O26": {
+  "correctness": 7,
+  "completeness": 6,
+  "adherence": 6,
+  "usefulness": 6,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Compact summary with sized milestones visible, but the risks carry no mitigations in the reply."
+ },
+ "O27": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Disciplined minimal scope with solid risk table and labelled assumptions; exclusions are not labelled non-goals."
+ },
+ "O28": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "nongoals_label": false,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Well-rounded plan with owners and success criteria; exclusions are labelled v2 candidates rather than non-goals."
+ },
+ "O29": {
+  "correctness": 7,
+  "completeness": 6,
+  "adherence": 6,
+  "usefulness": 5,
+  "concision": 5,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": false,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Disciplined about not inventing facts, but a third of the reply is file-collision commentary the requester would have to cut."
+ },
+ "O30": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "nongoals_label": true,
+   "risks_3_items": true,
+   "milestones_sized": true,
+   "assumptions_or_questions": true,
+   "facts_nov2_and_nongoals_respected": null
+  },
+  "notes": "Clean, on-format no-facts plan led by a short data-access spike, with scope kept modest."
+ },
+ "top3": [
+  "O22",
+  "O11",
+  "O05"
+ ]
+}

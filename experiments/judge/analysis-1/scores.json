@@ -1,0 +1,577 @@
+{
+  "O01": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 9,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Clean two-list format with all owners and dates right; only flaw is 'Outlook coming soon' listed as a sixth decision."
+  },
+  "O02": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 5,
+    "usefulness": 6,
+    "concision": 5,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Two invented decisions (coming-soon label, onboarding tile) and 263 words push it well over the limit."
+  },
+  "O03": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Accurate and complete but 241 words with the coming-soon label counted as a separate decision."
+  },
+  "O04": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 8,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Correct owners and resolved calendar dates under 200 words; coming-soon label counted as an extra decision."
+  },
+  "O05": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 9,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Tight, correct two-list output; only the extra 'coming soon' decision keeps it from perfect."
+  },
+  "O06": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 5,
+    "usefulness": 7,
+    "concision": 5,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Table plus a trailing 'Not included' narrative and 249 words break the form requirement despite accurate content."
+  },
+  "O07": {
+    "correctness": 5,
+    "completeness": 9,
+    "adherence": 3,
+    "usefulness": 5,
+    "concision": 4,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Two due dates are wrong (Thu Sept 18, Fri Sept 19), pricing is split into two decisions, and non-decisions are listed under Decisions."
+  },
+  "O08": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 9,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Correct, compact, one line per item; coming-soon label listed as a separate decision."
+  },
+  "O09": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 3,
+    "usefulness": 6,
+    "concision": 4,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Formatted as full minutes with title, split pricing decision and extra notes, 261 words."
+  },
+  "O10": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 2,
+    "usefulness": 5,
+    "concision": 2,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Heavy rationale narrative inside decisions, attendees header and an open-items section, 327 words."
+  },
+  "O11": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 4,
+    "usefulness": 6,
+    "concision": 5,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Two extra decisions (coming soon, onboarding tile) and a trailing exclusions note push it to 266 words."
+  },
+  "O12": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Content is right but verbose action lines and an exclusions sentence make it 247 words."
+  },
+  "O13": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 5,
+    "usefulness": 7,
+    "concision": 5,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Accurate table with correct dates but an onboarding/coming-soon extra decision and a trailing note at 244 words."
+  },
+  "O14": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 4,
+    "usefulness": 5,
+    "concision": 2,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Final minutes are accurate but preceded by a 300-word reasoning pass the requester would have to cut."
+  },
+  "O15": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 5,
+    "usefulness": 6,
+    "concision": 5,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Seven decisions (coming soon and onboarding tile invented) and 252 words."
+  },
+  "O16": {
+    "correctness": 7,
+    "completeness": 9,
+    "adherence": 7,
+    "usefulness": 7,
+    "concision": 10,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Shortest output with all owners and dates correct, but splits pricing/grandfathering into two decisions and adds the coming-soon label."
+  },
+  "O17": {
+    "correctness": 6,
+    "completeness": 9,
+    "adherence": 2,
+    "usefulness": 4,
+    "concision": 3,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": false,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Preamble, grouped rationale, a Q1 'maybe' line inside Decisions, a wrong date for Tom (9/16) and a closing offer."
+  },
+  "O18": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 5,
+    "usefulness": 7,
+    "concision": 6,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Splits pricing into two decisions and adds the coming-soon/tile decision; 213 words just over the limit."
+  },
+  "O19": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 3,
+    "usefulness": 5,
+    "concision": 2,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Accurate minutes buried after a long reasoning pass, with two extra decisions and a 'noted' section (516 words)."
+  },
+  "O20": {
+    "correctness": 10,
+    "completeness": 10,
+    "adherence": 10,
+    "usefulness": 10,
+    "concision": 9,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Exactly five decisions with the coming-soon label folded into D1, six correct actions with dates, 196 words, no narrative."
+  },
+  "O21": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 3,
+    "usefulness": 5,
+    "concision": 1,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "585 words of reasoning plus table and exclusions note; the minutes themselves are accurate."
+  },
+  "O22": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 5,
+    "usefulness": 7,
+    "concision": 5,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Correct content and dates but a title line, table and 'raised but not decided' note bring it to 234 words."
+  },
+  "O23": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 3,
+    "usefulness": 6,
+    "concision": 4,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Five decisions correctly folded but padded with rationale, attendees, a parked section and a coffee housekeeping line."
+  },
+  "O24": {
+    "correctness": 5,
+    "completeness": 9,
+    "adherence": 3,
+    "usefulness": 4,
+    "concision": 3,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Two due dates wrong (Tom Sept 17, Priya Sept 12) plus two invented decisions and a narrative note at 300 words."
+  },
+  "O25": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 9,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Plain, correct two-list output under 200 words; coming-soon label counted as a sixth decision."
+  },
+  "O26": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 4,
+    "usefulness": 6,
+    "concision": 5,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Says the sync moves 'starting this week' (transcript says next week), gives 'Fri 3 Oct', and adds a not-decided section."
+  },
+  "O27": {
+    "correctness": 10,
+    "completeness": 9,
+    "adherence": 10,
+    "usefulness": 9,
+    "concision": 9,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Exactly five decisions and six correct actions in 132 words; action descriptions are thin and the Raj line repeats the date."
+  },
+  "O28": {
+    "correctness": 7,
+    "completeness": 10,
+    "adherence": 3,
+    "usefulness": 6,
+    "concision": 3,
+    "objective": {
+      "word_count_le_200": false,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Seven decisions with rationale, table and a not-decided section at 291 words."
+  },
+  "O29": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 8,
+    "usefulness": 8,
+    "concision": 9,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Correct and compact with all dates; coming-soon label listed as a separate decision."
+  },
+  "O30": {
+    "correctness": 8,
+    "completeness": 10,
+    "adherence": 6,
+    "usefulness": 6,
+    "concision": 6,
+    "objective": {
+      "word_count_le_200": true,
+      "contains_rooms": true,
+      "contains_october_6": true,
+      "contains_wednesday": true,
+      "contains_10_dollars": true,
+      "contains_google": true,
+      "all_six_names_present": true,
+      "no_q1_decision_line": true,
+      "no_competitor_in_action_line": true
+    },
+    "notes": "Correct lists but opens with an odd meta preamble about clarifying questions that the requester would have to delete."
+  },
+  "top3": [
+    "O20",
+    "O27",
+    "O01"
+  ]
+}

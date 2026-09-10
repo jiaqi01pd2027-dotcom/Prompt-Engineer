@@ -1,0 +1,185 @@
+{
+  "task": "write-2",
+  "files": [
+    {
+      "file": "experiments/results/write-2/fable/P0.md",
+      "model": "fable",
+      "pattern": "P0",
+      "word_count": 315
+    },
+    {
+      "file": "experiments/results/write-2/fable/P1.md",
+      "model": "fable",
+      "pattern": "P1",
+      "word_count": 269
+    },
+    {
+      "file": "experiments/results/write-2/fable/P2.md",
+      "model": "fable",
+      "pattern": "P2",
+      "word_count": 280
+    },
+    {
+      "file": "experiments/results/write-2/fable/P3.md",
+      "model": "fable",
+      "pattern": "P3",
+      "word_count": 341
+    },
+    {
+      "file": "experiments/results/write-2/fable/P4.md",
+      "model": "fable",
+      "pattern": "P4",
+      "word_count": 299
+    },
+    {
+      "file": "experiments/results/write-2/fable/P5.md",
+      "model": "fable",
+      "pattern": "P5",
+      "word_count": 261
+    },
+    {
+      "file": "experiments/results/write-2/fable/P6.md",
+      "model": "fable",
+      "pattern": "P6",
+      "word_count": 260
+    },
+    {
+      "file": "experiments/results/write-2/fable/P7.md",
+      "model": "fable",
+      "pattern": "P7",
+      "word_count": 390
+    },
+    {
+      "file": "experiments/results/write-2/fable/P8.md",
+      "model": "fable",
+      "pattern": "P8",
+      "word_count": 248
+    },
+    {
+      "file": "experiments/results/write-2/fable/P9.md",
+      "model": "fable",
+      "pattern": "P9",
+      "word_count": 248
+    },
+    {
+      "file": "experiments/results/write-2/opus/P0.md",
+      "model": "opus",
+      "pattern": "P0",
+      "word_count": 261
+    },
+    {
+      "file": "experiments/results/write-2/opus/P1.md",
+      "model": "opus",
+      "pattern": "P1",
+      "word_count": 345
+    },
+    {
+      "file": "experiments/results/write-2/opus/P2.md",
+      "model": "opus",
+      "pattern": "P2",
+      "word_count": 294
+    },
+    {
+      "file": "experiments/results/write-2/opus/P3.md",
+      "model": "opus",
+      "pattern": "P3",
+      "word_count": 335
+    },
+    {
+      "file": "experiments/results/write-2/opus/P4.md",
+      "model": "opus",
+      "pattern": "P4",
+      "word_count": 274
+    },
+    {
+      "file": "experiments/results/write-2/opus/P5.md",
+      "model": "opus",
+      "pattern": "P5",
+      "word_count": 247
+    },
+    {
+      "file": "experiments/results/write-2/opus/P6.md",
+      "model": "opus",
+      "pattern": "P6",
+      "word_count": 309
+    },
+    {
+      "file": "experiments/results/write-2/opus/P7.md",
+      "model": "opus",
+      "pattern": "P7",
+      "word_count": 452
+    },
+    {
+      "file": "experiments/results/write-2/opus/P8.md",
+      "model": "opus",
+      "pattern": "P8",
+      "word_count": 278
+    },
+    {
+      "file": "experiments/results/write-2/opus/P9.md",
+      "model": "opus",
+      "pattern": "P9",
+      "word_count": 341
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P0.md",
+      "model": "sonnet",
+      "pattern": "P0",
+      "word_count": 427
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P1.md",
+      "model": "sonnet",
+      "pattern": "P1",
+      "word_count": 275
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P2.md",
+      "model": "sonnet",
+      "pattern": "P2",
+      "word_count": 304
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P3.md",
+      "model": "sonnet",
+      "pattern": "P3",
+      "word_count": 278
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P4.md",
+      "model": "sonnet",
+      "pattern": "P4",
+      "word_count": 398
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P5.md",
+      "model": "sonnet",
+      "pattern": "P5",
+      "word_count": 274
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P6.md",
+      "model": "sonnet",
+      "pattern": "P6",
+      "word_count": 273
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P7.md",
+      "model": "sonnet",
+      "pattern": "P7",
+      "word_count": 389
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P8.md",
+      "model": "sonnet",
+      "pattern": "P8",
+      "word_count": 282
+    },
+    {
+      "file": "experiments/results/write-2/sonnet/P9.md",
+      "model": "sonnet",
+      "pattern": "P9",
+      "word_count": 308
+    }
+  ]
+}

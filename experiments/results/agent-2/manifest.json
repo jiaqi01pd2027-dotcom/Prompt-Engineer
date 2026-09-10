@@ -1,0 +1,186 @@
+{
+  "task": "agent-2",
+  "total_runs": 30,
+  "files": [
+    {
+      "path": "experiments/results/agent-2/fable/P0.md",
+      "model": "fable",
+      "pattern": "P0",
+      "word_count": 736
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P1.md",
+      "model": "fable",
+      "pattern": "P1",
+      "word_count": 282
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P2.md",
+      "model": "fable",
+      "pattern": "P2",
+      "word_count": 750
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P3.md",
+      "model": "fable",
+      "pattern": "P3",
+      "word_count": 326
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P4.md",
+      "model": "fable",
+      "pattern": "P4",
+      "word_count": 1007
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P5.md",
+      "model": "fable",
+      "pattern": "P5",
+      "word_count": 769
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P6.md",
+      "model": "fable",
+      "pattern": "P6",
+      "word_count": 373
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P7.md",
+      "model": "fable",
+      "pattern": "P7",
+      "word_count": 807
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P8.md",
+      "model": "fable",
+      "pattern": "P8",
+      "word_count": 1460
+    },
+    {
+      "path": "experiments/results/agent-2/fable/P9.md",
+      "model": "fable",
+      "pattern": "P9",
+      "word_count": 780
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P0.md",
+      "model": "opus",
+      "pattern": "P0",
+      "word_count": 793
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P1.md",
+      "model": "opus",
+      "pattern": "P1",
+      "word_count": 360
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P2.md",
+      "model": "opus",
+      "pattern": "P2",
+      "word_count": 1065
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P3.md",
+      "model": "opus",
+      "pattern": "P3",
+      "word_count": 379
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P4.md",
+      "model": "opus",
+      "pattern": "P4",
+      "word_count": 407
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P5.md",
+      "model": "opus",
+      "pattern": "P5",
+      "word_count": 855
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P6.md",
+      "model": "opus",
+      "pattern": "P6",
+      "word_count": 341
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P7.md",
+      "model": "opus",
+      "pattern": "P7",
+      "word_count": 717
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P8.md",
+      "model": "opus",
+      "pattern": "P8",
+      "word_count": 1596
+    },
+    {
+      "path": "experiments/results/agent-2/opus/P9.md",
+      "model": "opus",
+      "pattern": "P9",
+      "word_count": 760
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P0.md",
+      "model": "sonnet",
+      "pattern": "P0",
+      "word_count": 292
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P1.md",
+      "model": "sonnet",
+      "pattern": "P1",
+      "word_count": 554
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P2.md",
+      "model": "sonnet",
+      "pattern": "P2",
+      "word_count": 223
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P3.md",
+      "model": "sonnet",
+      "pattern": "P3",
+      "word_count": 254
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P4.md",
+      "model": "sonnet",
+      "pattern": "P4",
+      "word_count": 261
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P5.md",
+      "model": "sonnet",
+      "pattern": "P5",
+      "word_count": 607
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P6.md",
+      "model": "sonnet",
+      "pattern": "P6",
+      "word_count": 329
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P7.md",
+      "model": "sonnet",
+      "pattern": "P7",
+      "word_count": 733
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P8.md",
+      "model": "sonnet",
+      "pattern": "P8",
+      "word_count": 920
+    },
+    {
+      "path": "experiments/results/agent-2/sonnet/P9.md",
+      "model": "sonnet",
+      "pattern": "P9",
+      "word_count": 683
+    }
+  ]
+}

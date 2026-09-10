@@ -1,0 +1,487 @@
+{
+ "O01": {
+  "correctness": 9,
+  "completeness": 8,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Clean and compliant, but line 6 drops the 'many projects' trigger."
+ },
+ "O02": {
+  "correctness": 3,
+  "completeness": 3,
+  "adherence": 1,
+  "usefulness": 1,
+  "concision": 1,
+  "objective": {
+   "exactly_6_nonempty_lines": false,
+   "each_line_matches_regex": false,
+   "each_line_under_60": false,
+   "label_sequence_correct": false,
+   "no_trailing_period": false,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Full ticket write-ups with wrong areas (Auth, Dashboard) instead of six short titles."
+ },
+ "O03": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Good titles but line 6 is exactly 60 characters, breaking the under-60 limit."
+ },
+ "O04": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct, concrete, compliant and under 60 characters."
+ },
+ "O05": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Solid titles but line 6 hits 60 characters."
+ },
+ "O06": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 3,
+  "usefulness": 4,
+  "concision": 9,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": false,
+   "each_line_under_60": true,
+   "label_sequence_correct": false,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Titles are fine but numbered '1.' prefixes break the required bare-line format."
+ },
+ "O07": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Good titles but line 6 is exactly 60 characters."
+ },
+ "O08": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 4,
+  "usefulness": 5,
+  "concision": 3,
+  "objective": {
+   "exactly_6_nonempty_lines": false,
+   "each_line_matches_regex": false,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": false,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Correct titles buried under a reasoning preamble the requester would have to strip."
+ },
+ "O09": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 4,
+  "usefulness": 5,
+  "concision": 3,
+  "objective": {
+   "exactly_6_nonempty_lines": false,
+   "each_line_matches_regex": false,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": false,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Correct titles preceded by per-line reasoning and a self-verification note."
+ },
+ "O10": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct, specific and format-compliant."
+ },
+ "O11": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct and compliant."
+ },
+ "O12": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 4,
+  "usefulness": 5,
+  "concision": 3,
+  "objective": {
+   "exactly_6_nonempty_lines": false,
+   "each_line_matches_regex": false,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": false,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Reasoning preamble precedes the titles; 'read comments' on line 5 is slightly ambiguous."
+ },
+ "O13": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Good titles but line 5 is 61 characters."
+ },
+ "O14": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct and compliant."
+ },
+ "O15": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct, concise and nearly identical to the reference."
+ },
+ "O16": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct and compliant."
+ },
+ "O17": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct and compliant."
+ },
+ "O18": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Good titles but line 6 is exactly 60 characters."
+ },
+ "O19": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Good titles but line 6 is exactly 60 characters."
+ },
+ "O20": {
+  "correctness": 9,
+  "completeness": 8,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Compliant, but line 5 omits that the emails are repeated/duplicate."
+ },
+ "O21": {
+  "correctness": 3,
+  "completeness": 3,
+  "adherence": 1,
+  "usefulness": 1,
+  "concision": 1,
+  "objective": {
+   "exactly_6_nonempty_lines": false,
+   "each_line_matches_regex": false,
+   "each_line_under_60": false,
+   "label_sequence_correct": false,
+   "no_trailing_period": false,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Long ticket templates with wrong area labels rather than six queue titles."
+ },
+ "O22": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct and compliant."
+ },
+ "O23": {
+  "correctness": 8,
+  "completeness": 8,
+  "adherence": 2,
+  "usefulness": 3,
+  "concision": 9,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": false,
+   "each_line_under_60": false,
+   "label_sequence_correct": false,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Numbered prefixes plus line 5 over 60 characters even without the number."
+ },
+ "O24": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct and compliant."
+ },
+ "O25": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "All six titles correct and compliant."
+ },
+ "O26": {
+  "correctness": 3,
+  "completeness": 2,
+  "adherence": 0,
+  "usefulness": 1,
+  "concision": 0,
+  "objective": {
+   "exactly_6_nonempty_lines": false,
+   "each_line_matches_regex": false,
+   "each_line_under_60": false,
+   "label_sequence_correct": false,
+   "no_trailing_period": false,
+   "no_line_starts_with_digit_or_dash": false
+  },
+  "notes": "Sprawling ticket dossiers with environment commentary and non-standard areas; unusable as titles."
+ },
+ "O27": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Line 6 is 60 characters and line 1 'Double charged $29 twice' is redundant."
+ },
+ "O28": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 6,
+  "concision": 9,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": false,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Line 5 is 63 characters and redundantly repeats 'comments'."
+ },
+ "O29": {
+  "correctness": 9,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Compliant and complete; line 1 wording 'Double charged twice' is clumsy."
+ },
+ "O30": {
+  "correctness": 9,
+  "completeness": 8,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "exactly_6_nonempty_lines": true,
+   "each_line_matches_regex": true,
+   "each_line_under_60": true,
+   "label_sequence_correct": true,
+   "no_trailing_period": true,
+   "no_line_starts_with_digit_or_dash": true
+  },
+  "notes": "Compliant, but line 5 omits that the emails are repeated."
+ },
+ "top3": [
+  "O10",
+  "O15",
+  "O22"
+ ]
+}

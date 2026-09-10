@@ -1,0 +1,128 @@
+{
+  "fable": {
+    "P0.md": {
+      "path": "extract-2/fable/P0.md",
+      "word_count": 451
+    },
+    "P1.md": {
+      "path": "extract-2/fable/P1.md",
+      "word_count": 85
+    },
+    "P2.md": {
+      "path": "extract-2/fable/P2.md",
+      "word_count": 111
+    },
+    "P3.md": {
+      "path": "extract-2/fable/P3.md",
+      "word_count": 95
+    },
+    "P4.md": {
+      "path": "extract-2/fable/P4.md",
+      "word_count": 49
+    },
+    "P5.md": {
+      "path": "extract-2/fable/P5.md",
+      "word_count": 49
+    },
+    "P6.md": {
+      "path": "extract-2/fable/P6.md",
+      "word_count": 132
+    },
+    "P7.md": {
+      "path": "extract-2/fable/P7.md",
+      "word_count": 304
+    },
+    "P8.md": {
+      "path": "extract-2/fable/P8.md",
+      "word_count": 49
+    },
+    "P9.md": {
+      "path": "extract-2/fable/P9.md",
+      "word_count": 49
+    }
+  },
+  "opus": {
+    "P0.md": {
+      "path": "extract-2/opus/P0.md",
+      "word_count": 561
+    },
+    "P1.md": {
+      "path": "extract-2/opus/P1.md",
+      "word_count": 49
+    },
+    "P2.md": {
+      "path": "extract-2/opus/P2.md",
+      "word_count": 182
+    },
+    "P3.md": {
+      "path": "extract-2/opus/P3.md",
+      "word_count": 168
+    },
+    "P4.md": {
+      "path": "extract-2/opus/P4.md",
+      "word_count": 232
+    },
+    "P5.md": {
+      "path": "extract-2/opus/P5.md",
+      "word_count": 49
+    },
+    "P6.md": {
+      "path": "extract-2/opus/P6.md",
+      "word_count": 178
+    },
+    "P7.md": {
+      "path": "extract-2/opus/P7.md",
+      "word_count": 276
+    },
+    "P8.md": {
+      "path": "extract-2/opus/P8.md",
+      "word_count": 49
+    },
+    "P9.md": {
+      "path": "extract-2/opus/P9.md",
+      "word_count": 51
+    }
+  },
+  "sonnet": {
+    "P0.md": {
+      "path": "extract-2/sonnet/P0.md",
+      "word_count": 341
+    },
+    "P1.md": {
+      "path": "extract-2/sonnet/P1.md",
+      "word_count": 126
+    },
+    "P2.md": {
+      "path": "extract-2/sonnet/P2.md",
+      "word_count": 170
+    },
+    "P3.md": {
+      "path": "extract-2/sonnet/P3.md",
+      "word_count": 157
+    },
+    "P4.md": {
+      "path": "extract-2/sonnet/P4.md",
+      "word_count": 51
+    },
+    "P5.md": {
+      "path": "extract-2/sonnet/P5.md",
+      "word_count": 49
+    },
+    "P6.md": {
+      "path": "extract-2/sonnet/P6.md",
+      "word_count": 51
+    },
+    "P7.md": {
+      "path": "extract-2/sonnet/P7.md",
+      "word_count": 312
+    },
+    "P8.md": {
+      "path": "extract-2/sonnet/P8.md",
+      "word_count": 51
+    },
+    "P9.md": {
+      "path": "extract-2/sonnet/P9.md",
+      "word_count": 51
+    }
+  }
+}

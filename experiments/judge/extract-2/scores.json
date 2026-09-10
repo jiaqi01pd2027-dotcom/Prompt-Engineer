@@ -1,0 +1,607 @@
+{
+ "O01": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 5,
+  "usefulness": 6,
+  "concision": 4,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON, but it is buried after a markdown reasoning section the tool cannot ingest."
+ },
+ "O02": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a trailing notes paragraph means the output is not JSON-only and must be trimmed."
+ },
+ "O03": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a trailing notes paragraph means the output is not JSON-only and must be trimmed."
+ },
+ "O04": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 6,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a full per-receipt commentary block follows it, so the requester has to cut it."
+ },
+ "O05": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "All fields exact; only blemish is the ```json fence around the array."
+ },
+ "O06": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON followed by bullet notes that violate the JSON-only requirement."
+ },
+ "O07": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 6,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a full per-receipt commentary block follows it, so the requester has to cut it."
+ },
+ "O08": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 5,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but the longest trailing commentary of the set, including an unrequested note about marketing text."
+ },
+ "O09": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 5,
+  "usefulness": 6,
+  "concision": 4,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON, but it is buried after a markdown reasoning section the tool cannot ingest."
+ },
+ "O10": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON array, every field exact, nothing else; drop-in for the expense tool."
+ },
+ "O11": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON array, every field exact, nothing else; drop-in for the expense tool."
+ },
+ "O12": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON, all values numerically exact (18.4/50.0 style), nothing else; drop-in ready."
+ },
+ "O13": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON, all values numerically exact (18.4/50.0 style), nothing else; drop-in ready."
+ },
+ "O14": {
+  "correctness": 4,
+  "completeness": 2,
+  "adherence": 1,
+  "usefulness": 1,
+  "concision": 2,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": false,
+   "exact_keys": false,
+   "key_order": false,
+   "dates_match": false,
+   "amounts_match": false,
+   "categories_match": false,
+   "names_match": false,
+   "order_matches": false,
+   "json_only_content": false
+  },
+  "notes": "Ignores the required schema entirely: wrapped object, verbose nested fields, invented category labels, no 'amount'/'name' keys."
+ },
+ "O15": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "All fields numerically exact (integers for whole amounts); only blemish is the code fence."
+ },
+ "O16": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 6,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a full per-receipt commentary block follows it, so the requester has to cut it."
+ },
+ "O17": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON array, every field exact, nothing else; drop-in for the expense tool."
+ },
+ "O18": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON followed by bullet notes that violate the JSON-only requirement."
+ },
+ "O19": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "All fields numerically exact; only blemish is the code fence."
+ },
+ "O20": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "All fields exact; only blemish is the ```json fence around the array."
+ },
+ "O21": {
+  "correctness": 4,
+  "completeness": 2,
+  "adherence": 1,
+  "usefulness": 1,
+  "concision": 2,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": false,
+   "key_order": false,
+   "dates_match": false,
+   "amounts_match": false,
+   "categories_match": false,
+   "names_match": false,
+   "order_matches": false,
+   "json_only_content": false
+  },
+  "notes": "Array of five but wrong schema: 'merchant' not 'name', no category field, dozens of extra keys."
+ },
+ "O22": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 4,
+  "usefulness": 6,
+  "concision": 3,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON sandwiched between a reasoning section and a trailing currency note; most editing needed of the correct outputs."
+ },
+ "O23": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 6,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a full per-receipt commentary block follows it, so the requester has to cut it."
+ },
+ "O24": {
+  "correctness": 4,
+  "completeness": 2,
+  "adherence": 1,
+  "usefulness": 1,
+  "concision": 2,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": false,
+   "key_order": false,
+   "dates_match": true,
+   "amounts_match": false,
+   "categories_match": false,
+   "names_match": false,
+   "order_matches": false,
+   "json_only_content": false
+  },
+  "notes": "Wrong schema: 'merchant' not 'name', no category (only a free-text 'type'), extensive extra keys."
+ },
+ "O25": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "All fields exact; only blemish is the ```json fence around the array."
+ },
+ "O26": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON array, every field exact, nothing else; drop-in for the expense tool."
+ },
+ "O27": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 6,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a full per-receipt commentary block follows it, so the requester has to cut it."
+ },
+ "O28": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON array, every field exact, nothing else; drop-in for the expense tool."
+ },
+ "O29": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "json_loads_ok": false,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": false
+  },
+  "notes": "Correct JSON but a trailing notes paragraph means the output is not JSON-only and must be trimmed."
+ },
+ "O30": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "json_loads_ok": true,
+   "list_of_5": true,
+   "exact_keys": true,
+   "key_order": true,
+   "dates_match": true,
+   "amounts_match": true,
+   "categories_match": true,
+   "names_match": true,
+   "order_matches": true,
+   "json_only_content": true
+  },
+  "notes": "Bare JSON array, every field exact, nothing else; drop-in for the expense tool."
+ },
+ "top3": [
+  "O10",
+  "O11",
+  "O17"
+ ]
+}

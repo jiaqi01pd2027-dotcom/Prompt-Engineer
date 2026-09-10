@@ -1,0 +1,182 @@
+[
+  {
+    "file": "experiments/results/extract-1/fable/P0.md",
+    "model": "fable",
+    "pattern": "P0",
+    "word_count": 485
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P1.md",
+    "model": "fable",
+    "pattern": "P1",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P2.md",
+    "model": "fable",
+    "pattern": "P2",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P3.md",
+    "model": "fable",
+    "pattern": "P3",
+    "word_count": 49
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P4.md",
+    "model": "fable",
+    "pattern": "P4",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P5.md",
+    "model": "fable",
+    "pattern": "P5",
+    "word_count": 47
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P6.md",
+    "model": "fable",
+    "pattern": "P6",
+    "word_count": 48
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P7.md",
+    "model": "fable",
+    "pattern": "P7",
+    "word_count": 187
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P8.md",
+    "model": "fable",
+    "pattern": "P8",
+    "word_count": 46
+  },
+  {
+    "file": "experiments/results/extract-1/fable/P9.md",
+    "model": "fable",
+    "pattern": "P9",
+    "word_count": 48
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P0.md",
+    "model": "opus",
+    "pattern": "P0",
+    "word_count": 1090
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P1.md",
+    "model": "opus",
+    "pattern": "P1",
+    "word_count": 48
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P2.md",
+    "model": "opus",
+    "pattern": "P2",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P3.md",
+    "model": "opus",
+    "pattern": "P3",
+    "word_count": 44
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P4.md",
+    "model": "opus",
+    "pattern": "P4",
+    "word_count": 44
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P5.md",
+    "model": "opus",
+    "pattern": "P5",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P6.md",
+    "model": "opus",
+    "pattern": "P6",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P7.md",
+    "model": "opus",
+    "pattern": "P7",
+    "word_count": 163
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P8.md",
+    "model": "opus",
+    "pattern": "P8",
+    "word_count": 46
+  },
+  {
+    "file": "experiments/results/extract-1/opus/P9.md",
+    "model": "opus",
+    "pattern": "P9",
+    "word_count": 46
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P0.md",
+    "model": "sonnet",
+    "pattern": "P0",
+    "word_count": 747
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P1.md",
+    "model": "sonnet",
+    "pattern": "P1",
+    "word_count": 44
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P2.md",
+    "model": "sonnet",
+    "pattern": "P2",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P3.md",
+    "model": "sonnet",
+    "pattern": "P3",
+    "word_count": 56
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P4.md",
+    "model": "sonnet",
+    "pattern": "P4",
+    "word_count": 44
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P5.md",
+    "model": "sonnet",
+    "pattern": "P5",
+    "word_count": 46
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P6.md",
+    "model": "sonnet",
+    "pattern": "P6",
+    "word_count": 45
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P7.md",
+    "model": "sonnet",
+    "pattern": "P7",
+    "word_count": 131
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P8.md",
+    "model": "sonnet",
+    "pattern": "P8",
+    "word_count": 44
+  },
+  {
+    "file": "experiments/results/extract-1/sonnet/P9.md",
+    "model": "sonnet",
+    "pattern": "P9",
+    "word_count": 46
+  }
+]

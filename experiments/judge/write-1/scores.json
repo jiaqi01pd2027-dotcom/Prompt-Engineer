@@ -1,0 +1,427 @@
+{
+  "O01": {
+    "correctness": 3,
+    "completeness": 4,
+    "adherence": 3,
+    "usefulness": 3,
+    "concision": 5,
+    "objective": {
+      "word_count_le_150": false,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Ignores the known confirmed cause (says engineering is still investigating), 167 words, signed by a named lead instead of The Support Team, and uses 'thanks for your patience'."
+  },
+  "O02": {
+    "correctness": 3,
+    "completeness": 3,
+    "adherence": 2,
+    "usefulness": 2,
+    "concision": 3,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Leaves the root cause unstated with bracketed placeholder options and a subject line, then pads with long editorial notes; not sendable."
+  },
+  "O03": {
+    "correctness": 4,
+    "completeness": 4,
+    "adherence": 1,
+    "usefulness": 2,
+    "concision": 1,
+    "objective": {
+      "word_count_le_150": false,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "335-word reply with subject line, invented credit, headers, and long notes; wildly over length and not in the required voice or sign-off."
+  },
+  "O04": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Hits every signal in 75 words (twice, one apology, confirmed export-worker bug, email within 24 hours, The Support Team) and adds one short, genuinely useful caveat about the meeting timing."
+  },
+  "O05": {
+    "correctness": 2,
+    "completeness": 3,
+    "adherence": 1,
+    "usefulness": 2,
+    "concision": 2,
+    "objective": {
+      "word_count_le_150": false,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Asks the customer questions and escalates rather than stating the known fix; 253 words, subject line, three apologies, no Support Team sign-off."
+  },
+  "O06": {
+    "correctness": 8,
+    "completeness": 8,
+    "adherence": 6,
+    "usefulness": 7,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Correct on facts and tight at 70 words, but apologises twice and closes with the 'thanks for your patience' filler the rubric bans."
+  },
+  "O07": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 8,
+    "concision": 7,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "All five signals present with the right sign-off and no subject, though the opening restates the complaint back at length and the trailing checklist would need cutting."
+  },
+  "O08": {
+    "correctness": 4,
+    "completeness": 3,
+    "adherence": 3,
+    "usefulness": 3,
+    "concision": 3,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Reasoning preamble then a reply that never states the confirmed cause or the 24-hour email and has no sign-off."
+  },
+  "O09": {
+    "correctness": 4,
+    "completeness": 5,
+    "adherence": 3,
+    "usefulness": 3,
+    "concision": 6,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Claims a manual export is attached (untrue), adds a subject line, 'thanks for your patience', and a personal sign-off instead of The Support Team."
+  },
+  "O10": {
+    "correctness": 3,
+    "completeness": 3,
+    "adherence": 2,
+    "usefulness": 2,
+    "concision": 5,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Asks the customer for diagnostic details and suggests retrying instead of stating the confirmed bug; no sign-off at all and 'thanks for your patience'."
+  },
+  "O11": {
+    "correctness": 3,
+    "completeness": 3,
+    "adherence": 3,
+    "usefulness": 3,
+    "concision": 4,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Contains no apology, invents a two-hour manual export and a credit, declines to state the confirmed cause, and is signed by a named person rather than The Support Team."
+  },
+  "O12": {
+    "correctness": 5,
+    "completeness": 5,
+    "adherence": 5,
+    "usefulness": 4,
+    "concision": 5,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Right structure and sign-off but leaves the cause as a bracketed [CAUSE] placeholder and promises manual delivery today instead of the 24-hour email, so it cannot be sent as-is."
+  },
+  "O13": {
+    "correctness": 3,
+    "completeness": 4,
+    "adherence": 3,
+    "usefulness": 3,
+    "concision": 5,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Hedges the cause as 'usually a timeout', asks the customer to retry in smaller chunks, adds a subject line and a personal sign-off; misses the confirmed fix and 24-hour commitment."
+  },
+  "O14": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 8,
+    "concision": 7,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Covers every signal accurately with The Support Team sign-off; slightly longer at 135 words and opens with an odd 'no further questions' line the requester would trim."
+  },
+  "O15": {
+    "correctness": 4,
+    "completeness": 5,
+    "adherence": 5,
+    "usefulness": 4,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Compact but presents the cause as unconfirmed ('looks like a timeout, pulling logs to confirm') and offers a manual export on reply instead of the 24-hour email; single unformatted paragraph."
+  },
+  "O16": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Clean 110-word reply that nails all five signals in a warm, concise voice and needs no edits."
+  },
+  "O17": {
+    "correctness": 3,
+    "completeness": 3,
+    "adherence": 2,
+    "usefulness": 2,
+    "concision": 3,
+    "objective": {
+      "word_count_le_150": false,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Reasoning block plus a 167-word reply with a subject line, invented 7pm delivery and month credit, unconfirmed cause, and a personal sign-off."
+  },
+  "O18": {
+    "correctness": 3,
+    "completeness": 3,
+    "adherence": 3,
+    "usefulness": 3,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Short and warm but says engineering is still finding out why, promises a manual export within the hour, and has no sign-off."
+  },
+  "O19": {
+    "correctness": 5,
+    "completeness": 5,
+    "adherence": 4,
+    "usefulness": 4,
+    "concision": 6,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "States the cause is isolated and being fixed, but invents a 6pm attachment and a 'subset of Pro accounts' diagnosis and signs off personally instead of as The Support Team."
+  },
+  "O20": {
+    "correctness": 6,
+    "completeness": 6,
+    "adherence": 6,
+    "usefulness": 5,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Correct on cause and fix with the right sign-off, but invents a 6pm deadline and asks the customer to re-run the export rather than promising the 24-hour email."
+  },
+  "O21": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "All five signals at 117 words with the right sign-off and a firm 'you don't need to do anything'; only minor risk is implying delivery before the morning meeting."
+  },
+  "O22": {
+    "correctness": 8,
+    "completeness": 7,
+    "adherence": 5,
+    "usefulness": 6,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Facts and sign-off correct at 68 words, but it says 'failed exports' without 'twice', apologises twice, and uses the banned 'thanks for your patience' filler."
+  },
+  "O23": {
+    "correctness": 3,
+    "completeness": 3,
+    "adherence": 2,
+    "usefulness": 2,
+    "concision": 6,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Asks the customer for dataset size and says the cause is still being dug into; personal sign-off and 'thanks for your patience'."
+  },
+  "O24": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 9,
+    "concision": 7,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Accurate and complete with all signals and the correct sign-off; a touch longer than needed at 137 words with a 'we take it seriously' line that could go."
+  },
+  "O25": {
+    "correctness": 9,
+    "completeness": 9,
+    "adherence": 9,
+    "usefulness": 8,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": true,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Every signal present in 84 words with the right sign-off; opening sentence is slightly stiff and there is no greeting."
+  },
+  "O26": {
+    "correctness": 2,
+    "completeness": 2,
+    "adherence": 1,
+    "usefulness": 1,
+    "concision": 1,
+    "objective": {
+      "word_count_le_150": false,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "293-word reply that asks four diagnostic questions, offers a workaround and a credit, includes a subject line and placeholders; misses the confirmed cause and 24-hour email entirely."
+  },
+  "O27": {
+    "correctness": 3,
+    "completeness": 4,
+    "adherence": 3,
+    "usefulness": 2,
+    "concision": 5,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": false,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Invents names (Marcus, Sarah), a queue-timeout diagnosis, and a 6pm delivery, and signs as an individual rather than The Support Team."
+  },
+  "O28": {
+    "correctness": 3,
+    "completeness": 5,
+    "adherence": 5,
+    "usefulness": 2,
+    "concision": 7,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Invents a backlog cause, falsely claims the CSV is attached, and says exports now work normally, contradicting the fix-being-deployed status."
+  },
+  "O29": {
+    "correctness": 3,
+    "completeness": 5,
+    "adherence": 5,
+    "usefulness": 2,
+    "concision": 5,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "Author admits the cause, 'ships this week', and attached CSV are all invented; not sendable without rewriting the core content."
+  },
+  "O30": {
+    "correctness": 6,
+    "completeness": 6,
+    "adherence": 5,
+    "usefulness": 5,
+    "concision": 8,
+    "objective": {
+      "word_count_le_150": true,
+      "contains_24_hours": false,
+      "contains_Support_Team": true,
+      "no_thank_you_for_your_patience": true
+    },
+    "notes": "States the cause is traced and fix in progress with the right sign-off, but adds a subject line, invents 'within a few hours', and tells the customer to pull the file themselves rather than promising the 24-hour email."
+  },
+  "top3": [
+    "O16",
+    "O04",
+    "O21"
+  ]
+}

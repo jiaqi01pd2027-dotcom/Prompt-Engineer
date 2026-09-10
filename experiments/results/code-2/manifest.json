@@ -1,36 +1,122 @@
-{
-  "task": "code-2",
-  "files": {
-    "fable/P0.md": 259,
-    "fable/P1.md": 267,
-    "fable/P2.md": 229,
-    "fable/P3.md": 360,
-    "fable/P4.md": 228,
-    "fable/P5.md": 223,
-    "fable/P6.md": 206,
-    "fable/P7.md": 391,
-    "fable/P8.md": 219,
-    "fable/P9.md": 240,
-    "opus/P0.md": 483,
-    "opus/P1.md": 276,
-    "opus/P2.md": 444,
-    "opus/P3.md": 288,
-    "opus/P4.md": 247,
-    "opus/P5.md": 234,
-    "opus/P6.md": 459,
-    "opus/P7.md": 338,
-    "opus/P8.md": 238,
-    "opus/P9.md": 274,
-    "sonnet/P0.md": 255,
-    "sonnet/P1.md": 272,
-    "sonnet/P2.md": 297,
-    "sonnet/P3.md": 459,
-    "sonnet/P4.md": 221,
-    "sonnet/P5.md": 226,
-    "sonnet/P6.md": 215,
-    "sonnet/P7.md": 421,
-    "sonnet/P8.md": 221,
-    "sonnet/P9.md": 373
+[
+  {
+    "file": "results/code-2/fable/P0.md",
+    "words": 259
   },
-  "count": 30
-}
+  {
+    "file": "results/code-2/fable/P1.md",
+    "words": 267
+  },
+  {
+    "file": "results/code-2/fable/P2.md",
+    "words": 229
+  },
+  {
+    "file": "results/code-2/fable/P3.md",
+    "words": 360
+  },
+  {
+    "file": "results/code-2/fable/P4.md",
+    "words": 228
+  },
+  {
+    "file": "results/code-2/fable/P5.md",
+    "words": 223
+  },
+  {
+    "file": "results/code-2/fable/P6.md",
+    "words": 206
+  },
+  {
+    "file": "results/code-2/fable/P7.md",
+    "words": 391
+  },
+  {
+    "file": "results/code-2/fable/P8.md",
+    "words": 219
+  },
+  {
+    "file": "results/code-2/fable/P9.md",
+    "words": 240
+  },
+  {
+    "file": "results/code-2/opus/P0.md",
+    "words": 286
+  },
+  {
+    "file": "results/code-2/opus/P1.md",
+    "words": 276
+  },
+  {
+    "file": "results/code-2/opus/P2.md",
+    "words": 444
+  },
+  {
+    "file": "results/code-2/opus/P3.md",
+    "words": 288
+  },
+  {
+    "file": "results/code-2/opus/P4.md",
+    "words": 247
+  },
+  {
+    "file": "results/code-2/opus/P5.md",
+    "words": 234
+  },
+  {
+    "file": "results/code-2/opus/P6.md",
+    "words": 459
+  },
+  {
+    "file": "results/code-2/opus/P7.md",
+    "words": 338
+  },
+  {
+    "file": "results/code-2/opus/P8.md",
+    "words": 238
+  },
+  {
+    "file": "results/code-2/opus/P9.md",
+    "words": 274
+  },
+  {
+    "file": "results/code-2/sonnet/P0.md",
+    "words": 255
+  },
+  {
+    "file": "results/code-2/sonnet/P1.md",
+    "words": 272
+  },
+  {
+    "file": "results/code-2/sonnet/P2.md",
+    "words": 297
+  },
+  {
+    "file": "results/code-2/sonnet/P3.md",
+    "words": 459
+  },
+  {
+    "file": "results/code-2/sonnet/P4.md",
+    "words": 221
+  },
+  {
+    "file": "results/code-2/sonnet/P5.md",
+    "words": 226
+  },
+  {
+    "file": "results/code-2/sonnet/P6.md",
+    "words": 215
+  },
+  {
+    "file": "results/code-2/sonnet/P7.md",
+    "words": 421
+  },
+  {
+    "file": "results/code-2/sonnet/P8.md",
+    "words": 221
+  },
+  {
+    "file": "results/code-2/sonnet/P9.md",
+    "words": 373
+  }
+]

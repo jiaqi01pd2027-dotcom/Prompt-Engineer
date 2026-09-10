@@ -1,0 +1,215 @@
+{
+  "task": "code-1",
+  "files": [
+    {
+      "file": "results/code-1/fable/P0.md",
+      "model": "fable",
+      "pattern": "P0",
+      "word_count": 478
+    },
+    {
+      "file": "results/code-1/fable/P1.md",
+      "model": "fable",
+      "pattern": "P1",
+      "word_count": 407
+    },
+    {
+      "file": "results/code-1/fable/P2.md",
+      "model": "fable",
+      "pattern": "P2",
+      "word_count": 612
+    },
+    {
+      "file": "results/code-1/fable/P3.md",
+      "model": "fable",
+      "pattern": "P3",
+      "word_count": 508
+    },
+    {
+      "file": "results/code-1/fable/P4.md",
+      "model": "fable",
+      "pattern": "P4",
+      "word_count": 422
+    },
+    {
+      "file": "results/code-1/fable/P5.md",
+      "model": "fable",
+      "pattern": "P5",
+      "word_count": 312
+    },
+    {
+      "file": "results/code-1/fable/P6.md",
+      "model": "fable",
+      "pattern": "P6",
+      "word_count": 459
+    },
+    {
+      "file": "results/code-1/fable/P7.md",
+      "model": "fable",
+      "pattern": "P7",
+      "word_count": 333
+    },
+    {
+      "file": "results/code-1/fable/P8.md",
+      "model": "fable",
+      "pattern": "P8",
+      "word_count": 388
+    },
+    {
+      "file": "results/code-1/fable/P9.md",
+      "model": "fable",
+      "pattern": "P9",
+      "word_count": 477
+    },
+    {
+      "file": "results/code-1/opus/P0.md",
+      "model": "opus",
+      "pattern": "P0",
+      "word_count": 415
+    },
+    {
+      "file": "results/code-1/opus/P1.md",
+      "model": "opus",
+      "pattern": "P1",
+      "word_count": 322
+    },
+    {
+      "file": "results/code-1/opus/P2.md",
+      "model": "opus",
+      "pattern": "P2",
+      "word_count": 380
+    },
+    {
+      "file": "results/code-1/opus/P3.md",
+      "model": "opus",
+      "pattern": "P3",
+      "word_count": 333
+    },
+    {
+      "file": "results/code-1/opus/P4.md",
+      "model": "opus",
+      "pattern": "P4",
+      "word_count": 313
+    },
+    {
+      "file": "results/code-1/opus/P5.md",
+      "model": "opus",
+      "pattern": "P5",
+      "word_count": 380
+    },
+    {
+      "file": "results/code-1/opus/P6.md",
+      "model": "opus",
+      "pattern": "P6",
+      "word_count": 400
+    },
+    {
+      "file": "results/code-1/opus/P7.md",
+      "model": "opus",
+      "pattern": "P7",
+      "word_count": 772
+    },
+    {
+      "file": "results/code-1/opus/P8.md",
+      "model": "opus",
+      "pattern": "P8",
+      "word_count": 371
+    },
+    {
+      "file": "results/code-1/opus/P9.md",
+      "model": "opus",
+      "pattern": "P9",
+      "word_count": 666
+    },
+    {
+      "file": "results/code-1/sonnet/P0.md",
+      "model": "sonnet",
+      "pattern": "P0",
+      "word_count": 264
+    },
+    {
+      "file": "results/code-1/sonnet/P1.md",
+      "model": "sonnet",
+      "pattern": "P1",
+      "word_count": 208
+    },
+    {
+      "file": "results/code-1/sonnet/P2.md",
+      "model": "sonnet",
+      "pattern": "P2",
+      "word_count": 251
+    },
+    {
+      "file": "results/code-1/sonnet/P3.md",
+      "model": "sonnet",
+      "pattern": "P3",
+      "word_count": 248
+    },
+    {
+      "file": "results/code-1/sonnet/P4.md",
+      "model": "sonnet",
+      "pattern": "P4",
+      "word_count": 392
+    },
+    {
+      "file": "results/code-1/sonnet/P5.md",
+      "model": "sonnet",
+      "pattern": "P5",
+      "word_count": 387
+    },
+    {
+      "file": "results/code-1/sonnet/P6.md",
+      "model": "sonnet",
+      "pattern": "P6",
+      "word_count": 460
+    },
+    {
+      "file": "results/code-1/sonnet/P7.md",
+      "model": "sonnet",
+      "pattern": "P7",
+      "word_count": 831
+    },
+    {
+      "file": "results/code-1/sonnet/P8.md",
+      "model": "sonnet",
+      "pattern": "P8",
+      "word_count": 451
+    },
+    {
+      "file": "results/code-1/sonnet/P9.md",
+      "model": "sonnet",
+      "pattern": "P9",
+      "word_count": 607
+    }
+  ],
+  "interfered_first_attempt": [
+    {
+      "file": "results/code-1/_interfered/fable-P0.md",
+      "model": "fable",
+      "pattern": "P0",
+      "word_count": 496,
+      "note": "discarded: produced in a parallel batch whose subagents overwrote/read each other's iso_duration.py in the shared sandbox; replaced by a sequential re-run"
+    },
+    {
+      "file": "results/code-1/_interfered/fable-P1.md",
+      "model": "fable",
+      "pattern": "P1",
+      "word_count": 533,
+      "note": "discarded: produced in a parallel batch whose subagents overwrote/read each other's iso_duration.py in the shared sandbox; replaced by a sequential re-run"
+    },
+    {
+      "file": "results/code-1/_interfered/fable-P2.md",
+      "model": "fable",
+      "pattern": "P2",
+      "word_count": 610,
+      "note": "discarded: produced in a parallel batch whose subagents overwrote/read each other's iso_duration.py in the shared sandbox; replaced by a sequential re-run"
+    },
+    {
+      "file": "results/code-1/_interfered/fable-P4.md",
+      "model": "fable",
+      "pattern": "P4",
+      "word_count": 599,
+      "note": "discarded: produced in a parallel batch whose subagents overwrote/read each other's iso_duration.py in the shared sandbox; replaced by a sequential re-run"
+    }
+  ]
+}

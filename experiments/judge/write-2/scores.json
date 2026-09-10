@@ -1,0 +1,517 @@
+{
+ "O01": {
+  "correctness": 6,
+  "completeness": 8,
+  "adherence": 6,
+  "usefulness": 6,
+  "concision": 6,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": false
+  },
+  "word_count": 300,
+  "notes": "Spins flat revenue as 'a win, not a disappointment', directly against the candour brief; also sits at exactly 300 words with a preamble."
+ },
+ "O02": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 274,
+  "notes": "Clean, plain, all four results and all three lessons, revenue flat stated without spin, ready to paste."
+ },
+ "O03": {
+  "correctness": 5,
+  "completeness": 8,
+  "adherence": 5,
+  "usefulness": 5,
+  "concision": 6,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": false
+  },
+  "word_count": 273,
+  "notes": "Invents numbers not in the fact sheet (40%, 20%) and an unsupported 'hesitation dressed up as rigour' claim, plus section headers and trailing notes."
+ },
+ "O04": {
+  "correctness": 6,
+  "completeness": 8,
+  "adherence": 7,
+  "usefulness": 6,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 274,
+  "notes": "Frames flat revenue as 'a win rather than a disappointment', which is exactly the spin the rubric forbids."
+ },
+ "O05": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 5,
+  "usefulness": 6,
+  "concision": 6,
+  "objective": {
+   "word_count_200_300": false,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 315,
+  "notes": "Honest and complete but 315 words, over the 300 limit, so the founder would have to cut it."
+ },
+ "O06": {
+  "correctness": 5,
+  "completeness": 8,
+  "adherence": 4,
+  "usefulness": 4,
+  "concision": 4,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 273,
+  "notes": "Opens with a headline-style title line and fabricates an admitted mistake ('we almost sold this as a perk') not in the fact sheet, then adds long assistant commentary."
+ },
+ "O07": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 226,
+  "notes": "Tight 226-word post with every fact and no spin; only blemish is a trailing self-check paragraph to delete."
+ },
+ "O08": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 7,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 266,
+  "notes": "Strong candid post with revenue flat in its own sentence and a sceptic-facing close, wrapped in a preamble and constraint checklist that must be stripped."
+ },
+ "O09": {
+  "correctness": 6,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": false
+  },
+  "word_count": 280,
+  "notes": "Introduces '20% fewer working hours' and 'at fifty', numbers not in the fact sheet, in an otherwise strong candid post."
+ },
+ "O10": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 247,
+  "notes": "Plain, complete, no preamble, no invented figures, revenue flat stated with the 'quietly hoped for lift' admission; paste-ready."
+ },
+ "O11": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 7,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 264,
+  "notes": "Good post with a careful 'what this proves' caveat, but bookended by a preamble and explanatory notes."
+ },
+ "O12": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 261,
+  "notes": "'Flat revenue is the honest headline' does the candour work well; complete and clean with no wrapper text."
+ },
+ "O13": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 267,
+  "notes": "Solid post but wrapped in an odd preamble and a trailing word-count claim (251) that is wrong (267)."
+ },
+ "O14": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": false
+  },
+  "word_count": 260,
+  "notes": "Complete and plain, but uses a numbered 1/2/3 list (digits outside the allowed set) and a trailing constraint check."
+ },
+ "O15": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 6,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 249,
+  "notes": "The post itself is excellent and leads with flat revenue, but a visible reasoning block precedes it and would have to be cut."
+ },
+ "O16": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": false
+  },
+  "word_count": 278,
+  "notes": "Honest and complete; the closing question is a slightly loaded either/or and the headcount uses digits (6/2/2) outside the allowed number set."
+ },
+ "O17": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 261,
+  "notes": "Clean prose with no lists, no wrapper, all four results plainly stated, and appropriate sample-size hedging."
+ },
+ "O18": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 7,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 247,
+  "notes": "Good candid voice, but implies prior burnout ('six mentors who are not burned out') not in the fact sheet and adds trailing notes."
+ },
+ "O19": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 273,
+  "notes": "'Here's what didn't' handling of revenue is exactly the requested candour; complete and paste-ready."
+ },
+ "O20": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 269,
+  "notes": "Adds a sensible small-sample caveat and states flat revenue plainly; 'cut a fifth of our working days' is a derived figure but spelled out."
+ },
+ "O21": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 253,
+  "notes": "Strong causal-inference caveat, but claims 'founders ask us roughly once a week' and carries a header line plus trailing notes."
+ },
+ "O22": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 248,
+  "notes": "Clean and honest, but promises 'three things we would do again, and one we would do sooner' and never delivers the fourth."
+ },
+ "O23": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 7,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 256,
+  "notes": "Good post ('not a revolution. It was still worth doing'), but with preamble and trailing notes to remove."
+ },
+ "O24": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 275,
+  "notes": "Complete and plain, though it asserts revenue was tracked 'from day one' which the fact sheet does not say."
+ },
+ "O25": {
+  "correctness": 7,
+  "completeness": 9,
+  "adherence": 7,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": false
+  },
+  "word_count": 260,
+  "notes": "Well-judged caveats, but '20% fewer working days' is a number not in the fact sheet."
+ },
+ "O26": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 5,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 260,
+  "notes": "The post is candid and complete, but it uses the banned hype word 'unlock' and is preceded by a long reasoning block."
+ },
+ "O27": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 10,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 248,
+  "notes": "Every fact, no spin, no invented numbers, no wrapper text, 248 words; the cleanest paste-ready output."
+ },
+ "O28": {
+  "correctness": 8,
+  "completeness": 9,
+  "adherence": 6,
+  "usefulness": 6,
+  "concision": 4,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": false
+  },
+  "word_count": 297,
+  "notes": "Post is fine but near the limit at 297 words, uses digits outside the set, and is followed by long assistant commentary and follow-up questions."
+ },
+ "O29": {
+  "correctness": 7,
+  "completeness": 8,
+  "adherence": 6,
+  "usefulness": 7,
+  "concision": 5,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 214,
+  "notes": "Invents 'fixed it in a week', never names the company, only implies 'no unexpected problems', and is preceded by a reasoning block."
+ },
+ "O30": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 8,
+  "objective": {
+   "word_count_200_300": true,
+   "no_hash_character": true,
+   "no_emoji": true,
+   "last_line_ends_with_question_mark": true,
+   "no_excited_to_share": true,
+   "no_digit_numbers_outside_allowed_set": true
+  },
+  "word_count": 282,
+  "notes": "Complete and candid ('one moved and one didn't'), no wrapper text; slightly wordy at 282."
+ },
+ "top3": [
+  "O27",
+  "O10",
+  "O17"
+ ]
+}

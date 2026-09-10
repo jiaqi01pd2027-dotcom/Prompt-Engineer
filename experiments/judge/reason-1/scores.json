@@ -1,0 +1,397 @@
+{
+ "O01": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct and tight, but the $2.43 discount amount is never shown and the final line mixes $50/$31.88 with the answer."
+ },
+ "O02": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Every rubric intermediate present with scope stated on the coupon and tax lines, and a clean final answer line."
+ },
+ "O03": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Clean, complete arithmetic with a clearly marked answer; scope (notebooks-only, tax after discount) is only implicit in the calculation."
+ },
+ "O04": {
+  "correctness": 10,
+  "completeness": 7,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct values but no calculations shown, so a reader must redo the arithmetic to follow it."
+ },
+ "O05": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "All steps correct in one dense paragraph; harder to scan than a list and scope is implicit."
+ },
+ "O06": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 6,
+  "usefulness": 8,
+  "concision": 6,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct table, but the closing note offers an alternative $18.11 answer 'just in case' and the last line mixes several amounts."
+ },
+ "O07": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 7,
+  "usefulness": 8,
+  "concision": 6,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct and complete, but the rounding-sensitivity note is padding and pushes the last dollar-bearing line away from the answer."
+ },
+ "O08": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 7,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Complete with explicit scope reasoning and clean final answer, but wordy prose and an unnecessary $31.95 aside."
+ },
+ "O09": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 7,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct, but omits the $2.43 discount value and ends on a rounding aside citing $18.1184 rather than the answer."
+ },
+ "O10": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Complete, correct and explicit on scope; only flaw is the final line mixing $50.00/$31.88 with the answer."
+ },
+ "O11": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 8,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Complete and clearly marked answer; slightly chatty phrasing around rounding."
+ },
+ "O12": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 6,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct with explicit scope, but the step-5 lecture on rounding order is padding and the rounded tax $2.36 is never stated."
+ },
+ "O13": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 8,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Every intermediate correct with scope labelled per step; step-header scaffolding adds a little bulk."
+ },
+ "O14": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 7,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Arithmetic is complete and correct, but the opener referencing 'clarifying questions' you already answered is a stray artifact the requester would cut."
+ },
+ "O15": {
+  "correctness": 10,
+  "completeness": 7,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct values but no calculations shown, so a reader must redo the arithmetic to follow it."
+ },
+ "O16": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Very concise and correct, but rounded tax and total addition are elided (\u2248 $31.88) and the final line carries other amounts."
+ },
+ "O17": {
+  "correctness": 10,
+  "completeness": 8,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Compact and correct with a clean final line, but the rounded tax $2.36 and the total addition are skipped."
+ },
+ "O18": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 7,
+  "usefulness": 8,
+  "concision": 6,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct table with explicit scope, but the trailing paragraph restates checks and rounding, ending on $18.1184 rather than the answer."
+ },
+ "O19": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "All steps correct in one dense paragraph; harder to scan than a list and scope is implicit."
+ },
+ "O20": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Complete, correct, scope stated on each relevant line, and a clean final answer sentence."
+ },
+ "O21": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 8,
+  "usefulness": 9,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct and concise, but rounded tax $2.36 is not shown separately and the last line mixes $50.00/$31.88 with the answer."
+ },
+ "O22": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 8,
+  "usefulness": 8,
+  "concision": 8,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Complete and correct, but opens by citing 'your answers' to questions that were never asked."
+ },
+ "O23": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 8,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Every intermediate correct with scope stated explicitly; header scaffolding adds some bulk."
+ },
+ "O24": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Complete, scope stated inline, clean 'Answer: $18.12' line; minimal padding."
+ },
+ "O25": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Clean, complete arithmetic with a clearly marked answer; scope is only implicit in the calculation."
+ },
+ "O26": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 10,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Clean, complete arithmetic with a clearly marked answer; scope is only implicit in the calculation."
+ },
+ "O27": {
+  "correctness": 10,
+  "completeness": 9,
+  "adherence": 9,
+  "usefulness": 9,
+  "concision": 10,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "All steps correct in one dense paragraph; harder to scan than a list and scope is implicit."
+ },
+ "O28": {
+  "correctness": 9,
+  "completeness": 9,
+  "adherence": 5,
+  "usefulness": 7,
+  "concision": 7,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": false,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Hedges the final answer as 'about $18.12' after computing $18.1184 instead of stating exact cents, and the last line carries $31.88."
+ },
+ "O29": {
+  "correctness": 10,
+  "completeness": 10,
+  "adherence": 10,
+  "usefulness": 10,
+  "concision": 8,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Complete with scope labelled on every line and a clean final sentence; heavy bolding adds visual bulk."
+ },
+ "O30": {
+  "correctness": 10,
+  "completeness": 7,
+  "adherence": 8,
+  "usefulness": 7,
+  "concision": 9,
+  "objective": {
+   "contains 18.12": true,
+   "last dollar line contains only 18.12": true,
+   "no wrong final answer (20.67/20.48/17.92/15.49/18.04)": true
+  },
+  "notes": "Correct values but no calculations shown, so a reader must redo the arithmetic to follow it."
+ },
+ "top3": [
+  "O02",
+  "O24",
+  "O20"
+ ]
+}

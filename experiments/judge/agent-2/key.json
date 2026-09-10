@@ -1,0 +1,122 @@
+{
+ "O01": {
+  "model": "sonnet",
+  "pattern": "P3"
+ },
+ "O02": {
+  "model": "opus",
+  "pattern": "P7"
+ },
+ "O03": {
+  "model": "sonnet",
+  "pattern": "P4"
+ },
+ "O04": {
+  "model": "opus",
+  "pattern": "P0"
+ },
+ "O05": {
+  "model": "opus",
+  "pattern": "P9"
+ },
+ "O06": {
+  "model": "opus",
+  "pattern": "P1"
+ },
+ "O07": {
+  "model": "fable",
+  "pattern": "P1"
+ },
+ "O08": {
+  "model": "opus",
+  "pattern": "P8"
+ },
+ "O09": {
+  "model": "fable",
+  "pattern": "P8"
+ },
+ "O10": {
+  "model": "sonnet",
+  "pattern": "P8"
+ },
+ "O11": {
+  "model": "fable",
+  "pattern": "P4"
+ },
+ "O12": {
+  "model": "sonnet",
+  "pattern": "P1"
+ },
+ "O13": {
+  "model": "opus",
+  "pattern": "P2"
+ },
+ "O14": {
+  "model": "opus",
+  "pattern": "P3"
+ },
+ "O15": {
+  "model": "sonnet",
+  "pattern": "P6"
+ },
+ "O16": {
+  "model": "opus",
+  "pattern": "P6"
+ },
+ "O17": {
+  "model": "fable",
+  "pattern": "P3"
+ },
+ "O18": {
+  "model": "sonnet",
+  "pattern": "P9"
+ },
+ "O19": {
+  "model": "opus",
+  "pattern": "P5"
+ },
+ "O20": {
+  "model": "sonnet",
+  "pattern": "P7"
+ },
+ "O21": {
+  "model": "fable",
+  "pattern": "P0"
+ },
+ "O22": {
+  "model": "fable",
+  "pattern": "P9"
+ },
+ "O23": {
+  "model": "fable",
+  "pattern": "P5"
+ },
+ "O24": {
+  "model": "fable",
+  "pattern": "P6"
+ },
+ "O25": {
+  "model": "sonnet",
+  "pattern": "P0"
+ },
+ "O26": {
+  "model": "sonnet",
+  "pattern": "P2"
+ },
+ "O27": {
+  "model": "fable",
+  "pattern": "P7"
+ },
+ "O28": {
+  "model": "fable",
+  "pattern": "P2"
+ },
+ "O29": {
+  "model": "opus",
+  "pattern": "P4"
+ },
+ "O30": {
+  "model": "sonnet",
+  "pattern": "P5"
+ }
+}
