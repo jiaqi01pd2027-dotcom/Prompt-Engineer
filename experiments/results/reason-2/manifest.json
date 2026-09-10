@@ -1,0 +1,182 @@
+[
+  {
+    "file": "experiments/results/reason-2/fable/P0.md",
+    "model": "fable",
+    "pattern": "P0",
+    "word_count": 163
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P1.md",
+    "model": "fable",
+    "pattern": "P1",
+    "word_count": 214
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P2.md",
+    "model": "fable",
+    "pattern": "P2",
+    "word_count": 251
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P3.md",
+    "model": "fable",
+    "pattern": "P3",
+    "word_count": 200
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P4.md",
+    "model": "fable",
+    "pattern": "P4",
+    "word_count": 339
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P5.md",
+    "model": "fable",
+    "pattern": "P5",
+    "word_count": 133
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P6.md",
+    "model": "fable",
+    "pattern": "P6",
+    "word_count": 194
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P7.md",
+    "model": "fable",
+    "pattern": "P7",
+    "word_count": 316
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P8.md",
+    "model": "fable",
+    "pattern": "P8",
+    "word_count": 219
+  },
+  {
+    "file": "experiments/results/reason-2/fable/P9.md",
+    "model": "fable",
+    "pattern": "P9",
+    "word_count": 197
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P0.md",
+    "model": "opus",
+    "pattern": "P0",
+    "word_count": 184
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P1.md",
+    "model": "opus",
+    "pattern": "P1",
+    "word_count": 237
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P2.md",
+    "model": "opus",
+    "pattern": "P2",
+    "word_count": 247
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P3.md",
+    "model": "opus",
+    "pattern": "P3",
+    "word_count": 199
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P4.md",
+    "model": "opus",
+    "pattern": "P4",
+    "word_count": 270
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P5.md",
+    "model": "opus",
+    "pattern": "P5",
+    "word_count": 165
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P6.md",
+    "model": "opus",
+    "pattern": "P6",
+    "word_count": 217
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P7.md",
+    "model": "opus",
+    "pattern": "P7",
+    "word_count": 363
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P8.md",
+    "model": "opus",
+    "pattern": "P8",
+    "word_count": 189
+  },
+  {
+    "file": "experiments/results/reason-2/opus/P9.md",
+    "model": "opus",
+    "pattern": "P9",
+    "word_count": 201
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P0.md",
+    "model": "sonnet",
+    "pattern": "P0",
+    "word_count": 173
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P1.md",
+    "model": "sonnet",
+    "pattern": "P1",
+    "word_count": 147
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P2.md",
+    "model": "sonnet",
+    "pattern": "P2",
+    "word_count": 252
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P3.md",
+    "model": "sonnet",
+    "pattern": "P3",
+    "word_count": 168
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P4.md",
+    "model": "sonnet",
+    "pattern": "P4",
+    "word_count": 343
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P5.md",
+    "model": "sonnet",
+    "pattern": "P5",
+    "word_count": 95
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P6.md",
+    "model": "sonnet",
+    "pattern": "P6",
+    "word_count": 167
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P7.md",
+    "model": "sonnet",
+    "pattern": "P7",
+    "word_count": 249
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P8.md",
+    "model": "sonnet",
+    "pattern": "P8",
+    "word_count": 142
+  },
+  {
+    "file": "experiments/results/reason-2/sonnet/P9.md",
+    "model": "sonnet",
+    "pattern": "P9",
+    "word_count": 193
+  }
+]

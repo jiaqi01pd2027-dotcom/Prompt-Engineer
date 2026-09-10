@@ -1,0 +1,143 @@
+{
+  "task": "reason-1",
+  "models": [
+    "fable",
+    "opus",
+    "sonnet"
+  ],
+  "patterns": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8",
+    "P9"
+  ],
+  "contaminated": [],
+  "files": {
+    "fable/P0.md": {
+      "words": 52,
+      "error": false
+    },
+    "fable/P1.md": {
+      "words": 51,
+      "error": false
+    },
+    "fable/P2.md": {
+      "words": 81,
+      "error": false
+    },
+    "fable/P3.md": {
+      "words": 69,
+      "error": false
+    },
+    "fable/P4.md": {
+      "words": 108,
+      "error": false
+    },
+    "fable/P5.md": {
+      "words": 22,
+      "error": false
+    },
+    "fable/P6.md": {
+      "words": 46,
+      "error": false
+    },
+    "fable/P7.md": {
+      "words": 82,
+      "error": false
+    },
+    "fable/P8.md": {
+      "words": 61,
+      "error": false
+    },
+    "fable/P9.md": {
+      "words": 87,
+      "error": false
+    },
+    "opus/P0.md": {
+      "words": 122,
+      "error": false
+    },
+    "opus/P1.md": {
+      "words": 80,
+      "error": false
+    },
+    "opus/P2.md": {
+      "words": 170,
+      "error": false
+    },
+    "opus/P3.md": {
+      "words": 126,
+      "error": false
+    },
+    "opus/P4.md": {
+      "words": 81,
+      "error": false
+    },
+    "opus/P5.md": {
+      "words": 22,
+      "error": false
+    },
+    "opus/P6.md": {
+      "words": 46,
+      "error": false
+    },
+    "opus/P7.md": {
+      "words": 127,
+      "error": false
+    },
+    "opus/P8.md": {
+      "words": 56,
+      "error": false
+    },
+    "opus/P9.md": {
+      "words": 67,
+      "error": false
+    },
+    "sonnet/P0.md": {
+      "words": 121,
+      "error": false
+    },
+    "sonnet/P1.md": {
+      "words": 69,
+      "error": false
+    },
+    "sonnet/P2.md": {
+      "words": 82,
+      "error": false
+    },
+    "sonnet/P3.md": {
+      "words": 70,
+      "error": false
+    },
+    "sonnet/P4.md": {
+      "words": 116,
+      "error": false
+    },
+    "sonnet/P5.md": {
+      "words": 22,
+      "error": false
+    },
+    "sonnet/P6.md": {
+      "words": 47,
+      "error": false
+    },
+    "sonnet/P7.md": {
+      "words": 150,
+      "error": false
+    },
+    "sonnet/P8.md": {
+      "words": 58,
+      "error": false
+    },
+    "sonnet/P9.md": {
+      "words": 121,
+      "error": false
+    }
+  }
+}

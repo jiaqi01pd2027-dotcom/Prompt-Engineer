@@ -29,3 +29,9 @@ task spec (with the hidden rubric) in experiments/ and read it. All harness path
 the runner prompt are absolute. After a batch, run experiments/check_contamination.py
 on the task; any output that mentions the experiment, a rubric, a fixture, or a
 file path in the project is marked contaminated and re-run.
+
+## Resuming
+
+Skip any (model, pattern) whose result file already exists and is non-empty and does not
+start with "ERROR". Only run the missing ones. Subagents must be launched from the empty
+sandbox working directory you are already in (never cd into the project).

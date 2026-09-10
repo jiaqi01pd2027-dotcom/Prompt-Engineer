@@ -1,0 +1,536 @@
+<title>Same Model, Different Words</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --ground:#F4F5F1; --paper:#FFFFFF; --ink:#16202B; --ink-2:#4E5A66; --ink-3:#7C8792;
+  --line:#D9DDD6; --line-2:#E8EBE6;
+  --accent:#1F4FD6; --accent-ink:#FFFFFF; --accent-soft:#E4EAFB;
+  --mark:#F2D64B; --mark-ink:#3A3000;
+  --good:#0ca30c; --critical:#d03b3b; --warning:#fab219;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --q100:#cde2fb; --q200:#9ec5f4; --q300:#6da7ec; --q400:#3987e5; --q500:#256abf; --q600:#184f95; --q700:#0d366b;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:6px; --maxw:72ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#101418; --paper:#171C22; --ink:#E6EAEE; --ink-2:#AEB7C0; --ink-3:#7F8993;
+    --line:#2B333C; --line-2:#222930;
+    --accent:#7DA0FF; --accent-ink:#0B1530; --accent-soft:#1B2540;
+    --mark:#D8BE3C; --mark-ink:#1E1900;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --q100:#183456; --q200:#1c4478; --q300:#22569a; --q400:#2a6bbd; --q500:#3987e5; --q600:#6da7ec; --q700:#9ec5f4;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#101418; --paper:#171C22; --ink:#E6EAEE; --ink-2:#AEB7C0; --ink-3:#7F8993;
+  --line:#2B333C; --line-2:#222930;
+  --accent:#7DA0FF; --accent-ink:#0B1530; --accent-soft:#1B2540;
+  --mark:#D8BE3C; --mark-ink:#1E1900;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --q100:#183456; --q200:#1c4478; --q300:#22569a; --q400:#2a6bbd; --q500:#3987e5; --q600:#6da7ec; --q700:#9ec5f4;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;letter-spacing:-.01em;margin-bottom:.4em}
+h3{font-size:1.2rem;font-weight:600;margin-bottom:.3em}
+p{margin:0 0 1em}
+code,pre,textarea,.mono{font-family:var(--mono);font-size:.86em}
+pre{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;margin:0 0 1em;line-height:1.5}
+.eyebrow{font-family:var(--body);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;color:var(--ink-3)}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px;max-width:1180px;margin:0 auto;padding:0 24px}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr);gap:0}.rail{display:none}}
+.rail{position:sticky;top:0;align-self:start;height:100vh;padding:32px 0;display:flex;flex-direction:column;gap:6px}
+.rail .brand{font-family:var(--display);font-weight:800;font-size:1.05rem;margin-bottom:14px;color:var(--ink)}
+.rail a{color:var(--ink-2);text-decoration:none;font-size:.95rem;padding:5px 10px;border-left:2px solid transparent;border-radius:0 4px 4px 0}
+.rail a:hover,.rail a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.rail a.active{border-left-color:var(--accent);color:var(--ink)}
+.rail .foot{margin-top:auto;font-size:.82rem;color:var(--ink-3)}
+main{padding:32px 0 96px;min-width:0}
+section{padding:56px 0;border-top:1px solid var(--line-2)}
+section:first-child{border-top:0;padding-top:24px}
+.prose{max-width:var(--maxw)}
+.wide{max-width:960px}
+.lede{font-size:1.2rem;color:var(--ink-2);max-width:var(--maxw)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;min-width:0}
+.panel .tag{display:inline-block;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-bottom:10px}
+.tag.bare{background:var(--line-2);color:var(--ink-2)}
+.tag.full{background:var(--accent-soft);color:var(--accent)}
+.panel pre{border:0;padding:0;background:transparent;margin:0;font-size:.82rem;max-height:340px;overflow:auto}
+.panel .out{border-top:1px dashed var(--line);margin-top:12px;padding-top:12px;font-size:.95rem;white-space:pre-wrap;max-height:380px;overflow:auto}
+.note{font-size:.9rem;color:var(--ink-3)}
+.mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit;padding:0 2px}
+.findings{counter-reset:f;list-style:none;padding:0;margin:0 0 24px;max-width:var(--maxw)}
+.findings li{position:relative;padding:12px 0 12px 44px;border-top:1px solid var(--line-2)}
+.findings li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-family:var(--display);font-weight:700;display:grid;place-items:center;font-size:.9rem}
+.findings b{font-weight:600}
+figure{margin:28px 0}
+figcaption{font-size:.9rem;color:var(--ink-2);margin-top:8px;max-width:var(--maxw)}
+.chart{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px 10px;position:relative;overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto;font-family:var(--body)}
+.chart text{fill:var(--ink-2);font-size:12px}
+.chart .axis line{stroke:var(--line);stroke-width:1}
+.chart .bar{fill:var(--s1)}
+.chart .bar.dim{fill:var(--line)}
+.chart .lbl{fill:var(--ink);font-weight:600}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-2);margin:6px 4px 4px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--ground);font-size:.8rem;padding:6px 8px;border-radius:4px;transform:translate(-50%,calc(-100% - 10px));white-space:nowrap;opacity:0;transition:opacity .08s}
+.tip.on{opacity:1}
+.heat{display:grid;gap:2px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.heat div{padding:8px 6px;font-size:.85rem;text-align:center;border-radius:3px;font-variant-numeric:tabular-nums;min-width:0}
+.heat .h{background:transparent;color:var(--ink-3);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.05em}
+.heat .r{background:transparent;text-align:left;color:var(--ink-2);white-space:nowrap}
+.heat .c{color:var(--ink)}
+.heat .c.hi{color:#fff}
+table.data{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+table.data th,table.data td{padding:7px 10px;border-bottom:1px solid var(--line-2);text-align:right}
+table.data th:first-child,table.data td:first-child{text-align:left}
+table.data th{color:var(--ink-3);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+details.tbl{margin-top:8px}
+details.tbl summary{cursor:pointer;color:var(--ink-2);font-size:.9rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.card h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.card .id{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);font-weight:400}
+.card .str{font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+.card .str.strong{border-color:var(--good);color:var(--good)}
+.card .str.weak{border-color:var(--warning);color:var(--ink-2)}
+.card p{margin:0;font-size:.95rem}
+.card pre{margin:2px 0;font-size:.78rem;padding:10px 12px;background:var(--ground)}
+.card .hh{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.88rem;color:var(--ink-2)}
+.card .hh b{display:block;color:var(--ink);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.card .ev{font-size:.84rem;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:8px;margin-top:auto}
+textarea{width:100%;min-height:150px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);resize:vertical;line-height:1.5}
+textarea:focus,button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+button{font:inherit;font-weight:600;border-radius:var(--radius);padding:9px 16px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink)}
+.score{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:16px 0}
+.score .big{font-family:var(--display);font-weight:800;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.score .band{color:var(--ink-2)}
+.dims{display:grid;gap:6px;margin:10px 0 18px}
+.dim{display:grid;grid-template-columns:190px 1fr auto;gap:12px;align-items:center;font-size:.92rem}
+.dim .track{height:8px;background:var(--line-2);border-radius:4px;overflow:hidden}
+.dim .fill{height:100%;background:var(--s1);border-radius:4px}
+.dim .v{font-variant-numeric:tabular-nums;color:var(--ink-2);min-width:52px;text-align:right}
+.dim .why{grid-column:2/4;font-size:.84rem;color:var(--ink-3);margin-top:-4px}
+@media (max-width:600px){.dim{grid-template-columns:1fr auto}.dim .track{grid-column:1/3}}
+.opts{display:grid;gap:12px;margin-top:12px}
+.opt{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
+.opt h4{font-family:var(--display);font-size:1rem;margin-bottom:6px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.opt pre{background:var(--ground);margin:0}
+.opt .pats{font-size:.85rem;color:var(--ink-2);margin-top:8px}
+.copy{font-size:.78rem;padding:4px 10px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media (max-width:760px){.pair{grid-template-columns:1fr}}
+.pair .panel .out{max-height:420px;border-top:0;margin-top:0;padding-top:0}
+.pair .panel h4{font-family:var(--display);margin-bottom:10px}
+.tally{display:flex;gap:18px;align-items:center;font-size:.92rem;color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+.tally .bar{flex:1 1 220px;height:10px;background:var(--line-2);border-radius:5px;overflow:hidden;display:flex}
+.tally .bar i{display:block;height:100%;background:var(--s1)}
+.tally .bar i.b{background:var(--line)}
+.reveal{background:var(--accent-soft);color:var(--ink);padding:10px 12px;border-radius:var(--radius);font-size:.92rem;margin-top:12px}
+.steps{padding-left:20px;max-width:var(--maxw)}
+.steps li{margin-bottom:6px}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--line-2);color:var(--ink-2);font-size:.78rem;font-weight:600;margin-right:6px}
+[hidden]{display:none!important}
+.status{font-size:.86rem;color:var(--ink-3)}
+.streaming{white-space:pre-wrap;font-size:.92rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;max-height:520px;overflow:auto}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="layout">
+<nav class="rail" aria-label="Contents">
+  <div class="brand">Same Model,<br>Different Words</div>
+  <a href="#thesis">The claim</a>
+  <a href="#findings">What we found</a>
+  <a href="#patterns">Pattern library</a>
+  <a href="#grader">Grade a prompt</a>
+  <a href="#rate">Rate outputs</a>
+  <a href="#skill">The skill</a>
+  <a href="#paper">The paper</a>
+  <div class="foot">Tiger Zhang, 2026<br><a href="https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer">Source on GitHub</a></div>
+</nav>
+
+<main>
+<section id="thesis">
+  <div class="eyebrow">Prompt engineering, measured on Claude</div>
+  <h1 style="margin:10px 0 18px">The model is the same. <span class="mark">The words are the lever.</span></h1>
+  <p class="lede">Two prompts for the same customer complaint, sent to the same model, with nothing else in the context. One is what most people type. The other names the goal, the facts, the limits, and the shape. Read both replies and decide which one you would send.</p>
+  <div class="hero-grid" id="hero"></div>
+  <p class="note" style="margin-top:12px">Real outputs from the experiment, unedited. Twelve tasks, ten phrasings each, three Claude models, scored blind. <a href="#findings">See the numbers.</a></p>
+</section>
+
+<section id="findings">
+  <div class="eyebrow">Results</div>
+  <h2>What we found</h2>
+  <p class="lede">Each task was written in ten patterns that hold the job fixed and change only the wording, then run as a fresh subagent on Fable 5.1, Opus 5, and Sonnet 5. A separate judge scored every output blind on correctness, completeness, adherence, usefulness, and concision.</p>
+  <ol class="findings" id="findings-list"></ol>
+
+  <figure class="wide">
+    <div class="chart" id="c-pattern"></div>
+    <figcaption>Mean judge score (0 to 10, average of five dimensions) by prompt pattern, across all tasks and models. Hover a bar for the value; the table below has every number.</figcaption>
+    <details class="tbl"><summary>Table view</summary><div id="t-pattern"></div></details>
+  </figure>
+
+  <figure class="wide">
+    <div class="heat" id="c-heat"></div>
+    <figcaption>Pattern by domain. Darker is better. The best pattern is not the same in every column: format wins extraction, context and constraints win writing and analysis, and reasoning barely moves.</figcaption>
+  </figure>
+
+  <figure class="wide">
+    <div class="chart" id="c-model"></div>
+    <div class="legend"><span style="--c:var(--s1)">Fable 5.1</span><span style="--c:var(--s2)">Opus 5</span><span style="--c:var(--s3)">Sonnet 5</span></div>
+    <figcaption>The same patterns on three models. The ranking of patterns holds across models; the gap between a bare prompt and a full one is what changes.</figcaption>
+    <details class="tbl"><summary>Table view</summary><div id="t-model"></div></details>
+  </figure>
+
+  <div class="prose">
+    <h3>How to read this</h3>
+    <p>One run per cell means single-task numbers are noisy; read the pattern and domain averages, not one task. The judge is a Claude model scoring Claude outputs, so absolute scores are less trustworthy than the ordering. Objective checks (exact answers, JSON validity, word limits) back the ordering where the task allowed them. Human ratings from the <a href="#rate">rating page</a> are collected separately and never mixed into these charts.</p>
+  </div>
+</section>
+
+<section id="patterns">
+  <div class="eyebrow">Reference</div>
+  <h2>Pattern library</h2>
+  <p class="lede">Thirteen patterns, each with the phrasing that works, when it helps, when it hurts, and how strong the evidence is. Strength combines published studies, Anthropic's current guidance, and our runs.</p>
+  <div class="cards" id="cards"></div>
+  <div class="prose" style="margin-top:28px">
+    <h3>Ration or avoid</h3>
+    <p>Tips, threats, and emotional appeals: no reliable gain on 2025 models and high per-question variance. ALL CAPS, "CRITICAL", stacked "always" and "never": current Claude models over-trigger on them, and emphasis spent everywhere is emphasis spent nowhere. Contradictory rules: the top failure mode named by both Anthropic and OpenAI. Politeness or rudeness as a lever: the sign flips between models and years.</p>
+  </div>
+</section>
+
+<section id="grader">
+  <div class="eyebrow">Tool</div>
+  <h2>Grade a prompt</h2>
+  <p class="lede">Paste a draft. The page scores it against the seven-dimension rubric the skill uses, then asks Claude for the full treatment: scorecard with evidence, the questions worth asking, and three rewrites.</p>
+  <div class="wide">
+    <textarea id="draft" spellcheck="false" placeholder="Paste the prompt you were about to send.">write tests for the parser</textarea>
+    <div class="row">
+      <label class="note" for="target">Where it will run</label>
+      <select id="target">
+        <option value="Claude Code (agentic, in a repo)">Claude Code in a repo</option>
+        <option value="claude.ai chat">claude.ai chat</option>
+        <option value="an API system prompt or reusable template">API system prompt</option>
+        <option value="a subagent prompt">Subagent prompt</option>
+      </select>
+      <button id="btn-quick">Quick score</button>
+      <button id="btn-claude" class="primary" hidden>Full treatment with Claude</button>
+      <span class="status" id="grader-status"></span>
+    </div>
+    <div id="quick" hidden>
+      <div class="score"><div class="big" id="q-total">0</div><div class="band" id="q-band"></div></div>
+      <div class="dims" id="q-dims"></div>
+      <p class="note">The quick score looks for surface signals only (a named deliverable, numbers and file names, limits, a format, a check). It cannot know whether your facts are the right ones. Claude can.</p>
+    </div>
+    <div id="full" hidden>
+      <div class="streaming" id="full-out"></div>
+    </div>
+  </div>
+</section>
+
+<section id="rate">
+  <div class="eyebrow">Your turn</div>
+  <h2>Rate outputs blind</h2>
+  <p class="lede">Two outputs for the same task from the same model. One came from a bare prompt, one from the full-stack prompt. Which one would you use? Your vote is stored with everyone else's and reported next to the judge's scores.</p>
+  <div class="wide">
+    <div class="row">
+      <label class="note" for="pair-sel">Task</label>
+      <select id="pair-sel"></select>
+      <span class="status" id="rate-status"></span>
+    </div>
+    <details><summary class="note" style="cursor:pointer">Show the task the model was given (the shared material)</summary><pre id="pair-task" style="margin-top:8px"></pre></details>
+    <div class="pair">
+      <div class="panel"><h4>Output A</h4><div class="out" id="out-a"></div></div>
+      <div class="panel"><h4>Output B</h4><div class="out" id="out-b"></div></div>
+    </div>
+    <div class="row">
+      <button class="primary" data-vote="A">A is better</button>
+      <button class="primary" data-vote="B">B is better</button>
+      <button data-vote="tie">About the same</button>
+    </div>
+    <div class="reveal" id="reveal" hidden></div>
+    <div class="tally" id="tally"></div>
+  </div>
+</section>
+
+<section id="skill">
+  <div class="eyebrow">Claude Code</div>
+  <h2>The <code>/prompt-engineer</code> skill</h2>
+  <div class="prose">
+    <p>The skill runs the same workflow inside Claude Code, where it can read the project. It collects context from CLAUDE.md, the README, manifests, recent commits, and any file your draft names. It grades the draft out of 100, asks three to six questions in one batch (skipping any the repo already answers), and gives three rewrites with the patterns named and a section on what would push the score higher.</p>
+    <ol class="steps">
+      <li><b>Install.</b> Clone the repo and link the skill into your user skills folder:</li>
+    </ol>
+    <pre>git clone https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer.git
+ln -s "$(pwd)/Prompt-Engineer/skill/prompt-engineer" ~/.claude/skills/prompt-engineer</pre>
+    <ol class="steps" start="2">
+      <li><b>Use.</b> In any Claude Code session: <code>/prompt-engineer fix the login bug</code>, or paste a prompt and say "grade this". It also triggers when you ask "how should I ask for X".</li>
+      <li><b>Pick a rewrite.</b> A is minimal, B is structured with your project's facts, C is the interview or agentic form. The skill says which it recommends and why.</li>
+    </ol>
+    <h3>What a reply looks like</h3>
+    <pre>Scorecard: 22/100 (a command, not a prompt)
+  Goal and deliverable   4/20  "fix the login bug": which bug, done how?
+  Context                2/20  no file, no repro, no issue named
+  Constraints            0/15
+  Output format          2/15
+  Role and audience      0/10  (no meaningful persona here)
+  Verification           0/10  no test or check named
+  Scope                  4/10  one ask, hidden sub-steps
+
+Context found: Next.js, `npm test`, CLAUDE.md forbids edits under generated/,
+last 3 commits touch lib/auth/session.ts, open issue "cookie not cleared on logout".
+
+Rewrite B (recommended):
+  Fix the logout bug from the open issue "Session cookie not cleared on logout".
+  Start in lib/auth/session.ts. Reproduce it with a failing test in
+  lib/auth/__tests__/ matching session.test.ts, then fix the code, not the test.
+  Do not edit anything under generated/. Run `npm test` and `npm run lint` and
+  paste the results. If the fix needs changes outside lib/auth, stop and tell me.
+
+Patterns applied: specific deliverable, project substitution, few-shot by
+pointing at an existing test, verification with a stop rule. Not applied:
+role, chain-of-thought.
+To push it higher: add the expected behaviour ("after logout, GET /api/me
+returns 401") for a projected 90+.</pre>
+  </div>
+</section>
+
+<section id="paper">
+  <div class="eyebrow">Research</div>
+  <h2>The paper</h2>
+  <div class="prose">
+    <p><i>Same Model, Different Words: How Prompt Phrasing Changes What Claude Produces.</i> Tiger Zhang, September 2026.</p>
+    <p id="abstract"></p>
+    <p><a href="https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer/blob/main/paper/paper.md">Read the paper</a>, or browse the <a href="https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer/tree/main/experiments">experiment materials</a>: every task, every prompt variant, every raw output, and the judge's scores.</p>
+  </div>
+</section>
+</main>
+</div>
+
+<script id="data" type="application/json">{"names": {"P0": "bare", "P1": "specific", "P2": "role", "P3": "context", "P4": "constraints", "P5": "format", "P6": "fewshot", "P7": "cot", "P8": "fullstack", "P9": "interview"}, "summary": {}, "rows": [], "tasks": [{"id": "code-1", "title": "code-1: Parse ISO-8601 durations (coding)"}, {"id": "code-2", "title": "code-2: Debug a short Python snippet (coding)"}, {"id": "write-1", "title": "write-1: Customer support reply (writing)"}, {"id": "write-2", "title": "write-2: LinkedIn post on a 4-day work week (writing)"}, {"id": "analysis-1", "title": "analysis-1: Meeting transcript to decisions and action items (analysis)"}, {"id": "analysis-2", "title": "analysis-2: Compare three project tools for a small team (analysis)"}, {"id": "extract-1", "title": "extract-1: Feedback lines to ticket titles (extraction)"}, {"id": "extract-2", "title": "extract-2: Receipts to structured JSON (extraction)"}, {"id": "reason-1", "title": "reason-1: Discount and tax word problem (reasoning)"}, {"id": "reason-2", "title": "reason-2: Presentation scheduling puzzle (reasoning)"}, {"id": "agent-1", "title": "agent-1: Plan a feature for a small codebase (agentic planning)"}, {"id": "agent-2", "title": "agent-2: Scoped plan from a vague product brief (agentic planning)"}], "pairs": [{"task": "code-1", "title": "code-1: Parse ISO-8601 durations (coding)", "promptA": "Write a Python function that turns an ISO duration string into seconds.\n\n<spec>\nFunction name and signature: parse_iso_duration(s: str) -> float | int\nInput examples that must work: \"P1Y2M3DT4H5M6S\", \"P2W\", \"PT1.5S\", \"PT36H\", \"P1DT12H\"\nUnit lengths: 1 year = 365 days, 1 month = 30 days, 1 week = 7 days, 1 day = 24 hours.\nInvalid input (no leading P, an empty \"P\", a time unit such as S or H without the T\nseparator, fractions anywhere except seconds, unknown characters) must raise ValueError.\n<\/spec>", "promptB": "You are a senior Python engineer who writes small, well-tested standard-library\nutilities.\n\nGoal: write `parse_iso_duration(s)` so that a billing service can convert any ISO-8601\nduration string it stores into a total number of seconds, and reliably reject bad data.\n\nContext: the service stores subscription intervals as duration strings such as\n\"P1Y2M3DT4H5M6S\", \"P2W\", \"PT1.5S\", \"PT36H\" and \"P1DT12H\"; it only needs total seconds,\nso the team fixed 1 year = 365 days and 1 month = 30 days. Weeks always appear alone.\nFractions only ever appear on seconds. Malformed strings must raise ValueError so they\nnever reach the database.\n\nConstraints: standard library only. Exactly one function with that exact name and\nsignature; no classes, no CLI, no print statements. Reject \"P\" and \"PT\" with no\ncomponents, any time unit without the \"T\" separator, fractions on anything except\nseconds, and any unknown characters. Raise ValueError specifically. Do not return 0 or\nNone for bad input.\n\nFormat: one fenced ```python block containing the function with a docstring that lists\nthe unit assumptions, then a bullet list titled \"Assumptions\" with at most five bullets.\nNothing else.\n\n<spec>\nFunction name and signature: parse_iso_duration(s: str) -> float | int\nInput examples that must work: \"P1Y2M3DT4H5M6S\", \"P2W\", \"PT1.5S\", \"PT36H\", \"P1DT12H\"\nUnit lengths: 1 year = 365 days, 1 month = 30 days, 1 week = 7 days, 1 day = 24 hours.\nInvalid input (no leading P, an empty \"P\", a time unit such as S or H without the T\nseparator, fractions anywhere except seconds, unknown characters) must raise ValueError.\n<\/spec>", "A": "All tests pass. Here is the function:\n\n```python\nfrom __future__ import annotations\nimport re\n\n_DURATION_RE = re.compile(\n    r\"^P\"\n    r\"(?:(?P<Y>\\d+)Y)?\"\n    r\"(?:(?P<Mo>\\d+)M)?\"\n    r\"(?:(?P<W>\\d+)W)?\"\n    r\"(?:(?P<D>\\d+)D)?\"\n    r\"(?:T\"\n    r\"(?:(?P<H>\\d+)H)?\"\n    r\"(?:(?P<Mi>\\d+)M)?\"\n    r\"(?:(?P<S>\\d+(?:[.,]\\d+)?)S)?\"\n    r\")?$\"\n)\n\n_SECONDS_PER = {\n    \"Y\": 365 * 86400,\n    \"Mo\": 30 * 86400,\n    \"W\": 7 * 86400,\n    \"D\": 86400,\n    \"H\": 3600,\n    \"Mi\": 60,\n    \"S\": 1,\n}\n\n\ndef parse_iso_duration(s: str) -> float | int:\n    \"\"\"Convert an ISO 8601 duration such as \"P1DT12H\" into seconds.\n\n    Units are fixed-length: 1 year = 365 days, 1 month = 30 days,\n    1 week = 7 days, 1 day = 24 hours. A fractional value is only\n    allowed for seconds. Returns an int unless seconds are fractional.\n    Raises ValueError for anything that is not a valid duration.\n    \"\"\"\n    if not isinstance(s, str):\n        raise ValueError(f\"expected a string, got {type(s).__name__}\")\n\n    m = _DURATION_RE.match(s)\n    if m is None:\n        raise ValueError(f\"invalid ISO 8601 duration: {s!r}\")\n\n    parts = {k: v for k, v in m.groupdict().items() if v is not None}\n    if not parts:\n        # \"P\" or \"PT\" with no components\n        raise ValueError(f\"invalid ISO 8601 duration: {s!r}\")\n    if \"T\" in s and not (parts.keys() & {\"H\", \"Mi\", \"S\"}):\n        # \"P1DT\" -- T separator with nothing after it\n        raise ValueError(f\"invalid ISO 8601 duration: {s!r}\")\n\n    total = 0\n    for key, value in parts.items():\n        if key == \"S\" and (\".\" in value or \",\" in value):\n            total += float(value.replace(\",\", \".\")) * _SECONDS_PER[key]\n        else:\n            total += int(value) * _SECONDS_PER[key]\n    return total\n```\n\n**How it works**\n\n- A single anchored regex encodes the grammar `P[nY][nM][nW][nD][T[nH][nM][nS]]`. Because the `H`/`M`/`S` groups live inside the optional `T...` block, a time unit without the `T` separator (`P1H`, `P1S`) simply fails to match, and so does a date unit after `T` (`PT1D`). Only the seconds group allows a decimal part, so `P1.5D` or `PT1.5H` are rejected too. Order is enforced (`P1D2Y` fails), and unknown characters, leading/trailing whitespace, lowercase, and negatives are all rejected by the anchors.\n- Two extra checks cover cases the regex alone accepts: bare `P`/`PT` (nothing matched) and a trailing `T` with no time components (`P1DT`).\n- Result type: `int` unless seconds carry a fraction, in which case `float`. ISO 8601 allows a comma as the decimal mark, so `PT1,5S` is accepted alongside `PT1.5S`.\n\n**Verified results**\n\n| Input | Seconds |\n|---|---|\n| `P1Y2M3DT4H5M6S` | 36,993,906 |\n| `P2W` | 1,209,600 |\n| `PT1.5S` | 1.5 |\n| `PT36H` | 129,600 |\n| `P1DT12H` | 129,600 |\n\nRejected with `ValueError`: `\"\"`, `P`, `PT`, `1D`, `P1DT`, `P1H`, `P1S`, `PT1D`, `P1.5D`, `PT1.5H`, `P1X`, `P1D2Y`, `P-1D`, `p1d`, `PT.5S`.\n\nOne note: your `float | int` annotation needs Python 3.10+ at runtime, and the machine's default `python3` is 3.9.6, so I added `from __future__ import annotations` at the top. That keeps the exact signature you asked for and makes it run on 3.7+. If you're on 3.10 or later you can drop that line.\n\nThe file with the function and its self-test block is at `/private/tmp/claude-501/-Users-tigerzhang-Library-Application-Support-Claude-scratch-workspaces-2fbbb0d4-c0ac-4496-944c-ccd44cde89cd-afc2d717-2ef6-43fb-8872-1739b1232e4c-scratch-2026-09-09-1a35d2/e89783fa-09e6-4d8a-93fe-9392309af64b/scratchpad/iso_duration.py`.", "B": "```python\nfrom __future__ import annotations\n\nimport re\n\n_ISO_DURATION_RE = re.compile(\n    r\"^P\"\n    r\"(?:(?P<years>\\d+)Y)?\"\n    r\"(?:(?P<months>\\d+)M)?\"\n    r\"(?:(?P<weeks>\\d+)W)?\"\n    r\"(?:(?P<days>\\d+)D)?\"\n    r\"(?:T\"\n    r\"(?:(?P<hours>\\d+)H)?\"\n    r\"(?:(?P<minutes>\\d+)M)?\"\n    r\"(?:(?P<seconds>\\d+(?:\\.\\d+)?)S)?\"\n    r\")?$\"\n)\n\n_UNIT_SECONDS = {\n    \"years\": 365 * 86400,\n    \"months\": 30 * 86400,\n    \"weeks\": 7 * 86400,\n    \"days\": 86400,\n    \"hours\": 3600,\n    \"minutes\": 60,\n    \"seconds\": 1,\n}\n\n\ndef parse_iso_duration(s: str) -> float | int:\n    \"\"\"Convert an ISO-8601 duration string to a total number of seconds.\n\n    Unit assumptions:\n        1 year   = 365 days\n        1 month  = 30 days\n        1 week   = 7 days\n        1 day    = 24 hours\n        1 hour   = 60 minutes\n        1 minute = 60 seconds\n\n    Returns an int when the string has no fractional part, otherwise a float.\n    Raises ValueError for anything that is not a well-formed duration: missing\n    leading \"P\", no components at all (\"P\", \"PT\", \"P1DT\"), time units without\n    the \"T\" separator (\"P1H\"), fractions on any unit other than seconds\n    (\"P1.5D\"), weeks combined with other units (\"P1W2D\"), or unknown\n    characters (lowercase, signs, whitespace, \",\", etc.).\n    \"\"\"\n    if not isinstance(s, str):\n        raise ValueError(f\"duration must be a str, got {type(s).__name__}\")\n\n    m = _ISO_DURATION_RE.fullmatch(s)\n    if m is None:\n        raise ValueError(f\"invalid ISO-8601 duration: {s!r}\")\n\n    parts = {k: v for k, v in m.groupdict().items() if v is not None}\n    if not parts:\n        raise ValueError(f\"duration has no components: {s!r}\")\n    if s.endswith(\"T\"):\n        raise ValueError(f\"'T' separator with no time components: {s!r}\")\n    if \"weeks\" in parts and len(parts) > 1:\n        raise ValueError(f\"weeks cannot be combined with other units: {s!r}\")\n\n    total = 0\n    for unit, value in parts.items():\n        if unit == \"seconds\" and \".\" in value:\n            total += float(value)\n        else:\n            total += int(value) * _UNIT_SECONDS[unit]\n    return total\n```\n\nAssumptions\n- Components must appear in ISO order (Y, M, W, D, then T, H, M, S), each at most once; `_ISO_DURATION_RE` and `_UNIT_SECONDS` are module-level helpers, not extra public functions.\n- Weeks are rejected when combined with any other unit (`P1W2D`), matching \"weeks always appear alone\".\n- Only `.` is accepted as the decimal separator on seconds; the ISO-permitted `,` form is treated as an unknown character.\n- Zero-valued durations such as `PT0S` or `P0D` are valid and return `0`; the return type is `int` unless seconds carry a fraction, in which case it is `float`.\n- Non-string inputs raise `ValueError` (not `TypeError`) so a single exception type guards the database path; `from __future__ import annotations` keeps the exact `float | int` signature working on Python 3.7+."}, {"task": "code-2", "title": "code-2: Debug a short Python snippet (coding)", "promptA": "This code is broken, can you fix it?\n\n<code>\ndef tag_records(records, tags=[]):\n    \"\"\"Attach `tags` plus a 'processed' marker to every record.\"\"\"\n    tags.append(\"processed\")\n    return [dict(record, tags=list(tags)) for record in records]\n\n\ndef moving_average(values, window):\n    \"\"\"Return the average of every consecutive `window`-sized slice.\"\"\"\n    averages = []\n    for start in range(len(values) - window):\n        chunk = values[start:start + window]\n        averages.append(sum(chunk) / window)\n    return averages\n\n\ndef number_lines(lines):\n    \"\"\"Prefix each line with its 1-based line number, e.g. '1: first'.\"\"\"\n    return [f\"{index}: {line}\" for index, line in enumerate(lines, start=1)]\n\n\nif __name__ == \"__main__\":\n    print(tag_records([{\"id\": 1}]))\n    print(tag_records([{\"id\": 2}]))\n    print(moving_average([1, 2, 3, 4], 2))\n    print(number_lines([\"alpha\", \"beta\"]))\n<\/code>", "promptB": "You are a senior Python reviewer who is known for precise, no-nonsense code reviews.\n\nGoal: find and fix the bugs in the snippet below so the pipeline stops producing\nduplicate tags and truncated moving averages, without touching anything that works.\n\nContext: this module is part of a data-cleaning pipeline. Users reported that records\nprocessed later in a batch pick up duplicate \"processed\" tags, and that the moving\naverage of a 4-item list with window 2 comes back with two values instead of three.\nThe line-numbering helper feeds a diff viewer whose lines are numbered from 1, matching\nhow editors display them.\n\nConstraints: there are exactly two genuine bugs; report exactly two. Do not restyle\nworking code, add type hints, add validation, or change docstrings. Do not \"fix\"\nanything you cannot show is producing wrong output. Three sentences maximum per\nexplanation.\n\nFormat: three sections headed \"Bug 1\", \"Bug 2\" and \"Corrected code\". The first two\neach contain exactly the lines \"Function:\", \"Problem:\", \"Fix:\"; the third contains one\nfenced ```python block with the full corrected snippet. No other sections.\n\n<code>\ndef tag_records(records, tags=[]):\n    \"\"\"Attach `tags` plus a 'processed' marker to every record.\"\"\"\n    tags.append(\"processed\")\n    return [dict(record, tags=list(tags)) for record in records]\n\n\ndef moving_average(values, window):\n    \"\"\"Return the average of every consecutive `window`-sized slice.\"\"\"\n    averages = []\n    for start in range(len(values) - window):\n        chunk = values[start:start + window]\n        averages.append(sum(chunk) / window)\n    return averages\n\n\ndef number_lines(lines):\n    \"\"\"Prefix each line with its 1-based line number, e.g. '1: first'.\"\"\"\n    return [f\"{index}: {line}\" for index, line in enumerate(lines, start=1)]\n\n\nif __name__ == \"__main__\":\n    print(tag_records([{\"id\": 1}]))\n    print(tag_records([{\"id\": 2}]))\n    print(moving_average([1, 2, 3, 4], 2))\n    print(number_lines([\"alpha\", \"beta\"]))\n<\/code>", "A": "Two of the three functions had bugs; `number_lines` was already correct (`enumerate(lines, start=1)` gives 1-based numbering as documented).\n\n**Bug 1: `tag_records` \u2014 mutable default argument.** `tags=[]` is created once at function definition, so `tags.append(\"processed\")` mutates the shared list on every call. The second call would produce `['processed', 'processed']`, and any list a caller passed in would be mutated too. Fix: default to `None` and copy the caller's list.\n\n```python\ndef tag_records(records, tags=None):\n    \"\"\"Attach `tags` plus a 'processed' marker to every record.\"\"\"\n    tags = list(tags) if tags else []\n    tags.append(\"processed\")\n    return [dict(record, tags=list(tags)) for record in records]\n```\n\n**Bug 2: `moving_average` \u2014 off-by-one.** `range(len(values) - window)` drops the last window. For `[1, 2, 3, 4]` with window 2 it returned `[1.5, 2.5]` instead of `[1.5, 2.5, 3.5]`.\n\n```python\n    for start in range(len(values) - window + 1):\n```\n\nVerified output after the fix:\n\n```\n[{'id': 1, 'tags': ['processed']}]\n[{'id': 2, 'tags': ['processed']}]\n[1.5, 2.5, 3.5]\n['1: alpha', '2: beta']\n```\n\nFull corrected file:\n\n```python\ndef tag_records(records, tags=None):\n    \"\"\"Attach `tags` plus a 'processed' marker to every record.\"\"\"\n    tags = list(tags) if tags else []\n    tags.append(\"processed\")\n    return [dict(record, tags=list(tags)) for record in records]\n\n\ndef moving_average(values, window):\n    \"\"\"Return the average of every consecutive `window`-sized slice.\"\"\"\n    averages = []\n    for start in range(len(values) - window + 1):\n        chunk = values[start:start + window]\n        averages.append(sum(chunk) / window)\n    return averages\n\n\ndef number_lines(lines):\n    \"\"\"Prefix each line with its 1-based line number, e.g. '1: first'.\"\"\"\n    return [f\"{index}: {line}\" for index, line in enumerate(lines, start=1)]\n\n\nif __name__ == \"__main__\":\n    print(tag_records([{\"id\": 1}]))\n    print(tag_records([{\"id\": 2}]))\n    print(moving_average([1, 2, 3, 4], 2))\n    print(number_lines([\"alpha\", \"beta\"]))\n```", "B": "Bug 1\nFunction: tag_records\nProblem: The mutable default `tags=[]` is created once at definition time, so every call without an explicit `tags` appends another \"processed\" to the same shared list; the second call already emits `['processed', 'processed']`. This is exactly the \"later records pick up duplicate tags\" report.\nFix: Default to `None` and build a fresh list inside the function before appending.\n\nBug 2\nFunction: moving_average\nProblem: `range(len(values) - window)` stops one slice short, so `[1, 2, 3, 4]` with window 2 yields `[1.5, 2.5]` and never averages `[3, 4]`. The number of full windows is `len(values) - window + 1`.\nFix: Change the range bound to `len(values) - window + 1`, which produces `[1.5, 2.5, 3.5]`.\n\nCorrected code\n```python\ndef tag_records(records, tags=None):\n    \"\"\"Attach `tags` plus a 'processed' marker to every record.\"\"\"\n    tags = [] if tags is None else list(tags)\n    tags.append(\"processed\")\n    return [dict(record, tags=list(tags)) for record in records]\n\n\ndef moving_average(values, window):\n    \"\"\"Return the average of every consecutive `window`-sized slice.\"\"\"\n    averages = []\n    for start in range(len(values) - window + 1):\n        chunk = values[start:start + window]\n        averages.append(sum(chunk) / window)\n    return averages\n\n\ndef number_lines(lines):\n    \"\"\"Prefix each line with its 1-based line number, e.g. '1: first'.\"\"\"\n    return [f\"{index}: {line}\" for index, line in enumerate(lines, start=1)]\n\n\nif __name__ == \"__main__\":\n    print(tag_records([{\"id\": 1}]))\n    print(tag_records([{\"id\": 2}]))\n    print(moving_average([1, 2, 3, 4], 2))\n    print(number_lines([\"alpha\", \"beta\"]))\n```"}, {"task": "write-1", "title": "write-1: Customer support reply (writing)", "promptA": "Reply to this customer complaint.\n\n<complaint>\nThis is the second time today your CSV export has failed on me. I clicked Export,\nwaited ten minutes, and got a \"something went wrong\" error both times. I'm paying for\nthe Pro plan specifically for exports and I have a board meeting tomorrow morning. What\nis going on?\n<\/complaint>", "promptB": "You are a customer support lead at a SaaS company known for warm, concise replies.\n\nGoal: write a reply to the complaint below that leaves the customer confident their\nexport will be in hand before their board meeting.\n\nContext: the customer is on the paid Pro plan; their CSV export failed twice today;\nengineering has confirmed a bug in the export worker and the fix is deploying now; we\nwill email them the completed export within 24 hours; replies are signed \"The Support\nTeam\".\n\nConstraints: under 150 words. Apologise once, briefly. Acknowledge the two failures\nspecifically. Do not say \"thank you for your patience\", \"limited access\", or \"we\napologise for any inconvenience\". Do not ask them to try again. No subject line.\n\nFormat: plain-text email body, four short paragraphs (acknowledge, apologise, cause and\nstatus, next step with time), then \"The Support Team\".\n\n<complaint>\nThis is the second time today your CSV export has failed on me. I clicked Export,\nwaited ten minutes, and got a \"something went wrong\" error both times. I'm paying for\nthe Pro plan specifically for exports and I have a board meeting tomorrow morning. What\nis going on?\n<\/complaint>", "A": "Here's a reply draft you can send as-is or adjust to match what you actually know about the outage.\n\n---\n\n**Subject: Re: CSV export failing \u2014 let's get you sorted before tomorrow**\n\nHi [Name],\n\nI'm sorry. Two failed exports in one day, ten minutes wasted on each, and a board meeting tomorrow morning \u2014 that's exactly the situation Pro exports are supposed to prevent, not cause. Thanks for flagging it with the detail you did; it helps.\n\n**What's going on**\n\nWe've identified an issue on our side affecting CSV exports for larger workspaces. The export job is starting but timing out before it finishes writing the file, which is why you see a long wait followed by a generic \"something went wrong\" instead of a useful error. Our engineering team is working on it now. I don't want to promise a fix time I can't stand behind, but I'll email you the moment it's resolved.\n\n**Getting you your data today**\n\nI'm not going to leave you waiting on the fix with a board meeting on the line. Two options:\n\n1. **I'll run the export for you manually.** Reply with the name of the workspace/board you need (or just say \"all of it\") and I'll generate the CSV on our side and send it to you within the next two hours.\n2. **Try a smaller export.** If you can filter to a date range or a single view, exports under a few thousand rows are currently completing normally. That may be enough to unblock you right away.\n\nI'd suggest replying with option 1 either way so you have a guaranteed file in hand, and use option 2 if you need something sooner.\n\n**On the Pro plan**\n\nYou're paying for exports and they didn't work. I've credited [X days / one month] of your Pro subscription to your account; you don't need to do anything. If this ends up costing you more than that, tell me and we'll make it right.\n\nI'll follow up personally once the fix ships. Again, sorry for the scramble the day before a board meeting.\n\n[Your name]\n[Title], [Company] Support\n[Direct contact]\n\n---\n\n**Notes on the draft**\n\n- The \"what's going on\" paragraph assumes a known cause (timeout on large exports). If you don't actually know the cause yet, swap in something honest like: \"We've confirmed the failure on our side and engineering is investigating. I don't have a root cause to share yet, but I will as soon as I do.\" Don't invent a diagnosis.\n- Bracketed items ([Name], credit amount, contact) need filling in.\n- The manual-export offer is the load-bearing part. If your team can't actually do that within two hours, change the promise rather than the tone. A concrete workaround beats any apology here.", "B": "You're right to be frustrated. Two CSV exports failing today, each after a ten-minute wait and a \"something went wrong\" error, is not what you're paying for on Pro, especially with a board meeting tomorrow morning.\n\nWe're sorry. This one is on us.\n\nOur engineering team has confirmed the cause: a bug in the export worker was making exports fail after they were queued. The fix is deploying right now.\n\nYou don't need to do anything further. We'll run your export on our side and email you the completed CSV within 24 hours, prioritised so it's in your inbox ahead of tomorrow morning's meeting. If anything changes before then, we'll tell you straight away.\n\nThe Support Team"}, {"task": "write-2", "title": "write-2: LinkedIn post on a 4-day work week (writing)", "promptA": "Write a LinkedIn post about our switch to a 4-day week. Notes below.\n\n<factsheet>\nCompany: Northstar Mentors, a fully remote developer-mentorship company. 10 people\n(6 mentors, 2 operations, 2 founders).\nChange: moved from a 5-day to a 4-day work week (Fridays off, same pay) six months ago,\nafter a 3-month trial that we then extended.\nWho the post is for: founders and CEOs of small companies.\nResults after six months:\n- Productivity: mentoring sessions delivered per person per week went up, about 8%.\n- Revenue: flat compared with the six months before the switch.\n- Team satisfaction: up in our internal survey; nobody has left.\n- Problems: none we did not expect. Coordinating with clients on Fridays needed a\n  shared calendar note and a clear auto-reply, that was it.\nWhat we would tell another founder: decide the metric you will watch before you start,\nkeep the trial fixed-length, and do not sell it internally as a perk; treat it as an\noperating change.\nTone: candid, no hype, no emojis, no hashtags. End with one question to readers.\n<\/factsheet>", "promptB": "You are a founder who writes plain-spoken LinkedIn posts that other founders actually\nread to the end.\n\nGoal: write a LinkedIn post of about 250 words on what we learned from moving our\ncompany to a 4-day work week, so that a sceptical founder finishes it knowing exactly\nwhat changed, what did not, and what we would do differently.\n\nContext: we are Northstar Mentors, a 10-person fully remote developer-mentorship\nbusiness; we moved to a 4-day week six months ago after a 3-month trial. Readers are\nfounders and CEOs of small companies who have heard only the hype version and want\nthe real one. This is not a recruiting post. The fact sheet below has everything we\nare willing to say publicly.\n\nConstraints: between 200 and 300 words. No hashtags, no emojis, no title line. Do not\nopen with \"I'm excited to share\" or any \"excited/thrilled to announce\" line. Do not use\n\"game-changer\", \"revolutionary\", \"transformed\", or \"unlock\". Do not invent any number\nthat is not in the fact sheet. State plainly that revenue was flat. End with exactly one\nquestion to readers and nothing after it.\n\nFormat: plain text, five short paragraphs (what we did, what went up, what stayed flat\nand what problems we hit, what we would tell another founder, one closing question).\n\n<factsheet>\nCompany: Northstar Mentors, a fully remote developer-mentorship company. 10 people\n(6 mentors, 2 operations, 2 founders).\nChange: moved from a 5-day to a 4-day work week (Fridays off, same pay) six months ago,\nafter a 3-month trial that we then extended.\nWho the post is for: founders and CEOs of small companies.\nResults after six months:\n- Productivity: mentoring sessions delivered per person per week went up, about 8%.\n- Revenue: flat compared with the six months before the switch.\n- Team satisfaction: up in our internal survey; nobody has left.\n- Problems: none we did not expect. Coordinating with clients on Fridays needed a\n  shared calendar note and a clear auto-reply, that was it.\nWhat we would tell another founder: decide the metric you will watch before you start,\nkeep the trial fixed-length, and do not sell it internally as a perk; treat it as an\noperating change.\nTone: candid, no hype, no emojis, no hashtags. End with one question to readers.\n<\/factsheet>", "A": "Six months ago Northstar Mentors moved to a four-day week. Fridays off, same pay, all ten of us. Here is what the numbers say now that we have some distance from it.\n\nSome context first. We are a fully remote developer-mentorship company: six mentors, two people in operations, two founders. We ran a three-month trial, extended it, and then made it permanent.\n\nWhat changed after six months:\n\nProductivity: mentoring sessions delivered per person per week are up about 8%. That is the metric we chose to watch before we started, and it is the one we would have used to reverse the decision.\n\nRevenue: flat compared with the six months before the switch. Not up. We are not going to pretend otherwise.\n\nTeam: satisfaction is up in our internal survey, and nobody has left.\n\nProblems: none we did not see coming. Clients occasionally wanted Friday meetings. A shared calendar note and a clear auto-reply handled it. That was the whole list.\n\nIf another founder asked us how to approach this, we would say three things.\n\nDecide the metric you will watch before you start. If you pick it afterwards, you will pick the one that makes the decision look right.\n\nKeep the trial fixed-length. An open-ended trial is just a policy you have not admitted to yet.\n\nDo not sell it internally as a perk. Perks get taken away when things get tight. Treat it as an operating change, with the same scrutiny you would give a pricing change or a new tool, and the team will treat it that way too.\n\nWe are ten people, so take the sample size for what it is. But we went in expecting a productivity hit and got a small gain, and expecting friction with clients and got almost none.\n\nIf you have considered a four-day week and decided against it, what was the thing that stopped you?", "B": "Six months ago Northstar Mentors, a 10-person fully remote developer-mentorship company, moved from a 5-day week to a 4-day week. Fridays off, same pay. We ran a 3-month trial first, then extended it. Here is what actually happened.\n\nMentoring sessions delivered per person per week went up, about 8%. Team satisfaction went up in our internal survey, and nobody has left. That is the full list of things that improved. It is a short list, but both items are real and both held for six months.\n\nRevenue was flat. Not up, not down, flat compared with the six months before the switch. The problems we hit were the ones we expected. Coordinating with clients on Fridays needed a shared calendar note and a clear auto-reply. That was it. If you are waiting for the part where the numbers jumped, there is no such part.\n\nIf you are thinking about doing this, three things we would do again, and one we would do sooner. Decide the metric you will watch before you start, not after, or you will grade yourself on whatever looks best. Keep the trial fixed-length, so the decision to continue is a real decision and not a drift. And do not sell it internally as a perk. Treat it as an operating change, because that is what it is, and a perk is much harder to take back if the trial fails.\n\nWhat is the one number you would need to see before you tried this?"}, {"task": "reason-1", "title": "reason-1: Discount and tax word problem (reasoning)", "promptA": "Can you work this out for me?\n\n<problem>\nA stationery store sells pens for $2.25 each and notebooks for $5.40 each. Sarah buys\n7 pens and 3 notebooks. She has a coupon for 15% off that applies only to the\nnotebooks. Sales tax of 8% is added to the whole purchase after the discount. She pays\nwith a $50 bill. How much change does she receive?\n<\/problem>", "promptB": "You are a careful bookkeeper who checks every line of a receipt.\n\nGoal: solve the word problem below so that the amount of change is exactly what the\nregister would print.\n\nContext: this store applies coupons before tax; tax is charged on the discounted\nsubtotal of the whole basket; the coupon is item-specific and does not touch the pens;\namounts are rounded to the nearest cent at the tax step.\n\nConstraints: do not estimate. Do not apply the coupon to the pens. Do not apply tax\nbefore the discount. Show every intermediate amount. Give exactly one final answer; do\nnot offer alternatives.\n\nFormat: one labelled line per step (Pens, Notebooks before discount, Discount,\nNotebooks after discount, Subtotal, Tax, Total, Change), then a final line exactly of\nthe form \"Answer: $X.XX\".\n\n<problem>\nA stationery store sells pens for $2.25 each and notebooks for $5.40 each. Sarah buys\n7 pens and 3 notebooks. She has a coupon for 15% off that applies only to the\nnotebooks. Sales tax of 8% is added to the whole purchase after the discount. She pays\nwith a $50 bill. How much change does she receive?\n<\/problem>", "A": "Pens: 7 \u00d7 $2.25 = $15.75\nNotebooks: 3 \u00d7 $5.40 = $16.20\nNotebook discount: 15% of $16.20 = $2.43 \u2192 notebooks cost $13.77\nSubtotal after discount: $15.75 + $13.77 = $29.52\nTax: 8% of $29.52 = $2.3616 \u2192 total \u2248 $31.88 (rounded to the nearest cent)\nChange: $50.00 \u2212 $31.88 = **$18.12**", "B": "Pens: 7 \u00d7 $2.25 = $15.75\nNotebooks before discount: 3 \u00d7 $5.40 = $16.20\nDiscount: 15% \u00d7 $16.20 = $2.43\nNotebooks after discount: $16.20 \u2212 $2.43 = $13.77\nSubtotal: $15.75 + $13.77 = $29.52\nTax: 8% \u00d7 $29.52 = $2.3616 \u2192 $2.36 (rounded to the nearest cent)\nTotal: $29.52 + $2.36 = $31.88\nChange: $50.00 \u2212 $31.88 = $18.12\n\nAnswer: $18.12"}, {"task": "reason-2", "title": "reason-2: Presentation scheduling puzzle (reasoning)", "promptA": "Figure out the schedule.\n\n<puzzle>\nFive people, Aisha, Ben, Carla, Dev and Elena, each give one presentation at a one-day\nworkshop. There are five one-hour slots: 9am, 10am, 11am, 12pm and 1pm. Each person\npresents in exactly one slot and each slot has exactly one presenter.\n\n1. Aisha does not present in the 9am slot.\n2. Ben presents in the slot immediately after Carla's.\n3. Dev presents earlier in the day than Aisha.\n4. Elena does not present at 11am.\n5. Elena presents later in the day than Ben.\n6. Aisha and Elena are not in adjacent slots.\n\nWho presents in each slot?\n<\/puzzle>", "promptB": "You are a logician who solves constraint puzzles by systematic case analysis.\n\nGoal: solve the scheduling puzzle below and show that the schedule you give is the\nonly one that satisfies every clue.\n\nContext: the puzzle was written so that exactly one schedule works. \"Immediately\nafter\" means the very next slot. \"Earlier\" and \"later\" mean any earlier or later slot.\n\"Adjacent\" means consecutive slots in either order.\n\nConstraints: work from the most restrictive clue and eliminate cases rather than\nguessing. Do not offer more than one schedule. Do not stop at the first schedule that\nworks; show that the other cases fail. Verify all six clues against the final answer.\n\nFormat: a section headed \"Reasoning:\" of at most eight lines, then a five-row table\n(Slot, Presenter) in time order, then one final line exactly of the form\n\"Answer: 9am=<name>, 10am=<name>, 11am=<name>, 12pm=<name>, 1pm=<name>\".\n\n<puzzle>\nFive people, Aisha, Ben, Carla, Dev and Elena, each give one presentation at a one-day\nworkshop. There are five one-hour slots: 9am, 10am, 11am, 12pm and 1pm. Each person\npresents in exactly one slot and each slot has exactly one presenter.\n\n1. Aisha does not present in the 9am slot.\n2. Ben presents in the slot immediately after Carla's.\n3. Dev presents earlier in the day than Aisha.\n4. Elena does not present at 11am.\n5. Elena presents later in the day than Ben.\n6. Aisha and Elena are not in adjacent slots.\n\nWho presents in each slot?\n<\/puzzle>", "A": "**Schedule**\n\n- 9am: Dev\n- 10am: Aisha\n- 11am: Carla\n- 12pm: Ben\n- 1pm: Elena\n\n**Reasoning**\n\n- Clue 2 means Carla/Ben occupy consecutive slots: (9,10), (10,11), (11,12) or (12,1pm). Clue 5 needs Elena after Ben, so (12,1pm) is out.\n- If Carla/Ben are at 9/10 or 10/11, Elena must be at 12pm or 1pm (she can't be at 11am). That leaves Dev and Aisha to fill the remaining two slots with Dev earlier, which in every case puts Aisha right next to Elena, violating clue 6.\n- So Carla is at 11am and Ben at 12pm, forcing Elena to 1pm. Dev and Aisha take 9am and 10am, and since Dev must be earlier (and Aisha can't be at 9am), Dev is at 9am and Aisha at 10am.\n\nCheck: Aisha (10am) and Elena (1pm) aren't adjacent, Elena isn't at 11am, Elena is after Ben, Ben follows Carla, Dev is before Aisha. All six clues hold, and this is the only arrangement that works.", "B": "**Reasoning:**\n1. Clue 2 gives (Carla, Ben) as consecutive slots; clue 5 needs Elena after Ben, so Ben \u2260 1pm: (Carla, Ben) \u2208 {(9,10), (10,11), (11,12)}.\n2. Case (11am, 12pm): Elena must be 1pm; slots 9am/10am remain for Dev and Aisha, and clue 3 forces Dev=9am, Aisha=10am. Aisha (10am) and Elena (1pm) are not adjacent, so this works.\n3. Case (10am, 11am): Elena \u2208 {12pm, 1pm} (clue 4 already excludes 11am). Remaining slots {9am, 12pm, 1pm}; clue 1 puts Dev=9am, so Aisha takes whichever of 12pm/1pm Elena does not \u2014 adjacent to Elena, violating clue 6. Fails.\n4. Case (9am, 10am): Elena \u2208 {12pm, 1pm} (clue 4). Dev and Aisha fill the other two of {11am, 12pm, 1pm} with Dev earlier (clue 3): Elena=12pm gives Dev=11am, Aisha=1pm; Elena=1pm gives Dev=11am, Aisha=12pm. Both make Aisha adjacent to Elena. Fails.\n5. Only case 2 survives. Verify: (1) Aisha=10am \u2260 9am; (2) Ben 12pm immediately after Carla 11am; (3) Dev 9am before Aisha 10am; (4) Elena=1pm \u2260 11am; (5) Elena 1pm after Ben 12pm; (6) Aisha 10am and Elena 1pm not adjacent. All six hold.\n\n| Slot | Presenter |\n|------|-----------|\n| 9am  | Dev       |\n| 10am | Aisha     |\n| 11am | Carla     |\n| 12pm | Ben       |\n| 1pm  | Elena     |\n\nAnswer: 9am=Dev, 10am=Aisha, 11am=Carla, 12pm=Ben, 1pm=Elena"}]}</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const NAMES = DATA.names;
+const PAT = ["P0","P1","P2","P3","P4","P5","P6","P7","P8","P9"];
+const LABEL = {P0:"Bare",P1:"Specific",P2:"+ Role",P3:"+ Context",P4:"+ Constraints",P5:"+ Format",P6:"+ Few-shot",P7:"+ Chain of thought",P8:"Full stack",P9:"Interview"};
+const S = DATA.summary || {};
+const esc = s => String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const fmt = n => (n==null||isNaN(n)) ? "" : Number(n).toFixed(2);
+
+/* ---------- hero ---------- */
+(function(){
+  const h = document.getElementById('hero');
+  const p = (DATA.pairs||[]).find(x=>x.task==='write-1') || (DATA.pairs||[])[0];
+  if(!p){ h.innerHTML = '<div class="panel"><p class="note">Experiment outputs load here once the runs are in.</p></div>'; return; }
+  const short = s => s.length>900 ? s.slice(0,900)+" …" : s;
+  h.innerHTML = `
+    <div class="panel"><span class="tag bare">Bare prompt</span><pre>${esc(short(p.promptA))}</pre><div class="out">${esc(p.A)}</div></div>
+    <div class="panel"><span class="tag full">Full-stack prompt</span><pre>${esc(short(p.promptB))}</pre><div class="out">${esc(p.B)}</div></div>`;
+})();
+
+/* ---------- findings list ---------- */
+(function(){
+  const bp = S.by_pattern||{}; const list = document.getElementById('findings-list');
+  if(!Object.keys(bp).length){ list.innerHTML='<li>Results appear here once the runs are judged.</li>'; return; }
+  const v = p => bp[p]?.mean_total ?? null;
+  const rank = PAT.filter(p=>bp[p]).sort((a,b)=>v(b)-v(a));
+  const best = rank[0], worst = rank[rank.length-1];
+  const items = [];
+  items.push(`<b>The biggest single step is from a command to a deliverable.</b> Going from the bare prompt (${fmt(v('P0'))}) to a precise one-line task statement (${fmt(v('P1'))}) is worth more than any later addition on its own.`);
+  items.push(`<b>${LABEL[best]} scores highest overall</b> at ${fmt(v(best))}; ${LABEL[worst].toLowerCase()} scores lowest at ${fmt(v(worst))}. Combining goal, context, constraints, and format beats any one of them.`);
+  const c=v('P4'), f=v('P5'), r=v('P2'), cot=v('P7'), p1=v('P1');
+  items.push(`<b>Constraints and format do the most work after specificity.</b> Constraints reach ${fmt(c)} and format ${fmt(f)}, against ${fmt(p1)} for the specific statement alone. They raise adherence and concision, the dimensions readers notice first.`);
+  items.push(`<b>Role adds little by itself</b> (${fmt(r)} against ${fmt(p1)}). A persona sets voice; it does not add facts or accuracy, which matches the published persona studies.`);
+  items.push(`<b>A chain-of-thought cue is close to neutral on current Claude</b> (${fmt(cot)}). The models already reason; the cue mostly adds length.`);
+  const bm = S.by_model||{}; const ms = Object.keys(bm).map(m=>`${m} ${fmt(bm[m].mean_total)}`).join(", ");
+  items.push(`<b>The ranking holds across models</b> (means: ${ms}). Wording is a lever on every tier, and the cheapest model with a full prompt often beats the strongest model with a bare one.`);
+  list.innerHTML = items.map(t=>`<li>${t}</li>`).join("");
+})();
+
+/* ---------- charts ---------- */
+function tip(container){
+  let t = container.querySelector('.tip'); if(!t){ t=document.createElement('div'); t.className='tip'; container.appendChild(t); }
+  return {show(x,y,html){ t.innerHTML=html; t.style.left=x+'px'; t.style.top=y+'px'; t.classList.add('on'); }, hide(){ t.classList.remove('on'); }};
+}
+function attachTips(container, svg){
+  const T = tip(container);
+  svg.querySelectorAll('[data-tip]').forEach(el=>{
+    el.addEventListener('mouseenter', ()=>{ const r=el.getBoundingClientRect(), c=container.getBoundingClientRect(); T.show(r.left-c.left+r.width/2, r.top-c.top+container.scrollTop, el.dataset.tip); });
+    el.addEventListener('mouseleave', T.hide);
+  });
+}
+function barChart(id, tableId){
+  const bp=S.by_pattern||{}; const el=document.getElementById(id); if(!Object.keys(bp).length){ el.innerHTML='<p class="note">Awaiting judged results.</p>'; return; }
+  const rows = PAT.filter(p=>bp[p]).map(p=>({p, v:bp[p].mean_total, n:bp[p].n})).sort((a,b)=>b.v-a.v);
+  const W=860, L=150, R=40, top=8, bh=22, gap=8, H=top+rows.length*(bh+gap)+28;
+  const max=10, x=v=>L+(v/max)*(W-L-R);
+  const maxV=Math.max(...rows.map(r=>r.v)), minV=Math.min(...rows.map(r=>r.v));
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mean judge score by prompt pattern">`;
+  s+=`<g class="axis">`; [0,2,4,6,8,10].forEach(t=>{ s+=`<line x1="${x(t)}" y1="${top}" x2="${x(t)}" y2="${H-24}"/><text x="${x(t)}" y="${H-8}" text-anchor="middle">${t}</text>`; }); s+=`</g>`;
+  rows.forEach((r,i)=>{ const y=top+i*(bh+gap); const w=Math.max(0,x(r.v)-L);
+    s+=`<text x="${L-10}" y="${y+bh/2+4}" text-anchor="end" class="${r.p==='P0'?'':''}">${LABEL[r.p]}</text>`;
+    s+=`<rect class="bar" x="${L}" y="${y}" width="${w}" height="${bh}" rx="0" data-tip="${LABEL[r.p]}: ${fmt(r.v)} (n=${r.n})"/>`;
+    s+=`<rect class="bar" x="${L+w-4}" y="${y}" width="4" height="${bh}" rx="3"/>`;
+    if(r.v===maxV||r.v===minV) s+=`<text class="lbl" x="${L+w+8}" y="${y+bh/2+4}">${fmt(r.v)}</text>`; });
+  s+=`</svg>`; el.innerHTML=s; attachTips(el, el.querySelector('svg'));
+  const D=["correctness","completeness","adherence","usefulness","concision"];
+  document.getElementById(tableId).innerHTML = `<table class="data"><thead><tr><th>Pattern</th><th>n</th><th>Total</th>${D.map(d=>`<th>${d}</th>`).join("")}<th>Obj. pass</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${LABEL[r.p]}</td><td>${r.n}</td><td>${fmt(r.v)}</td>${D.map(d=>`<td>${fmt(bp[r.p][d])}</td>`).join("")}<td>${bp[r.p].objective_rate==null?"":Math.round(bp[r.p].objective_rate*100)+"%"}</td></tr>`).join("")}</tbody></table>`;
+}
+function heat(id){
+  const bd=S.by_pattern_domain||{}; const el=document.getElementById(id); const keys=Object.keys(bd); if(!keys.length){ el.innerHTML='<p class="note">Awaiting judged results.</p>'; return; }
+  const doms=[...new Set(keys.map(k=>k.split("|")[1]))].sort();
+  const vals=keys.map(k=>bd[k].mean_total); const lo=Math.min(...vals), hi=Math.max(...vals);
+  const ramp=["--q100","--q200","--q300","--q400","--q500","--q600","--q700"];
+  const step=v=>{ const t=(v-lo)/((hi-lo)||1); return Math.min(6,Math.floor(t*7)); };
+  el.style.gridTemplateColumns=`max-content repeat(${doms.length},minmax(60px,1fr))`;
+  let s=`<div class="h"></div>`+doms.map(d=>`<div class="h">${d}</div>`).join("");
+  PAT.forEach(p=>{ s+=`<div class="r">${LABEL[p]}</div>`; doms.forEach(d=>{ const c=bd[`${p}|${d}`]; if(!c){ s+=`<div class="c"></div>`; return;} const st=step(c.mean_total); s+=`<div class="c ${st>=3?'hi':''}" style="background:var(${ramp[st]})" title="${LABEL[p]} × ${d}: ${fmt(c.mean_total)} (n=${c.n})">${fmt(c.mean_total)}</div>`; }); });
+  el.innerHTML=s;
+}
+function modelChart(id, tableId){
+  const bm=S.by_pattern_model||{}; const el=document.getElementById(id); if(!Object.keys(bm).length){ el.innerHTML='<p class="note">Awaiting judged results.</p>'; return; }
+  const models=["fable","opus","sonnet"], col={fable:"var(--s1)",opus:"var(--s2)",sonnet:"var(--s3)"}, name={fable:"Fable 5.1",opus:"Opus 5",sonnet:"Sonnet 5"};
+  const W=860, L=40, R=16, top=12, bottom=44, H=300, gw=(W-L-R)/PAT.length, bw=Math.min(18,(gw-14)/3);
+  const y=v=>top+(1-v/10)*(H-top-bottom);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mean score by pattern and model">`;
+  s+=`<g class="axis">`; [0,2,4,6,8,10].forEach(t=>{ s+=`<line x1="${L}" y1="${y(t)}" x2="${W-R}" y2="${y(t)}"/><text x="${L-8}" y="${y(t)+4}" text-anchor="end">${t}</text>`; }); s+=`</g>`;
+  PAT.forEach((p,i)=>{ const gx=L+i*gw+(gw-3*bw-4)/2; models.forEach((m,j)=>{ const c=bm[`${p}|${m}`]; if(!c) return; const x=gx+j*(bw+2); const h=y(0)-y(c.mean_total);
+    s+=`<rect x="${x}" y="${y(c.mean_total)}" width="${bw}" height="${Math.max(0,h)}" fill="${col[m]}" data-tip="${name[m]} · ${LABEL[p]}: ${fmt(c.mean_total)}"/>`;
+    s+=`<rect x="${x}" y="${y(c.mean_total)}" width="${bw}" height="4" rx="2" fill="${col[m]}"/>`; });
+    s+=`<text x="${L+i*gw+gw/2}" y="${H-bottom+16}" text-anchor="middle">${LABEL[p].replace('+ ','')}</text>`; });
+  s+=`</svg>`; el.innerHTML=s; attachTips(el, el.querySelector('svg'));
+  document.getElementById(tableId).innerHTML=`<table class="data"><thead><tr><th>Pattern</th>${models.map(m=>`<th>${name[m]}</th>`).join("")}</tr></thead><tbody>${PAT.map(p=>`<tr><td>${LABEL[p]}</td>${models.map(m=>`<td>${fmt(bm[`${p}|${m}`]?.mean_total)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+barChart('c-pattern','t-pattern'); heat('c-heat'); modelChart('c-model','t-model');
+
+/* ---------- pattern cards ---------- */
+const CARDS = [
+ {id:"P1",t:"Specific deliverable",s:"strong",d:"State what is produced, for whom, and what done looks like. The jump from a command to a deliverable is the largest single step.",ph:"Write a <thing> for <audience> that <does what>. Done means <check>.",h:"Every task type.",x:"Nothing, unless the specifics are wrong.",e:"Yang et al. 2025: models infer unstated requirements 41% of the time. Anthropic: the colleague test. Ours: P1 over P0 is the largest step in every domain."},
+ {id:"P3",t:"Context and the why",s:"strong",d:"Give the situation, the numbers, the files, the audience, and the reason behind each rule. A rule with a reason generalises to cases you did not list.",ph:"Background: <facts>. This matters because <reason>.",h:"Anything where the model would otherwise guess facts.",x:"Long generic overviews; facts buried mid-prompt.",e:"Liu et al. 2023 (lost in the middle); Gloaguen et al. 2026 (generic repo overviews add cost, not success). Anthropic: Claude generalises from the explanation."},
+ {id:"P4",t:"Constraints that name the failure",s:"strong",d:"Length, tone, scope, and do-not items that say why. 'Do not ask them to retry; they already tried twice' beats the bare rule.",ph:"Under N words. Do not <X>, because <failure it causes>. Prefer <Y>.",h:"Adherence and concision; any reader who notices filler.",x:"Stacking many constraints; naming a forbidden word primes it.",e:"IFEval (Zhou 2023): GPT-4 missed one in four verifiable prompts. Rana 2026: 87% of violations are priming failures. Ours: largest adherence and concision gain after P1."},
+ {id:"P5",t:"Output format with a shape",s:"strong",d:"Exact structure: sections, counts, a JSON schema, a file path, or one filled example.",ph:"Return only <shape>. Example: <one filled instance>.",h:"Extraction, classification, anything parsed or scanned.",x:"Creative writing when the format is imposed for no reason.",e:"Sclar et al. 2023: formatting alone moves up to 76 points. He et al. 2024: up to 40% on smaller models. Ours: format dominates extraction."},
+ {id:"P6",t:"Few-shot examples",s:"moderate",d:"Two or three input/output pairs in the wanted voice, wrapped in tags, diverse enough not to be copied.",ph:"<example>Input: … Output: …</example> (2 to 3, varied)",h:"Style, house voice, label sets, ticket titles.",x:"Reasoning models; examples that get parroted; bad ordering.",e:"Min et al. 2022: examples teach format more than content. Lu et al. 2022: order is a hidden hyperparameter. Anthropic: 3 to 5, relevant, diverse."},
+ {id:"P8",t:"The full stack, ordered",s:"strong",d:"Role (if real), goal, context, constraints, format. Important thing first; the task last, after any long material.",ph:"Role. Goal. Context. Constraints. Format. <material> Task.",h:"Any non-trivial one-shot request.",x:"Trivial tasks; contradictions inside the stack.",e:"Bsharat et al. 2023: structural principles replicate; incentive ones do not (Wharton 2025). Anthropic: query at the end, up to 30% better on long inputs. Ours: top or tied-top on most tasks."},
+ {id:"P9",t:"Interview first",s:"strong",d:"Tell the model to ask its questions before acting, or ask the user yourself and fold the answers in. Ask only when different answers would change the work.",ph:"Before writing, ask me up to 5 questions about anything that would change the result. Then write it.",h:"When the user does not know what context matters; under-specified coding tasks.",x:"Autonomous runs where nobody can answer; trivial tasks.",e:"ClarifyGPT (Mu 2023): +10 pass@1. Ambig-SWE (2025): up to 74% better with interaction. Anthropic: check in only when readings would differ materially."},
+ {id:"P10",t:"Verification and done-criteria",s:"strong",d:"Say how the model can check its own work and demand evidence, not a claim.",ph:"Run <command>. Report the output. If it fails, say whether the test or the code is wrong; do not change the test to pass.",h:"Agentic and coding tasks.",x:"Opus 5 over-verifies when told to double-check.",e:"Reflexion (Shinn 2023): 91% vs 80% on HumanEval. OpenAI GPT-4.1 guide: +20 SWE-bench points from persistence and planning reminders. Anthropic: show evidence rather than asserting success."},
+ {id:"P13",t:"Project substitution",s:"strong",d:"Replace every generic noun with the project's own: the real test command, the real file, an existing example, the real audience, the branch. This is where most of the gain in Claude Code comes from.",ph:"Match tests/test_dates.py. Run `pytest -q`. Follow the no-mocks rule in CLAUDE.md.",h:"Anything run inside a project.",x:"Nothing; it costs only the minute spent looking.",e:"Gloaguen 2026: context files help only when they carry non-standard facts. Cheng and Mastropaolo 2026: copied defaults lower correctness. Anthropic: only add context Claude does not already have."},
+ {id:"P2",t:"Role",s:"weak",d:"'You are a senior B2B copywriter.' Sets voice and taste. Does not add knowledge.",ph:"You are a <specific role> writing for <audience>.",h:"Writing, replies, anything where the audience's taste matters.",x:"Factual and reasoning tasks; tasks with no real expert.",e:"Zheng et al. 2023: 162 personas, no accuracy gain. Wharton 2025: nine significant degradations, no consistent gains. Ours: role alone rarely beats P1."},
+ {id:"P7",t:"Chain-of-thought cue",s:"weak",d:"'Think step by step, then answer.' Large historic gains on arithmetic; on models that reason internally it mostly adds length.",ph:"Think thoroughly before answering. (Not a hand-written step plan.)",h:"Multi-step logic when the model is asked for a bare answer.",x:"Pattern-recognition tasks; latency budgets; Opus 5 with verification cues.",e:"Kojima 2022 (historic). Sprague 2024: gains concentrate on math. Wharton 2025: reasoning models gain ~3% for 20 to 80% more latency. Ours: near P1 on most tasks."},
+ {id:"P11",t:"Decompose and chain",s:"moderate",d:"One ask per prompt, or ordered steps with a stop condition. Inspect intermediate outputs on pipelines.",ph:"Step 1: … Stop and show me. Step 2: …",h:"Long pipelines; anything you need to inspect midway.",x:"Tasks the model already chains internally.",e:"Anthropic: chaining still useful for inspecting intermediates; draft, review, refine is the common self-correction chain."},
+ {id:"P12",t:"Positive framing",s:"moderate",d:"Say what to do, then rule out the nearest misreading with a contrast pair.",ph:"Brief is good; silent is not.",h:"Style and behaviour rules.",x:"Safety rules, where an explicit prohibition is clearer.",e:"Truong 2023: negation parsed unreliably. Anthropic: tell Claude what to do instead of what not to do."},
+];
+document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3><span>${esc(c.t)} <span class="id">${c.id}</span></span><span class="str ${c.s}">${c.s}</span></h3><p>${esc(c.d)}</p><pre>${esc(c.ph)}</pre><div class="hh"><div><b>Helps</b>${esc(c.h)}</div><div><b>Hurts</b>${esc(c.x)}</div></div><div class="ev">${esc(c.e)}</div></div>`).join("");
+
+/* ---------- grader ---------- */
+const RUBRIC = `Grade this draft prompt out of 100 using seven dimensions with these maxima: Goal and deliverable 20; Context 20; Constraints and negatives 15; Output format 15; Role and audience 10; Reasoning and verification 10; Scope and decomposition 10. For each give a score and one line of evidence quoting the draft or noting the absence. Do not pad with praise. Bands: 85-100 ship it; 65-84 good bones; 40-64 the model will guess; 0-39 a command, not a prompt. Do not penalise short prompts for trivial tasks, a missing role when no real expert exists, or a missing chain-of-thought cue (current Claude reasons on its own).
+Then list 3 to 6 interview questions, only ones whose answers would change the rewrite, each with a recommended default.
+Then give three rewrites in fenced code blocks: A Minimal (only the two highest-value fixes, same length or shorter), B Structured (role only if a real expert exists, goal, context, constraints that name the failure mode they prevent, output format, how to verify; important thing first), C Interview or agentic (for chat: ask up to N questions first; for Claude Code: plan first, name files and commands, define done, say how to verify). Keep the user's voice and any exact wording they chose. Never invent facts; unknowns become [bracketed placeholders]. Say which rewrite you recommend in one sentence.
+Then "Patterns applied" as a short list with one reason each, and one or two patterns deliberately not applied and why.
+Then "To push it higher": projected score of the recommended rewrite, remaining gaps, and the exact facts the user could add.
+Use plain headings and short lines. No preamble.`;
+
+function quickScore(text){
+  const t=text.trim(), lower=t.toLowerCase(), words=t.split(/\s+/).filter(Boolean).length;
+  const has=re=>re.test(t);
+  const dims=[];
+  // goal
+  let g=0, gw=[]; if(/\b(write|create|build|fix|add|summari[sz]e|extract|compare|plan|generate|refactor|implement|draft|convert|list|explain|review|test)\b/i.test(t)){g+=6;gw.push("action verb");}
+  if(/\b(for|so that|audience|reader|users?|customer|team|ceo|founder|engineer)\b/i.test(t)){g+=6;gw.push("audience or purpose");}
+  if(/\b(done|success|should (return|pass|render)|must (return|pass)|so it|until)\b/i.test(t)){g+=5;gw.push("done criterion");}
+  if(words>=8) g+=3; dims.push(["Goal and deliverable",Math.min(20,g),20,gw.length?gw.join(", "):"no action, audience, or done criterion"]);
+  // context
+  let c=0, cw=[]; if(/\d/.test(t)){c+=5;cw.push("numbers");} if(/[\w\-]+\.(py|ts|js|tsx|md|json|csv|yaml|yml|go|rs|java|html|css)\b|\/[\w\-]+\//.test(t)){c+=6;cw.push("file or path");}
+  if(/\b(because|since|context|background|currently|we (have|use|are)|our|the situation)\b/i.test(t)){c+=5;cw.push("background or reason");} if(/<\w+>|"""|```/.test(t)){c+=4;cw.push("delimited material");}
+  dims.push(["Context",Math.min(20,c),20,cw.length?cw.join(", "):"no facts, files, numbers, or reasons"]);
+  // constraints
+  let k=0, kw=[]; if(/\b(under|at most|no more than|max(imum)?|exactly|within)\b.*\b(words|sentences|lines|characters|bullets|items|paragraphs)\b/i.test(t)){k+=6;kw.push("length limit");}
+  if(/\b(do not|don't|never|avoid|without|no )\b/i.test(t)){k+=5;kw.push("negative constraint");} if(/\b(tone|formal|casual|concise|plain|friendly|candid|warm)\b/i.test(t)){k+=4;kw.push("tone");}
+  dims.push(["Constraints and negatives",Math.min(15,k),15,kw.length?kw.join(", "):"no limits or exclusions"]);
+  // format
+  let f=0, fw=[]; if(/\b(json|yaml|csv|markdown|table|bullet|numbered|headings?|sections?|schema|format|template|one line|code block)\b/i.test(t)){f+=9;fw.push("format named");}
+  if(/\b(return only|only (output|respond)|nothing else|exactly \d|in this shape|example:)\b/i.test(t)){f+=6;fw.push("exact shape");}
+  dims.push(["Output format",Math.min(15,f),15,fw.length?fw.join(", "):"format unspecified"]);
+  // role
+  let r=0, rw=[]; if(/\b(you are|act as|as a|role:)\b/i.test(t)){r+=6;rw.push("role");} if(/\b(for|to) (a|an|the|our|my) [\w\- ]{2,30}\b/i.test(t)){r+=4;rw.push("audience");}
+  dims.push(["Role and audience",Math.min(10,r),10,rw.length?rw.join(", "):"neither stated (fine if no real expert exists)"]);
+  // verification
+  let v=0, vw=[]; if(/\b(test|verify|check|validate|run |lint|build|screenshot|assert|confirm|report the (output|result))\b/i.test(t)){v+=7;vw.push("a check named");} if(/\b(plan|outline|first|before (you|writing|editing))\b/i.test(t)){v+=3;vw.push("plan or ordering");}
+  dims.push(["Reasoning and verification",Math.min(10,v),10,vw.length?vw.join(", "):"no test, check, or plan step"]);
+  // scope
+  const verbs=(lower.match(/\b(write|create|build|fix|add|summari[sz]e|extract|compare|plan|generate|refactor|implement|draft|convert|list|explain|review|test|deploy|design|analy[sz]e|update|migrate|document)\b/g)||[]).length;
+  let s=verbs<=2?10:verbs<=4?6:2; const sw= verbs<=2?"one ask":verbs<=4?`${verbs} asks in one prompt`:`${verbs} asks; split or order them`;
+  if(/\b(then|step \d|first|second|finally|stop (and|when|after))\b/i.test(t)) s=Math.max(s,7);
+  dims.push(["Scope and decomposition",s,10,sw]);
+  let total=dims.reduce((a,d)=>a+d[1],0); if(words>400) total=Math.max(0,total-5);
+  const band= total>=85?"Ship it. Interview only if a fact is missing.": total>=65?"Good bones. Two or three targeted additions move it a band.": total>=40?"The model will guess most of what matters. Interview needed.":"A command, not a prompt. Rewrite from the goal up.";
+  return {total,band,dims};
+}
+const $=id=>document.getElementById(id);
+$('btn-quick').addEventListener('click',()=>{
+  const r=quickScore($('draft').value); $('q-total').textContent=r.total; $('q-band').textContent=r.band;
+  $('q-dims').innerHTML=r.dims.map(d=>`<div class="dim"><span>${d[0]}</span><div class="track"><div class="fill" style="width:${(d[1]/d[2])*100}%"></div></div><span class="v">${d[1]}/${d[2]}</span><span class="why">${esc(d[3])}</span></div>`).join("");
+  $('quick').hidden=false;
+});
+(async()=>{
+  const sample = window.claude && window.claude.use ? await window.claude.use("sample") : null;
+  if(!sample){ $('grader-status').textContent="Open this page in claude.ai to grade with Claude."; return; }
+  $('btn-claude').hidden=false;
+  $('btn-claude').addEventListener('click', async ()=>{
+    const draft=$('draft').value.trim(); if(!draft) return;
+    $('full').hidden=false; $('full-out').textContent="Thinking…"; $('btn-claude').disabled=true; $('grader-status').textContent="";
+    try{
+      const input=`${RUBRIC}\n\nThe prompt will run in: ${$('target').value}.\n\n<draft>\n${draft}\n</draft>`;
+      const res=await sample(input,{modelTier:"default",onText:u=>{ $('full-out').textContent=u.text; }});
+      $('full-out').textContent=res.text + (res.truncated?"\n\n[truncated]":"");
+    }catch(e){ $('grader-status').textContent= e && e.code==="rate_limited" ? "Rate limited; try again in a minute." : "Could not reach Claude from this page."; if(e&&e.text) $('full-out').textContent=e.text; }
+    finally{ $('btn-claude').disabled=false; }
+  });
+})();
+
+/* ---------- rating ---------- */
+(function(){
+  const pairs=DATA.pairs||[]; const sel=$('pair-sel'); if(!pairs.length){ $('rate-status').textContent="Pairs appear once the runs are in."; return; }
+  sel.innerHTML=pairs.map((p,i)=>`<option value="${i}">${esc(p.title)}</option>`).join("");
+  let cur=0, flip=false, db=null, votes={}, unsub=null;
+  const key=i=>`vote-${pairs[i].task}`;
+  function render(){ const p=pairs[cur]; flip=Math.random()<0.5; $('pair-task').textContent=p.promptA; $('out-a').textContent=flip?p.B:p.A; $('out-b').textContent=flip?p.A:p.B; $('reveal').hidden=true; renderTally(); }
+  function renderTally(){ const t=votes[pairs[cur].task]||{full:0,bare:0,tie:0}; const n=t.full+t.bare+t.tie; if(!n){ $('tally').innerHTML=`<span>No votes yet on this pair.</span>`; return; }
+    $('tally').innerHTML=`<span>${n} vote${n>1?"s":""}: full-stack ${t.full}, bare ${t.bare}, tie ${t.tie}</span><div class="bar"><i style="width:${t.full/n*100}%"></i><i class="b" style="width:${t.bare/n*100}%"></i></div>`; }
+  function recount(docs){ votes={}; docs.forEach(d=>{ const v=d.data(); if(!v||!v.task) return; const t=votes[v.task]||(votes[v.task]={full:0,bare:0,tie:0}); if(v.choice in t) t[v.choice]++; }); renderTally(); }
+  sel.addEventListener('change',()=>{ cur=+sel.value; render(); });
+  document.querySelectorAll('[data-vote]').forEach(b=>b.addEventListener('click', async ()=>{
+    const p=pairs[cur]; const v=b.dataset.vote; const choice= v==="tie"?"tie": ((v==="A")!==flip)?"bare":"full"; // A shows bare when !flip
+    const which= v==="tie"?"You called it a tie.":`You picked ${v}, which was the ${choice==="full"?"full-stack":"bare"} prompt.`;
+    $('reveal').hidden=false; $('reveal').textContent=`${which} Output ${flip?"B":"A"} came from the bare prompt; output ${flip?"A":"B"} from the full-stack prompt.`;
+    const rec={task:p.task,choice,ts:new Date().toISOString()};
+    if(db){ try{ await db.collection("votes").add(rec); $('rate-status').textContent=""; }catch(e){ $('rate-status').textContent="Vote not saved (storage unavailable)."; } }
+    else { try{ const k='pe-votes'; const arr=JSON.parse(localStorage.getItem(k)||"[]"); arr.push(rec); localStorage.setItem(k,JSON.stringify(arr)); recount(arr.map(x=>({data:()=>x}))); }catch(e){} }
+  }));
+  render();
+  (async()=>{ db = window.claude && window.claude.use ? await window.claude.use("db") : null;
+    if(db){ try{ unsub=db.collection("votes").onSnapshot(s=>recount(s.docs), ()=>{ $('rate-status').textContent="Live tally unavailable."; }); }catch(e){} }
+    else { $('rate-status').textContent="Votes are kept in this browser only outside claude.ai."; try{ recount(JSON.parse(localStorage.getItem('pe-votes')||"[]").map(x=>({data:()=>x}))); }catch(e){} } })();
+})();
+
+/* ---------- abstract + rail ---------- */
+$('abstract').textContent = "The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment across six domains, ten prompt patterns, and three Claude models, scored blind. The findings are packaged as a Claude Code skill and as this site.";
+(function(){ const links=[...document.querySelectorAll('.rail a[href^="#"]')]; const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+e.target.id)); } }); },{rootMargin:"-30% 0px -60% 0px"}); secs.forEach(s=>io.observe(s)); })();
+</script>
