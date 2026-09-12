@@ -1,21 +1,21 @@
 ---
 name: prompt-engineer
-description: Grade, interview, and rewrite a prompt so it gets the best output from Claude, adapted to the project it will run in. Use whenever the user asks to improve, refine, fix, rate, grade, review, or rewrite a prompt; asks "how should I ask for X" or "what is the best way to prompt for X"; pastes a prompt and wants feedback; wants a system prompt, subagent prompt, skill description, or CLAUDE.md instruction phrased well; or invokes /prompt-engineer. Also use when the user says their prompts keep getting mediocre results, even if they do not say the word "prompt".
+description: Grade, interview, and rewrite a prompt so it gets the best output from Claude, adapted to the project, document folder, or assignment it will run in. Use whenever the user asks to improve, refine, fix, rate, grade, review, or rewrite a prompt; asks "how should I ask for X" or "what is the best way to prompt for X"; pastes a prompt and wants feedback; wants a system prompt, subagent prompt, skill description, or CLAUDE.md instruction phrased well; is about to ask Claude to write an essay, article, cover letter, email, report, or any document and wants the ask phrased well ("help me write my college essay", "I need a prompt for my history paper"); works in a Cowork folder with a brief, rubric, or past drafts; or invokes /prompt-engineer. Also use when the user says their prompts keep getting mediocre results, even if they do not say the word "prompt".
 ---
 
 # Prompt engineer
 
 Turn a draft prompt into the version that gets the best output, using facts from the
-project the prompt will run in. The model is the same either way; the wording is what
-changes the result. This skill does four things in order: collects context, grades the
-draft out of 100, asks the few questions that would change the rewrite, then gives three
-rewrites and explains which patterns each one uses and why.
+project, folder, or assignment it will run in: code and agent prompts, and writing
+prompts (essays, articles, letters, reports) alike. The model is the same either way;
+the wording changes the result. Four steps: collect context, grade the draft out of
+100, ask the few questions that would change the rewrite, then give three rewrites
+and name the patterns each one uses.
 
 Read `references/rubric.md` when grading and `references/context-adaptation.md` when
 collecting context. The pattern table below is enough to name patterns and their
-evidence; read `references/patterns.md` only when the user asks why a pattern works
-or when a case is unusual. `references/examples.md` has worked before/after cases to
-match in tone and length; skim one when unsure how long the reply should be.
+evidence; open `references/patterns.md` only when the user asks why a pattern works.
+`references/examples.md` has eight worked cases; skim one to calibrate reply length.
 
 ## Pattern table (from 360 blind-judged runs on Fable 5.1, Opus 5, Sonnet 5; 0 to 10)
 
@@ -44,9 +44,11 @@ there is no draft yet, ask for the one-line goal and treat that as the draft (it
 grade low; that is fine).
 
 Establish where it will run, because the rewrite shape depends on it:
-Claude Code in this repo, claude.ai chat, an API system prompt or template, or a
-subagent. Infer it when obvious (a prompt that names files and tests is agentic; one
-that pastes an email is chat); otherwise it is the first interview question.
+Claude Code in this repo, claude.ai chat, an API system prompt or template, a
+subagent, or a writing task (essay, article, letter, report; in chat or in a Cowork
+document folder). Infer it when obvious (a prompt that names files and tests is
+agentic; one that pastes an email or names an assignment is writing); otherwise it is
+the first interview question.
 
 ### 2. Collect project context before judging
 
@@ -58,7 +60,12 @@ project's check (tests, build, lint) can actually run in this environment; if it
 cannot, the rewrite should tell the model to report that rather than install things. Everything you learn here is material for the
 rewrite and removes interview questions. Read only; never modify.
 
-If there is no project, skip to grading and collect the same facts in the interview.
+In a Cowork or document folder, read the brief or assignment, any rubric, prior
+drafts and feedback on them, a style guide, and one sample of the user's own writing
+(for voice). For a writing task with no folder, collect the same facts in the
+interview: the exact assignment wording, who grades or reads it, length, sources
+allowed, a stance or thesis if the user has one, and what to avoid. If there is no
+project at all, skip to grading and collect the facts in the interview.
 
 ### 3. Grade the draft
 
@@ -92,9 +99,12 @@ Typical questions, pick from these rather than inventing new ones:
 - What format or example should it match?
 - Which constraints are hard (length, deadline, budget, tone)?
 - Should the model plan first, ask before acting, or just go?
+- For writing: what is the thesis or stance, who grades it and against what, what
+  facts and sources may be used, and is there a sample of your own voice to match?
 
 If the user says "just rewrite it", skip the interview and mark unknowns as
-`[placeholders]` in the rewrite with a list of what to fill in.
+`[placeholders]` with a list of what to fill in. Facts only the user holds (a thesis,
+true experiences, a voice sample) have no default: placeholder them, never invent.
 
 ### 5. Rewrite three ways
 
@@ -115,15 +125,23 @@ become `[bracketed placeholders]`.
   slot and per-request material into `{{variables}}`, with one worked example. For a
   subagent brief: A is the one-line ask the user gives the parent, B is the
   self-contained brief (every fact, read-only rules, return shape), C is B plus a
-  stop rule and an exact return schema.
+  stop rule and an exact return schema. For writing: B carries the assignment
+  wording, audience and grader, thesis, the facts and sources allowed (and only
+  those), length, format, voice sample or pointer, and what to avoid with the reason;
+  C tells the model to ask up to N questions or to outline first and wait, then draft,
+  then check itself against the brief. In our writing tasks the interview form (8.67)
+  and full stack (8.63) led; a role alone scored 5.43, so use a role only for voice.
 
 Placeholders: for chat and Claude Code targets, unknowns become `[bracketed
 placeholders]`. For a system prompt or any file the project loads as-is, put no
 placeholders inside the block; list unknowns under "Before deploying, fill in:" after
 the block, or turn them into interview questions.
 
-Every agentic rewrite (B and C for Claude Code or a subagent) ends with three named
-parts: the check to run; what to deliver when the check cannot run or a needed fact is
+Every writing rewrite ends with a self-check the model reports after the piece, under
+a separator so the piece copies clean: word count against the limit, each required
+section or rubric line present, no invented facts, quotes, or citations, one
+read-aloud pass for voice. Every agentic rewrite (B and C for Claude Code or a
+subagent) ends with three named parts: the check to run; what to deliver when the check cannot run or a needed fact is
 missing (a named file, a question to the user, or a report); and a stop rule that says
 whether to halt the whole task or skip that step and continue with the rest.
 
@@ -154,7 +172,9 @@ examples in `references/examples.md`; a short draft gets a short reply.
 
 - Shorter beats longer at equal clarity. Every added sentence must remove a guess the
   model would otherwise make.
-- Do not add a role when there is no meaningful expert for the task.
+- Do not add a role when there is no meaningful expert for the task. In writing, a
+  role earns its place only when it fixes voice (a specific reader or writer), never
+  as a source of facts; the user's own voice sample beats any persona.
 - Do not add "think step by step" for current Claude models unless the task is
   multi-step logic and the draft asks for a bare answer.
 - Do not stack "always" and "never" on style rules; say what to do and why.
@@ -169,25 +189,11 @@ examples in `references/examples.md`; a short draft gets a short reply.
 - For agentic prompts, always include how to verify and what not to touch.
 - Keep the user's decisions. If they wrote "under 100 words", do not change the number.
 
-## Quick example
+## Quick examples
 
-Draft: "write tests for the parser"
-
-Scorecard total 18/100 (task named, success undefined; no file, no check; the
-agentic penalty applies). Context found: Python repo, `pytest -q`, tests live in
-`tests/`, `parse_iso_duration` in `src/durations.py`, CLAUDE.md says "no mocks".
-
-Recommended rewrite (B):
-
-```
-Add pytest tests for parse_iso_duration in src/durations.py. Put them in
-tests/test_durations.py, matching the style of tests/test_dates.py. Cover: each
-component alone, all components together, fractional seconds, weeks, and three
-invalid strings that must raise ValueError. No mocks (CLAUDE.md). Run `pytest -q`
-and report the results; if any new test fails, say whether the test or the parser is
-wrong rather than changing the parser.
-```
-
-Patterns applied: specific deliverable and location; project context substituted
-for generic nouns; few-shot by pointing at an existing test; constraints with the
-reason; verification and a stop rule. Not applied: role, chain-of-thought.
+Coding draft "write tests for the parser" grades 18/100; with the repo's facts the
+recommended rewrite names the function, file, style file to match, cases, the no-mocks
+rule, `pytest -q`, and a stop rule (full text: `references/examples.md`, case 6).
+Writing draft "write my college essay" grades 9/100; with the brief, the grader, the
+prompt question, two true stories the user supplied, a 650-word limit, and a voice
+sample, the recommended rewrite is case 7 in `references/examples.md`.

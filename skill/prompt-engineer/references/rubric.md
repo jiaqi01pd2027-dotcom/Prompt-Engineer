@@ -33,6 +33,22 @@ evidence per dimension quoting the prompt (or noting the absence).
 - Absolutes: "always"/"never" applied to style rather than safety can over-trigger in
   current Claude models; note it as an improvement rather than a penalty.
 
+## Reading the dimensions for writing prompts
+
+- Goal: the assignment question verbatim and a thesis or the true things the piece
+  must contain count as "done looks like".
+- Context: the grader and rubric, the facts and sources allowed, and a voice sample
+  are the project facts; "write about my summer" with no facts scores 0 to 4. In a
+  folder, a pointer like "this job" earns credit only for what it names; facts on
+  disk the prompt never points at count as absent (the rewrite is where they go).
+- Constraints: length, banned openers and clichés, "no invented facts", and the
+  reason for each.
+- Format: sections or arc, file name and type in Cowork, citation style if any.
+- Role and audience: the reader and grader; a role counts only if it fixes voice.
+- Verification: the self-check (count, rubric lines, no invented facts, read aloud).
+- Scope: one piece, one thesis; a prompt that asks for the essay and the cover
+  letter together loses points here.
+
 ## What NOT to penalise
 
 - Short prompts for trivial tasks. A one-line prompt for "rename this variable" can

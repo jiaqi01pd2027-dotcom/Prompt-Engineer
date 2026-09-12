@@ -152,3 +152,131 @@ invent data I did not give you; if the CSV is missing a column you need, say so.
 
 **Patterns applied:** goal with the decision it feeds (P1, P3), numbered deliverables
 (P5), constraints with the failure prevented (P4), explicit unknown handling (P12).
+
+
+---
+
+## 6. Claude Code, tests (the quick example)
+
+**Draft:** "write tests for the parser"
+
+**Scorecard:** 18/100. Task named, success undefined; no file, no check; the agentic
+penalty applies. Context found: Python repo, `pytest -q`, tests live in `tests/`,
+`parse_iso_duration` in `src/durations.py`, CLAUDE.md says "no mocks".
+
+**Rewrite B (recommended):**
+
+```
+Add pytest tests for parse_iso_duration in src/durations.py. Put them in
+tests/test_durations.py, matching the style of tests/test_dates.py. Cover: each
+component alone, all components together, fractional seconds, weeks, and three
+invalid strings that must raise ValueError. No mocks (CLAUDE.md). Check: run
+`pytest -q` and paste the output; if pytest is not installed, say so and show the
+tests instead of installing anything. Stop rule: if a new test fails, say whether
+the test or the parser is wrong; do not change the parser.
+```
+
+**Patterns applied:** specific deliverable and location (P1), project substitution
+(P13), few-shot by pointing at an existing test (P6), constraints with the reason
+(P4), verification with a stop rule (P10). Not applied: role, chain-of-thought.
+
+---
+
+## 7. Writing, college application essay (chat)
+
+**Draft:** "write my college essay"
+
+**Context collected:** none (chat). Interview asked five questions: the exact prompt,
+the reader, the true material, the limit and format, and a voice sample. Answers: the
+Common App prompt "Describe a topic, idea, or concept you find so engaging that it
+makes you lose all track of time"; admissions readers who skim hundreds; two true
+stories (rebuilding a bike derailleur at 2 a.m., teaching a cousin to ride); 650 words;
+a pasted paragraph from a scholarship essay as the voice sample.
+
+**Scorecard (draft):** 9/100. Goal 3 (which essay, which prompt), context 0,
+constraints 0, format 2 (an essay is implied), audience 0, verification 0, scope 4.
+
+**Rewrite B (recommended):**
+
+```
+Write a first draft of my Common App essay for the prompt: "Describe a topic, idea,
+or concept you find so engaging that it makes you lose all track of time." Readers
+are admissions officers skimming hundreds of essays, so the first two sentences must
+be concrete and mine, not a definition or a rhetorical question.
+
+Use only these two true things, and nothing invented: (1) rebuilding a bike
+derailleur at 2 a.m. after breaking it, and figuring out the indexing from the click
+pattern; (2) teaching my cousin to ride last summer and noticing I explain by feel,
+not by steps. The idea the essay is about: I lose time when a mechanism has a
+pattern I can almost hear. Do not add achievements, quotes, or a moral at the end.
+
+Match the voice in the sample below: short sentences, plain words, a little dry.
+Under 650 words, five to seven paragraphs, no title, no headings.
+
+<voice_sample>
+[pasted paragraph]
+</voice_sample>
+
+Before returning it: state the word count, confirm nothing outside the two stories
+was invented, and read it once aloud for any sentence I would not say.
+```
+
+**Rewrite C (interview form):**
+
+```
+I need a first draft of my Common App essay (650 words). Before writing, ask me
+up to five questions in one batch: which prompt, who reads it, two or three true
+things I could use, what to avoid, and a sample of my writing to match. Then
+propose a one-line arc and wait for my yes before drafting.
+```
+
+**Patterns applied:** specific deliverable with the assignment quoted (P1), closed fact
+list (P3, which also blocks invented material), constraints with the reason (P4),
+format and length (P5), voice by sample (P6), self-check (P10), interview gate (P9 in
+C). Not applied: a persona ("award-winning essayist" pushes toward polish the readers
+distrust), chain-of-thought.
+
+---
+
+## 8. Cowork folder, history paper
+
+**Draft:** "help with my paper"
+
+**Context collected (folder):** assignment.pdf (question: "To what extent was the
+Marshall Plan a strategic rather than humanitarian program?", 1,500 words, Chicago
+notes), rubric.md (thesis 30%, use of assigned sources 30%, structure 20%, prose 20%),
+sources/ (four assigned readings as PDFs), drafts/v1.md (900 words, no thesis yet),
+feedback-v1.txt ("your intro summarises; take a position").
+
+**Interview:** two questions, the rest answered by the folder. Stance? "Strategic
+first, humanitarian as means." Which sources must appear? "All four, Kennan and
+Hogan most."
+
+**Rewrite B (recommended):**
+
+```
+Revise drafts/v1.md into drafts/v2.md, a 1,500-word paper answering
+assignment.pdf's question: "To what extent was the Marshall Plan a strategic rather
+than humanitarian program?" Thesis, stated in the first paragraph and in my words:
+strategic first, with humanitarian aid as the means. feedback-v1.txt says the intro
+summarises instead of taking a position; fix that first.
+
+Use only the four readings in sources/, citing each at least once in Chicago
+footnotes, with Kennan and Hogan carrying the argument. Do not add facts, dates, or
+quotations that are not in those files. Keep my sentences from v1 where they already
+support the thesis; rewrite, do not pad.
+
+Structure per rubric.md: thesis, three body sections (one per line of evidence), a
+counter-argument paragraph, a conclusion that answers "to what extent". Prose:
+plain, no rhetorical questions, no "throughout history".
+
+Before returning: word count, a checklist against the four rubric lines, a list of
+every footnote's source file, and confirmation that nothing outside sources/ was
+used. Write v2.md; leave v1.md unchanged.
+```
+
+**Patterns applied:** project substitution from the folder (P13: the question, rubric
+lines, source files, feedback), specific deliverable as a file (P1, P5), closed source
+list (P3), constraints with reasons (P4), self-check against the rubric (P10). Not
+applied: role (the writer is the student), interview beyond two questions (the folder
+answered the rest).
