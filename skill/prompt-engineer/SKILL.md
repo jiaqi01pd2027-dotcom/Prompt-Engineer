@@ -187,9 +187,9 @@ request. No preamble about what prompt engineering is. No restating the draft. A
   twice"), not just the rule.
 - Carry the user's own bans word for word. "Do not say passionate" bans the word, not
   one phrase containing it; narrowing a ban restores what the user cut.
-- When a length target and the available material disagree, say which wins. Thin
-  sources plus a word count produce padding or a skeleton unless the rewrite names
-  the tie-break and caps the `[add example]` markers.
+- When a length target and the available material disagree, say which wins, in both
+  directions. Too little material plus a word count gives padding; too much gives a
+  compressed tour, so name which item carries the weight and which yields.
 - For agentic prompts, always include how to verify and what not to touch.
 - Keep the user's decisions. If they wrote "under 100 words", do not change the number.
 
