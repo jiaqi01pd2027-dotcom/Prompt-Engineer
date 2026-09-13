@@ -32,7 +32,7 @@ was the same on all three models. Numbers are in `experiments/results/summary.md
 
 The skill itself is tested the same way: eight drafts across three targets, each
 recommended rewrite scored by an independent grader against the skill's own rubric.
-Current mean 94 out of 100, every draft above 85.
+Current mean 96 out of 100, every draft above 90.
 
 ## Layout
 
