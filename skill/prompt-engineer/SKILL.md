@@ -88,15 +88,9 @@ concrete options with a recommended default first, plus room for free text. Skip
 question the project context already answers and say what you inferred instead
 ("I am assuming the tests are `pytest -q`, from the Makefile").
 
-Typical questions, pick from these rather than inventing new ones:
-- Who reads or runs the output, and what will they do with it?
-- What does done look like (tests pass, a file exists, a number, a decision)?
-- What must it not do (touch, mention, assume, exceed)?
-- What format or example should it match?
-- Which constraints are hard (length, deadline, budget, tone)?
-- Should the model plan first, ask before acting, or just go?
-- For writing: what is the thesis or stance, who grades it and against what, what
-  facts and sources may be used, and is there a sample of your own voice to match?
+Pick from the seven standing questions in `references/context-adaptation.md` rather
+than inventing new ones: reader, done, must-not, format, hard constraints, plan or go,
+and for writing the thesis, grader, sources, and voice sample.
 
 If the user says "just rewrite it", skip the interview and mark unknowns as
 `[placeholders]` with a list of what to fill in. Facts only the user holds (a thesis,
@@ -106,26 +100,37 @@ true experiences, a voice sample) have no default: placeholder them, never inven
 
 Give three options, each in its own fenced block so it can be copied whole. Keep the
 user's voice and any exact wording they clearly chose. Never invent facts; unknowns
-become `[bracketed placeholders]`.
+become `[bracketed placeholders]`. When a placeholder holds the keystone fact, the one
+the whole prompt turns on, do not bury it: open the rewrite with "Fill in before
+sending: X" and keep it out of the acceptance criterion, which has to stay checkable.
+A done condition resting on an unfilled blank cannot be met. The exception is a file
+the project loads as-is (a system prompt, a template): a literal bracket reaching
+production is worse than a stated default, so write your best default in the block and
+list it under "Before deploying, confirm:" after it.
 
 - **A. Minimal.** The draft with only the two highest-value fixes, as short as those
   fixes allow; for a draft under fifteen words, up to three sentences. For people who
   want their prompt, not a new one.
-- **B. Structured.** Role (only if a real expert persona exists), goal, context from
-  the project, constraints with the failure modes they prevent, output format, and how
-  to verify. Ordered so the important thing comes first.
+- **B. Structured.** Role (only if a real expert persona exists), goal, the reader and
+  what they do with the output, context from the project, constraints with the failure
+  modes they prevent, output format, and how to verify. Important thing first.
 - **C. Interview or agentic.** Chat: ask up to N questions first. Claude Code: plan,
   name files and commands, define done, verify. Each target shapes A, B and C
   differently; the table is "Rewrite shapes by target" in
   `references/context-adaptation.md`. Read it once per target, not per draft.
 
 Every writing rewrite ends with a self-check the model reports after the piece, under
-a separator so the piece copies clean: word count against the limit, each required
-section or rubric line present, no invented facts, quotes, or citations, one
-read-aloud pass for voice. Every agentic rewrite (B and C for Claude Code or a
-subagent) ends with three named parts: the check to run; what to deliver when the check cannot run or a needed fact is
-missing (a named file, a question to the user, or a report); and a stop rule that says
-whether to halt the whole task or skip that step and continue with the rest.
+a separator so the piece copies clean. Name the constraints most likely to break, not
+the safe ones: quote the banned words and openers back, give the word and paragraph
+counts, list each rubric line, ask for one read-aloud pass. A check confirming only
+what the model was never going to get wrong is decoration.
+
+Every agentic rewrite (B and C for Claude Code or a subagent) ends with three named
+parts: the check to run; what to deliver when it cannot run or a needed fact is
+missing (a named file, a question to the user, or a report); and a stop rule saying
+whether to halt the task or skip that step and continue. When the project's own check
+provably cannot run here, do not stop at reporting that: name one that can, such as
+tracing every claim back to the source line it came from.
 
 Before delivering, read each rewrite once as the model would receive it and fix any
 pair that fights: a stop rule naming a file the plan step may edit, a length target
@@ -188,9 +193,5 @@ request. No preamble about what prompt engineering is. No restating the draft. A
 
 ## Quick examples
 
-Coding draft "write tests for the parser" grades 18/100; with the repo's facts the
-recommended rewrite names the function, file, style file to match, cases, the no-mocks
-rule, `pytest -q`, and a stop rule (full text: `references/examples.md`, case 6).
-Writing draft "write my college essay" grades 9/100; with the brief, the grader, the
-prompt question, two true stories the user supplied, a 650-word limit, and a voice
-sample, the recommended rewrite is case 7 in `references/examples.md`.
+"Write tests for the parser" grades 18/100, "write my college essay" 9/100. Both
+recommended rewrites are in `references/examples.md`, cases 6 and 7.
