@@ -79,13 +79,11 @@ dimensions whose fix would move the grade most.
 
 ### 4. Interview, batched
 
-Use AskUserQuestion with three to six questions in one call, never one at a time. If
-that tool is not available, put the same questions in one numbered list with the
-recommended default marked, and continue with the defaults if the user does not
-answer. Ask only about gaps that would make the rewrites materially different. Each question offers
-concrete options with a recommended default first, plus room for free text. Skip any
-question the project context already answers and say what you inferred instead
-("I am assuming the tests are `pytest -q`, from the Makefile").
+Use AskUserQuestion with three to six questions in one call, never one at a time. Without
+that tool, one numbered list with the recommended default marked; proceed on the defaults
+if unanswered. Ask only about gaps that would change the rewrites. Each question offers
+concrete options, recommended default first, plus room for free text. Skip any the project
+answers and say what you inferred ("assuming `pytest -q`, from the Makefile").
 
 Pick from the seven standing questions in `references/context-adaptation.md` rather
 than inventing new ones: reader, done, must-not, format, hard constraints, plan or go,
@@ -131,7 +129,9 @@ parts: the check to run; what to deliver when it cannot run or a needed fact is
 missing (a named file, a question to the user, or a report); and a stop rule saying
 whether to halt the task or skip that step and continue. When the project's own check
 provably cannot run here, do not stop at reporting that: name one that can, such as
-tracing every claim back to the source line it came from.
+tracing every claim back to the source line it came from. Give whatever the model
+reports back a shape, named sections in order: that report is the part the user
+actually reads, and "run this check" with no antecedent leaves them guessing.
 
 Before delivering, read each rewrite once as the model would receive it. Confirm it
 names its reader; that clause is the one most often dropped. Where it points at an
