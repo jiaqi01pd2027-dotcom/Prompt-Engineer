@@ -59,9 +59,9 @@ commands, and note whether the project's check can actually run here; if it cann
 rewrite says to report that rather than install things.
 
 In a Cowork or document folder: the brief, any rubric, prior drafts and their feedback,
-a style guide, and one sample of the user's own writing. With no folder, collect the same
+a style guide, one sample of the user's own writing. With no folder, collect the same
 facts in the interview. Everything found here is rewrite material and removes an
-interview question. With no project at all, skip to grading.
+interview question. With no project, skip to grading.
 
 ### 3. Grade the draft
 
@@ -73,9 +73,8 @@ Score it with `references/rubric.md` and show a scorecard:
 | ... | | |
 | **Total** | **41/100** | band: the model will guess most of what matters |
 
-One line of evidence per row, quoting the draft or noting the absence. Show any
-adjustment from the rubric (the agentic verification penalty, contradictions) as its
-own row before the total. Do not pad the table with praise. Then state the two
+One line of evidence per row, quoting the draft or noting the absence. Show any rubric
+adjustment as its own row before the total. No praise padding. Then name the two
 dimensions whose fix would move the grade most.
 
 ### 4. Interview, batched
@@ -122,8 +121,10 @@ list it under "Before deploying, confirm:" after it.
 Every writing rewrite ends with a self-check the model reports after the piece, under
 a separator so the piece copies clean. Name the constraints most likely to break, not
 the safe ones: quote the banned words and openers back, give the word and paragraph
-counts, list each rubric line, ask for one read-aloud pass. A check confirming only
-what the model was never going to get wrong is decoration.
+counts, list each rubric line. Every item must produce an artifact the reader can look
+at, never an attestation: "list every sentence over 35 words", not "confirm you read it
+aloud". A check the model can satisfy by claiming it did is worth nothing, and a check
+confirming what it was never going to get wrong is decoration.
 
 Every agentic rewrite (B and C for Claude Code or a subagent) ends with three named
 parts: the check to run; what to deliver when it cannot run or a needed fact is
@@ -132,9 +133,12 @@ whether to halt the task or skip that step and continue. When the project's own 
 provably cannot run here, do not stop at reporting that: name one that can, such as
 tracing every claim back to the source line it came from.
 
-Before delivering, read each rewrite once as the model would receive it and fix any
-pair that fights: a stop rule naming a file the plan step may edit, a length target
-the allowed sources cannot fill, a format the constraints forbid, "proceed without
+Before delivering, read each rewrite once as the model would receive it. Confirm it
+names its reader; that clause is the one most often dropped. Where it points at an
+exemplar to copy, say which parts do not apply, or "match X" will fight the additions
+you just asked for. Then fix any pair that fights: a stop rule naming a file the plan
+step may edit, a length target the allowed sources cannot fill, a format the
+constraints forbid, "proceed without
 waiting" beside "ask me first". When a pair cannot both hold, say which wins inside
 the rewrite ("if the notes run out before 1,800 words, stop and list what is missing
 rather than padding"). The rubric costs 5 points per contradictory pair.
@@ -143,11 +147,10 @@ Pick which of the three to recommend and say why in one sentence.
 
 ### 6. Explain the patterns applied
 
-Under "Patterns applied", list each pattern used with a short reason and the evidence
-column and mean score from the pattern table above (for example "constraints naming
-the failure, strong, 7.88"); open `references/patterns.md` only if the user asks why. Also list one or two
-patterns you deliberately did not apply and why (for example "no chain-of-thought
-cue: Claude already reasons on this task; the cue added length without accuracy").
+Under "Patterns applied", list each pattern used with a short reason and its evidence
+and mean score from the table above ("constraints naming the failure, strong, 7.88").
+Also name one or two you deliberately did not apply and why ("no chain-of-thought cue:
+Claude already reasons here; it adds length, not accuracy").
 
 ### 7. Show how to push it higher
 
@@ -182,9 +185,8 @@ request. No preamble about what prompt engineering is. No restating the draft. A
   clause ("for the on-call engineer who triages the board").
 - Constraints name the failure mode ("do not ask them to retry; they already did
   twice"), not just the rule.
-- Carry the user's own bans word for word. If a note says "do not say passionate",
-  the rewrite bans the word, not one phrase containing it; narrowing a ban silently
-  restores what the user cut.
+- Carry the user's own bans word for word. "Do not say passionate" bans the word, not
+  one phrase containing it; narrowing a ban restores what the user cut.
 - When a length target and the available material disagree, say which wins. Thin
   sources plus a word count produce padding or a skeleton unless the rewrite names
   the tie-break and caps the `[add example]` markers.
@@ -193,5 +195,5 @@ request. No preamble about what prompt engineering is. No restating the draft. A
 
 ## Quick examples
 
-"Write tests for the parser" grades 18/100, "write my college essay" 9/100. Both
-recommended rewrites are in `references/examples.md`, cases 6 and 7.
+"Write tests for the parser" grades 18/100 and "write my college essay" 9/100; both
+recommended rewrites are `references/examples.md`, cases 6 and 7.
