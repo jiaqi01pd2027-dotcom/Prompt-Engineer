@@ -83,6 +83,20 @@ user in the interview instead, but keep it to what changes the output.
 - Say what to return and in what shape (the parent reads it, not the user).
 - Say what not to do (no edits, no commits, read-only) and a stop condition.
 
+## The seven standing interview questions
+
+Pick from these; do not invent new ones. Skip any the project already answers and say
+what you inferred instead.
+
+1. Who reads or runs the output, and what will they do with it?
+2. What does done look like (tests pass, a file exists, a number, a decision)?
+3. What must it not do (touch, mention, assume, exceed)?
+4. What format or example should it match?
+5. Which constraints are hard (length, deadline, budget, tone)?
+6. Should the model plan first, ask before acting, or just go?
+7. For writing: what is the thesis or stance, who grades it and against what, what
+   facts and sources may be used, and is there a sample of your own voice to match?
+
 ## Rewrite shapes by target
 
 | Target | A minimal | B structured | C third option |

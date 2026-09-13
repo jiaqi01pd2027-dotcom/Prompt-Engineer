@@ -24,8 +24,11 @@ evidence per dimension quoting the prompt (or noting the absence).
 ## Adjustments (apply after summing; show each as its own row before the total)
 
 - Agentic target (Claude Code, tools, files): if the prompt does not say how to verify
-  (tests, screenshots, lint) subtract 5; if it asks for a plan before editing on a
-  non-trivial change add 0 (already counted in #6) but mention it as a strength.
+  (tests, screenshots, lint) subtract 5, but only when dimension 6 scored above 0. A
+  prompt already at 0 there has been penalised once for that absence; note the doubling
+  instead of applying it. An API prompt a program parses is not an agentic target:
+  score dimension 6 on whether the prompt asks the model to check its own output before
+  emitting, and apply no penalty.
 - Over-specification: if the prompt is more than ~400 words and half of it is
   restating obvious things, subtract up to 5 for "noise the model must wade through".
 - Contradictions: subtract 5 per contradictory instruction pair (e.g. "be brief" and
