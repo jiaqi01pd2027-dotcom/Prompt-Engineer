@@ -52,20 +52,16 @@ the first interview question.
 
 ### 2. Collect project context before judging
 
-Follow `references/context-adaptation.md`. In a repo, read CLAUDE.md, README, the
-manifest, `git log --oneline -15`, and any file the prompt names. If the prompt names
-a concept rather than a file ("the parser", "the login flow"), find the file that
-implements it. Pull exact identifiers, commands, and conventions. Note whether the
-project's check (tests, build, lint) can actually run in this environment; if it
-cannot, the rewrite should tell the model to report that rather than install things. Everything you learn here is material for the
-rewrite and removes interview questions. Read only; never modify.
+Follow `references/context-adaptation.md`. Read only; never modify. In a repo: CLAUDE.md,
+README, the manifest, `git log --oneline -15`, and any file the prompt names; if it names
+a concept ("the parser"), find the file that implements it. Pull exact identifiers and
+commands, and note whether the project's check can actually run here; if it cannot, the
+rewrite says to report that rather than install things.
 
-In a Cowork or document folder, read the brief or assignment, any rubric, prior
-drafts and feedback on them, a style guide, and one sample of the user's own writing
-(for voice). For a writing task with no folder, collect the same facts in the
-interview: the exact assignment wording, who grades or reads it, length, sources
-allowed, a stance or thesis if the user has one, and what to avoid. If there is no
-project at all, skip to grading and collect the facts in the interview.
+In a Cowork or document folder: the brief, any rubric, prior drafts and their feedback,
+a style guide, and one sample of the user's own writing. With no folder, collect the same
+facts in the interview. Everything found here is rewrite material and removes an
+interview question. With no project at all, skip to grading.
 
 ### 3. Grade the draft
 
@@ -118,24 +114,10 @@ become `[bracketed placeholders]`.
 - **B. Structured.** Role (only if a real expert persona exists), goal, context from
   the project, constraints with the failure modes they prevent, output format, and how
   to verify. Ordered so the important thing comes first.
-- **C. Interview or agentic.** For chat: the model is told to ask up to N questions
-  before answering. For Claude Code: plan first, name the files and commands, define
-  done, say how to verify, say whether to proceed without confirming. For system
-  prompts: B is one self-contained block; C splits identity and rules into the system
-  slot and per-request material into `{{variables}}`, with one worked example. For a
-  subagent brief: A is the one-line ask the user gives the parent, B is the
-  self-contained brief (every fact, read-only rules, return shape), C is B plus a
-  stop rule and an exact return schema. For writing: B carries the assignment
-  wording, audience and grader, thesis, the facts and sources allowed (and only
-  those), length, format, voice sample or pointer, and what to avoid with the reason;
-  C tells the model to ask up to N questions or to outline first and wait, then draft,
-  then check itself against the brief. In our writing tasks the interview form (8.67)
-  and full stack (8.63) led; a role alone scored 5.43, so use a role only for voice.
-
-Placeholders: for chat and Claude Code targets, unknowns become `[bracketed
-placeholders]`. For a system prompt or any file the project loads as-is, put no
-placeholders inside the block; list unknowns under "Before deploying, fill in:" after
-the block, or turn them into interview questions.
+- **C. Interview or agentic.** Chat: ask up to N questions first. Claude Code: plan,
+  name files and commands, define done, verify. Each target shapes A, B and C
+  differently; the table is "Rewrite shapes by target" in
+  `references/context-adaptation.md`. Read it once per target, not per draft.
 
 Every writing rewrite ends with a self-check the model reports after the piece, under
 a separator so the piece copies clean: word count against the limit, each required
@@ -144,6 +126,13 @@ read-aloud pass for voice. Every agentic rewrite (B and C for Claude Code or a
 subagent) ends with three named parts: the check to run; what to deliver when the check cannot run or a needed fact is
 missing (a named file, a question to the user, or a report); and a stop rule that says
 whether to halt the whole task or skip that step and continue with the rest.
+
+Before delivering, read each rewrite once as the model would receive it and fix any
+pair that fights: a stop rule naming a file the plan step may edit, a length target
+the allowed sources cannot fill, a format the constraints forbid, "proceed without
+waiting" beside "ask me first". When a pair cannot both hold, say which wins inside
+the rewrite ("if the notes run out before 1,800 words, stop and list what is missing
+rather than padding"). The rubric costs 5 points per contradictory pair.
 
 Pick which of the three to recommend and say why in one sentence.
 
@@ -163,10 +152,12 @@ If the target is Claude Code, offer to run the recommended prompt now.
 
 ## Output shape
 
-Keep the whole reply scannable: scorecard, three fenced rewrites with one-line labels,
-"Patterns applied" as a short list, "To push it higher" as a short list. No preamble
-about what prompt engineering is. No restating the draft. Match the length of the
-examples in `references/examples.md`; a short draft gets a short reply.
+Keep the whole reply scannable: scorecard, the rewrites, "Patterns applied" and "To
+push it higher" as short lists. Print the recommended rewrite in full; give the other
+two as a fenced block only if they are under ten lines, otherwise one line each
+naming what they change ("A: the two fixes only, four lines"). Offer the full text on
+request. No preamble about what prompt engineering is. No restating the draft. Aim for
+60 lines; a short draft gets a shorter reply.
 
 ## Rules that keep rewrites honest
 
@@ -186,6 +177,12 @@ examples in `references/examples.md`; a short draft gets a short reply.
   clause ("for the on-call engineer who triages the board").
 - Constraints name the failure mode ("do not ask them to retry; they already did
   twice"), not just the rule.
+- Carry the user's own bans word for word. If a note says "do not say passionate",
+  the rewrite bans the word, not one phrase containing it; narrowing a ban silently
+  restores what the user cut.
+- When a length target and the available material disagree, say which wins. Thin
+  sources plus a word count produce padding or a skeleton unless the rewrite names
+  the tie-break and caps the `[add example]` markers.
 - For agentic prompts, always include how to verify and what not to touch.
 - Keep the user's decisions. If they wrote "under 100 words", do not change the number.
 

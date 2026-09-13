@@ -83,6 +83,23 @@ user in the interview instead, but keep it to what changes the output.
 - Say what to return and in what shape (the parent reads it, not the user).
 - Say what not to do (no edits, no commits, read-only) and a stop condition.
 
+## Rewrite shapes by target
+
+| Target | A minimal | B structured | C third option |
+|---|---|---|---|
+| Claude Code | the two fixes only | goal, project facts, constraints with reasons, format, verification | plan first, name files and commands, define done, say whether to proceed without confirming |
+| Chat | the two fixes only | role only if voice needs it, goal, context, constraints, format | the model asks up to N questions before answering |
+| API system prompt | the two fixes only | one self-contained block | identity and rules in the system slot, per-request material in `{{variables}}`, one worked example |
+| Subagent brief | the one-line ask the user gives the parent | the self-contained brief: every fact, read-only rules, return shape | B plus a stop rule and an exact return schema |
+| Writing | the two fixes only | assignment wording, audience and grader, thesis, sources allowed and only those, length, format, voice sample or pointer, what to avoid with the reason | ask up to N questions, or outline first and wait, then draft, then self-check against the brief |
+
+Placeholders: for chat and Claude Code, unknowns become `[bracketed placeholders]`.
+For a system prompt or any file the project loads as-is, put none inside the block;
+list them under "Before deploying, fill in:" after it, or ask them in the interview.
+
+On writing tasks our runs put the interview form (8.67) and the full stack (8.63)
+level, while a role alone scored 5.43, so spend the role only on voice.
+
 ## Cowork specifics
 
 Cowork sessions work in a folder, not a repo: there is no git log, tests, or CLAUDE.md
