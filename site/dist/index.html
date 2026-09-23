@@ -178,9 +178,9 @@ section:first-child{padding-top:36px}
 
 <main>
 <section id="top">
-  <div class="eyebrow">A Claude Code skill, a grader, and the research behind them</div>
+  <div class="eyebrow">A skill for code and writing, a grader, and the research behind them</div>
   <h1 style="margin:10px 0 18px">Same model. <span class="mark">Better words.</span></h1>
-  <p class="lede">Paste a prompt and get it graded out of 100, then rewritten three ways with the patterns named. The rules come from 360 blind-judged runs on Fable 5.1, Opus 5, and Sonnet 5, not from folklore.</p>
+  <p class="lede">Paste a prompt and get it graded out of 100, then rewritten three ways with the patterns named. Works on code, agent prompts, and writing. The rules come from 360 blind-judged runs on Fable 5.1, Opus 5, and Sonnet 5, not from folklore.</p>
   <div class="row" style="margin:20px 0 26px">
     <a class="btn primary" href="#grader">Grade a prompt</a>
     <a class="btn" href="#skill">Install <code>/prompt-engineer</code></a>
@@ -199,6 +199,8 @@ section:first-child{padding-top:36px}
       <select id="target">
         <option value="Claude Code (agentic, in a repo)">Claude Code in a repo</option>
         <option value="claude.ai chat">claude.ai chat</option>
+        <option value="a writing task (essay, article, letter, report) in chat">Writing, in chat</option>
+        <option value="a writing task in a shared document folder holding a brief, a rubric, and past drafts">Writing, in a document folder</option>
         <option value="an API system prompt or reusable template">API system prompt</option>
         <option value="a subagent prompt">Subagent prompt</option>
       </select>
@@ -217,19 +219,20 @@ section:first-child{padding-top:36px}
   </div>
 </section>
 <section id="skill">
-  <div class="eyebrow">Claude Code</div>
-  <h2>Install the skill</h2>
+  <div class="eyebrow">The skill</div>
+  <h2>Install it</h2>
   <div class="prose">
-    <p>Inside Claude Code the same workflow can read your project first. It pulls the real test command, the file your draft points at, the rules in CLAUDE.md, and an existing example to imitate, then grades, asks a batch of questions, and rewrites. That substitution of your project's facts for generic nouns is where most of the gain comes from.</p>
+    <p>Installed, the same workflow reads before it judges. In a repository it pulls the real test command, the file your draft points at, the rules in CLAUDE.md, and an existing example to imitate. In a document folder it reads the brief, the rubric, past drafts, the feedback on them, and a sample of your own writing. Then it grades, asks a batch of questions, and rewrites. Substituting your own facts for generic nouns is where most of the gain comes from, and it is the one thing a guide cannot do for you.</p>
     <ol class="steps">
       <li><b>Install.</b> Clone the repo and link the skill into your user skills folder:</li>
     </ol>
     <pre>git clone https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer.git
 ln -s "$(pwd)/Prompt-Engineer/skill/prompt-engineer" ~/.claude/skills/prompt-engineer</pre>
     <ol class="steps" start="2">
-      <li><b>Use.</b> In any Claude Code session: <code>/prompt-engineer fix the login bug</code>, or paste a prompt and say "grade this". It also triggers when you ask "how should I ask for X".</li>
-      <li><b>Pick a rewrite.</b> A is minimal, B is structured with your project's facts, C is the interview or agentic form. The skill says which it recommends and why.</li>
+      <li><b>Use.</b> In any session: <code>/prompt-engineer fix the login bug</code>, or <code>/prompt-engineer help with my essay</code>, or paste a prompt and say "grade this". It also triggers on "how should I ask for X" and on a folder holding a brief or a rubric.</li>
+      <li><b>Pick a rewrite.</b> A is minimal, B is structured with your own facts, C is the interview or agentic form. The skill says which it recommends and why.</li>
     </ol>
+    <p class="note">The skill is tested the same way the patterns were. Eight drafts across five targets, each recommended rewrite scored by an independent grader against the skill's own rubric: mean 96 out of 100, nothing below 92. Five rounds of fixes got it there, and one of them made things worse before it made them better, which only a separate grader could see.</p>
     <h3>What a reply looks like</h3>
     <pre>Scorecard: 22/100 (a command, not a prompt)
   Goal and deliverable   4/20  "fix the login bug": which bug, done how?
@@ -465,7 +468,8 @@ document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3
 /* ---------- grader ---------- */
 const RUBRIC = `Grade this draft prompt out of 100 using seven dimensions with these maxima: Goal and deliverable 20; Context 20; Constraints and negatives 15; Output format 15; Role and audience 10; Reasoning and verification 10; Scope and decomposition 10. For each give a score and one line of evidence quoting the draft or noting the absence. Do not pad with praise. Bands: 85-100 ship it; 65-84 good bones; 40-64 the model will guess; 0-39 a command, not a prompt. Do not penalise short prompts for trivial tasks, a missing role when no real expert exists, or a missing chain-of-thought cue (current Claude reasons on its own).
 Then list 3 to 6 interview questions, only ones whose answers would change the rewrite, each with a recommended default.
-Then give three rewrites in fenced code blocks: A Minimal (only the two highest-value fixes, same length or shorter), B Structured (role only if a real expert exists, goal, context, constraints that name the failure mode they prevent, output format, how to verify; important thing first), C Interview or agentic (for chat: ask up to N questions first; for Claude Code: plan first, name files and commands, define done, say how to verify). Keep the user's voice and any exact wording they chose. Never invent facts; unknowns become [bracketed placeholders]. Say which rewrite you recommend in one sentence.
+For a writing target, read the dimensions this way: the assignment quoted word for word and the true things the piece must contain are the goal; the grader, the rubric, the facts and sources allowed, and a voice sample are the context; banned openers and "no invented facts" are constraints.
+Then give three rewrites in fenced code blocks: A Minimal (only the two highest-value fixes, as short as those fixes allow), B Structured (role only if a real expert exists, goal, the reader and what they do with the output, context, constraints that name the failure mode they prevent, output format, how to verify; important thing first), C Interview or agentic (for chat: ask up to N questions first; for Claude Code: plan first, name files and commands, define done, say how to verify; for writing: ask or outline first, then draft). Keep the user's voice and any exact wording they chose. Never invent facts; unknowns become [bracketed placeholders], and when a placeholder holds the one fact the whole prompt turns on, open with "Fill in before sending: X" and keep it out of the acceptance criterion. A writing rewrite ends with a self-check reported under a separator, and every check must produce something inspectable (a word count, a list of sentences over 30 words), never an attestation the model can fake. Say which rewrite you recommend in one sentence.
 Then "Patterns applied" as a short list with one reason each, and one or two patterns deliberately not applied and why.
 Then "To push it higher": projected score of the recommended rewrite, remaining gaps, and the exact facts the user could add.
 Use plain headings and short lines. No preamble.`;
@@ -554,7 +558,7 @@ $('btn-quick').addEventListener('click',()=>{
 })();
 
 /* ---------- abstract + rail ---------- */
-$('abstract').textContent = "The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment across six domains, ten prompt patterns, and three Claude models, scored blind. The findings are packaged as a Claude Code skill and as this site.";
+$('abstract').textContent = "The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment across six domains, ten prompt patterns, and three Claude models, scored blind. The findings are packaged as a skill for code and writing prompts, and as this site.";
 (function(){ const links=[...document.querySelectorAll('.rail a[href^="#"]')]; const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
   const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+e.target.id)); } }); },{rootMargin:"-30% 0px -60% 0px"}); secs.forEach(s=>io.observe(s)); })();
 </script>
