@@ -103,7 +103,8 @@ sending: X" and keep it out of the acceptance criterion, which has to stay check
 A done condition resting on an unfilled blank cannot be met. The exception is a file
 the project loads as-is (a system prompt, a template): a literal bracket reaching
 production is worse than a stated default, so write your best default in the block and
-list it under "Before deploying, confirm:" after it.
+list every one under "Before deploying, confirm:" after it. A default that is not on
+that list is an invented fact wearing a better name.
 
 - **A. Minimal.** The draft with only the two highest-value fixes, as short as those
   fixes allow; for a draft under fifteen words, up to three sentences. For people who
