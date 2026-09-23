@@ -39,9 +39,8 @@ evidence; open `references/patterns.md` only when the user asks why a pattern wo
 
 ### 1. Capture the draft and the target
 
-Take the prompt from the arguments, the last message, or a file the user points at. If
-there is no draft yet, ask for the one-line goal and treat that as the draft (it will
-grade low; that is fine).
+Take the prompt from the arguments, the last message, or a file the user points at. With
+no draft yet, ask for the one-line goal and treat that as the draft; a low grade is fine.
 
 Establish where it will run, because the rewrite shape depends on it:
 Claude Code in this repo, claude.ai chat, an API system prompt or template, a
