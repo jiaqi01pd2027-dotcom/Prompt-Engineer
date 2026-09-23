@@ -119,8 +119,8 @@ that list is an invented fact wearing a better name.
 
 Every writing rewrite ends with a self-check the model reports after the piece, under
 a separator so the piece copies clean. Name the constraints most likely to break, not
-the safe ones: quote the banned words and openers back, give the word and paragraph
-counts, list each rubric line. Every item must produce an artifact the reader can look
+the safe ones: banned words and openers quoted back, word and paragraph counts, each
+rubric line. Every item must produce an artifact the reader can look
 at, never an attestation: "list every sentence over 35 words", not "confirm you read it
 aloud". A check the model can satisfy by claiming it did is worth nothing, and a check
 confirming what it was never going to get wrong is decoration.
