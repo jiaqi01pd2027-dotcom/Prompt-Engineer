@@ -11,6 +11,7 @@
   --good:#0ca30c; --critical:#d03b3b; --warning:#fab219;
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
   --q100:#cde2fb; --q200:#9ec5f4; --q300:#6da7ec; --q400:#3987e5; --q500:#256abf; --q600:#184f95; --q700:#0d366b;
+  --bare:#9C9186; --glow:rgba(31,79,214,.16); --lift:0 1px 2px rgba(20,30,45,.05),0 8px 24px rgba(20,30,45,.07);
   --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --body:"Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -25,6 +26,7 @@
     --mark:#D8BE3C; --mark-ink:#1E1900;
     --s1:#3987e5; --s2:#d95926; --s3:#199e70;
     --q100:#183456; --q200:#1c4478; --q300:#22569a; --q400:#2a6bbd; --q500:#3987e5; --q600:#6da7ec; --q700:#9ec5f4;
+    --bare:#6E6960; --glow:rgba(125,160,255,.20); --lift:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
   }
 }
 :root[data-theme="dark"]{
@@ -35,8 +37,11 @@
   --mark:#D8BE3C; --mark-ink:#1E1900;
   --s1:#3987e5; --s2:#d95926; --s3:#199e70;
   --q100:#183456; --q200:#1c4478; --q300:#22569a; --q400:#2a6bbd; --q500:#3987e5; --q600:#6da7ec; --q700:#9ec5f4;
+  --bare:#6E6960; --glow:rgba(125,160,255,.20); --lift:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}
 h1,h2,h3,h4{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
@@ -158,6 +163,38 @@ select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:
 .stat .l{font-size:.86rem;color:var(--ink-2);margin-top:6px}
 .cards.collapsed .card:nth-child(n+7){display:none}
 section:first-child{padding-top:36px}
+body::after{content:"";position:fixed;inset:0;background-image:var(--grain);opacity:.05;pointer-events:none;z-index:9999}
+.viz{position:relative;margin:26px 0 30px;border:1px solid var(--line);border-radius:10px;background:
+  radial-gradient(120% 140% at 8% 50%, var(--glow), transparent 60%), var(--paper);overflow:hidden}
+.viz canvas{display:block;width:100%;height:270px}
+@media (max-width:700px){.viz canvas{height:200px}}
+.viz .cap{position:absolute;font-size:.76rem;line-height:1.3;letter-spacing:.02em}
+.viz .cap b{display:block;font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.viz .cap.origin{left:16px;top:50%;transform:translateY(-50%);color:var(--ink-3);max-width:11%;min-width:70px}
+.viz .cap.hi{right:16px;top:14%;color:var(--ink-3);text-align:right}
+.viz .cap.hi b{color:var(--bare)}
+.viz .cap.lo{right:16px;bottom:14%;color:var(--ink-2);text-align:right}
+.viz .cap.lo b{color:var(--accent)}
+.viz .foot{position:absolute;left:14px;bottom:10px;font-size:.72rem;color:var(--ink-3)}
+h2{position:relative;padding-left:14px}
+h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:3px;border-radius:2px;background:var(--accent)}
+.card{transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:0;transition:opacity .16s ease}
+.card:hover{transform:translateY(-2px);box-shadow:var(--lift);border-color:var(--line)}
+.card:hover::before{opacity:1}
+.card .meter{height:4px;border-radius:2px;background:var(--line-2);overflow:hidden;margin-top:2px}
+.card .meter i{display:block;height:100%;border-radius:2px;background:var(--accent)}
+.card .meter.weak i{background:var(--bare)}
+.stat{transition:transform .16s ease,box-shadow .16s ease;position:relative}
+.stat:hover{transform:translateY(-2px);box-shadow:var(--lift)}
+.stat .spark{display:flex;gap:3px;align-items:flex-end;height:20px;margin-top:10px}
+.stat .spark i{flex:1;border-radius:1px;background:var(--line);min-height:2px}
+.stat .spark i.on{background:var(--accent)}
+.btn{transition:transform .14s ease,box-shadow .14s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--lift)}
+.panel{transition:box-shadow .16s ease}
+.panel:hover{box-shadow:var(--lift)}
+@media (prefers-reduced-motion:reduce){.card,.stat,.btn,.panel{transition:none}.card:hover,.stat:hover,.btn:hover{transform:none}}
 [hidden]{display:none!important}
 .status{font-size:.86rem;color:var(--ink-3)}
 .streaming{white-space:pre-wrap;font-size:.92rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;max-height:520px;overflow:auto}
@@ -186,6 +223,13 @@ section:first-child{padding-top:36px}
     <a class="btn" href="#skill">Install <code>/prompt-engineer</code></a>
     <a class="btn ghost" href="#findings">See the evidence</a>
   </div>
+  <figure class="viz" id="viz" aria-labelledby="viz-cap">
+    <canvas id="viz-canvas" role="img" aria-label="One model, two prompts. Output quality from a bare command scatters and averages 5.46 out of 10; from a full prompt it converges and averages 9.12."></canvas>
+    <figcaption class="cap origin">one model, one task</figcaption>
+    <div class="cap hi"><b>5.46</b>bare command</div>
+    <div class="cap lo"><b>9.12</b>full prompt</div>
+    <div class="foot" id="viz-cap">360 blind-judged runs. Each trace is one run.</div>
+  </figure>
   <div class="stats" id="stats"></div>
 </section>
 <section id="grader">
@@ -435,11 +479,77 @@ function modelChart(id, tableId){
 }
 barChart('c-pattern','t-pattern'); heat('c-heat'); modelChart('c-model','t-model');
 
+/* ---------- film grain ---------- */
+(function(){ try{
+  const c=document.createElement('canvas'); c.width=c.height=140;
+  const x=c.getContext('2d'), d=x.createImageData(140,140);
+  for(let i=0;i<d.data.length;i+=4){ const v=Math.random()*255; d.data[i]=d.data[i+1]=d.data[i+2]=v; d.data[i+3]=Math.random()*60; }
+  x.putImageData(d,0,0);
+  document.documentElement.style.setProperty('--grain',`url(${c.toDataURL()})`);
+}catch(e){} })();
+
+/* ---------- hero: one origin, two destinations ---------- */
+(function(){
+  const cv=document.getElementById('viz-canvas'); if(!cv) return;
+  const ctx=cv.getContext('2d'); if(!ctx) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W=0,H=0,ink={bare:'#9C9186',full:'#1F4FD6',dot:'#7C8792'};
+  function readColors(){ const cs=getComputedStyle(document.documentElement);
+    const g=n=>cs.getPropertyValue(n).trim()||null;
+    ink.bare=g('--bare')||ink.bare; ink.full=g('--accent')||ink.full; ink.dot=g('--ink-3')||ink.dot; }
+  function size(){ const dpr=Math.min(2,window.devicePixelRatio||1), r=cv.getBoundingClientRect();
+    W=Math.max(1,r.width); H=Math.max(1,r.height); cv.width=W*dpr; cv.height=H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0); }
+  readColors(); size();
+  addEventListener('resize',()=>{ size(); if(reduce) frame(1); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',readColors);
+
+  const N=110, P=[];
+  for(let i=0;i<N;i++) P.push({ full:i%2===0, t:Math.random(), v:0.0022+Math.random()*0.0026, s:(Math.random()*2-1), w:Math.random() });
+  const ox=()=>W*0.19, oy=()=>H*0.5, tx=()=>W*0.88;
+  const hiC=()=>H*0.26, loC=()=>H*0.74;          // destination band centres
+  const hiS=()=>H*0.21, loS=()=>H*0.045;         // spread: scattered vs tight
+  function pos(p,t){
+    const e=t*t*(3-2*t);                          // smoothstep along the path
+    const x=ox()+(tx()-ox())*t;
+    const c=p.full?loC():hiC(), sp=(p.full?loS():hiS())*(0.45+0.55*p.w);
+    const y=oy()+((c+p.s*sp)-oy())*e;
+    return [x,y];
+  }
+  function frame(alphaScale){
+    ctx.clearRect(0,0,W,H);
+    for(const p of P){
+      const a=p.full?0.58:0.46, col=p.full?ink.full:ink.bare;
+      const t1=p.t, t0=Math.max(0,p.t-0.11);
+      const [x1,y1]=pos(p,t1), [x0,y0]=pos(p,t0);
+      ctx.strokeStyle=col; ctx.globalAlpha=a*alphaScale*(0.35+0.65*t1);
+      ctx.lineWidth=p.full?1.5:1.1; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x1,y1); ctx.stroke();
+      if(t1>0.965){ ctx.globalAlpha=a*alphaScale; ctx.fillStyle=col;
+        ctx.beginPath(); ctx.arc(x1,y1,p.full?2:1.6,0,6.283); ctx.fill(); }
+    }
+    ctx.globalAlpha=1; ctx.fillStyle=ink.dot;
+    ctx.beginPath(); ctx.arc(ox(),oy(),3.5,0,6.283); ctx.fill();
+    ctx.globalAlpha=0.28; ctx.beginPath(); ctx.arc(ox(),oy(),9,0,6.283); ctx.stroke();
+    ctx.globalAlpha=1;
+  }
+  if(reduce){ for(const p of P) p.t=0.55+p.w*0.45; frame(1); return; }
+  let run=true, raf=0;
+  function tick(){ for(const p of P){ p.t+=p.v; if(p.t>1.06){ p.t=0; p.s=Math.random()*2-1; p.w=Math.random(); } }
+    frame(1); if(run) raf=requestAnimationFrame(tick); }
+  frame(1);                                        // a settled frame before any motion
+  new IntersectionObserver(es=>{ const vis=es[0].isIntersecting;
+    if(vis&&!raf){ run=true; raf=requestAnimationFrame(tick); }
+    else if(!vis&&raf){ run=false; cancelAnimationFrame(raf); raf=0; } },{threshold:0.05}).observe(cv);
+})();
+
 /* ---------- stats strip ---------- */
 (function(){ const bp=S.by_pattern||{}; const el=document.getElementById('stats'); if(!el) return;
   const v=p=>bp[p]?bp[p].mean_total.toFixed(2):"";
+  const order=["P0","P2","P7","P1","P3","P4","P6","P5","P9","P8"];
+  const spark = order.map(p=>{ const m=bp[p]?bp[p].mean_total:0; const h=Math.max(2,Math.round(m/10*20)); const on=(p==='P0'||p==='P8')?' class="on"':''; return `<i${on} style="height:${h}px" title="${LABEL[p]||p}: ${m.toFixed(2)}"></i>`; }).join("");
   el.innerHTML = `
-   <div class="stat"><div class="n">${v('P0')} <small>to</small> ${v('P8')}</div><div class="l">Judge score, bare command vs full prompt (0 to 10)</div></div>
+   <div class="stat"><div class="n">${v('P0')} <small>to</small> ${v('P8')}</div><div class="l">Judge score, bare command vs full prompt (0 to 10)</div><div class="spark" aria-hidden="true">${spark}</div></div>
    <div class="stat"><div class="n">3 <small>of 3</small></div><div class="l">Claude models with the same pattern ranking</div></div>
    <div class="stat"><div class="n">${Math.round((bp.P8?.objective_rate||0)*100)}%</div><div class="l">Objective checks passed by the full prompt (bare: ${Math.round((bp.P0?.objective_rate||0)*100)}%)</div></div>
    <div class="stat"><div class="n">360</div><div class="l">Runs: 12 tasks, 10 phrasings, 3 models, blind judged</div></div>`;
@@ -463,7 +573,8 @@ const CARDS = [
 ];
 document.getElementById('cards').classList.add('collapsed');
 document.getElementById('more-cards').addEventListener('click',e=>{ document.getElementById('cards').classList.remove('collapsed'); e.target.remove(); });
-document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3><span>${esc(c.t)} <span class="id">${c.id}</span></span><span class="str ${c.s}">${c.s}</span></h3><p>${esc(c.d)}</p><pre>${esc(c.ph)}</pre><div class="hh"><div><b>Helps</b>${esc(c.h)}</div><div><b>Hurts</b>${esc(c.x)}</div></div><div class="ev">${esc(c.e)}</div></div>`).join("");
+const MEAN={P1:7.09,P2:6.94,P3:7.13,P4:7.88,P5:8.40,P6:8.12,P7:6.99,P8:9.12,P9:8.75};
+document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3><span>${esc(c.t)} <span class="id">${c.id}</span></span><span class="str ${c.s}">${c.s}</span></h3>${MEAN[c.id]?`<div class="meter${c.s==='weak'?' weak':''}" title="mean judge score ${MEAN[c.id]} of 10"><i style="width:${MEAN[c.id]*10}%"></i></div>`:''}<p>${esc(c.d)}</p><pre>${esc(c.ph)}</pre><div class="hh"><div><b>Helps</b>${esc(c.h)}</div><div><b>Hurts</b>${esc(c.x)}</div></div><div class="ev">${esc(c.e)}</div></div>`).join("");
 
 /* ---------- grader ---------- */
 const RUBRIC = `Grade this draft prompt out of 100 using seven dimensions with these maxima: Goal and deliverable 20; Context 20; Constraints and negatives 15; Output format 15; Role and audience 10; Reasoning and verification 10; Scope and decomposition 10. For each give a score and one line of evidence quoting the draft or noting the absence. Do not pad with praise. Bands: 85-100 ship it; 65-84 good bones; 40-64 the model will guess; 0-39 a command, not a prompt. Do not penalise short prompts for trivial tasks, a missing role when no real expert exists, or a missing chain-of-thought cue (current Claude reasons on its own).
