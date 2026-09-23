@@ -1,21 +1,15 @@
-<!doctype html><html><head><meta charset='utf-8'><title>Same Model, Different Words</title><style>
-@page{size:A4;margin:22mm 20mm}
+<!doctype html><html><head><meta charset='utf-8'><title>Same Model, Different Words</title><style>@page{size:A4;margin:22mm 20mm}
 body{font-family:Georgia,'Times New Roman',serif;font-size:11pt;line-height:1.45;color:#111;max-width:170mm;margin:0 auto;padding:10mm}
-h1{font-size:20pt;line-height:1.2;margin:0 0 6pt}
-h2{font-size:14pt;margin:18pt 0 6pt;border-bottom:1px solid #999;padding-bottom:2pt}
-h3{font-size:11.5pt;margin:12pt 0 4pt}
-p{margin:0 0 8pt;text-align:justify}
+h1{font-size:20pt;line-height:1.2;margin:0 0 6pt} h2{font-size:14pt;margin:18pt 0 6pt;border-bottom:1px solid #999;padding-bottom:2pt}
+h3{font-size:11.5pt;margin:12pt 0 4pt} p{margin:0 0 8pt;text-align:justify}
 table{border-collapse:collapse;font-size:9pt;margin:8pt 0;width:100%}
-th,td{border:1px solid #bbb;padding:3pt 5pt;text-align:left;vertical-align:top}
-th{background:#eee}
-code{font-family:Menlo,monospace;font-size:9.5pt}
-pre{font-size:9pt;background:#f4f4f4;padding:6pt;white-space:pre-wrap}
-ul{padding-left:18pt} li{margin-bottom:3pt}
-</style></head><body><h1>Same Model, Different Words: How Prompt Phrasing Changes What Claude Produces</h1>
+th,td{border:1px solid #bbb;padding:3pt 5pt;text-align:left;vertical-align:top} th{background:#eee}
+code{font-family:Menlo,monospace;font-size:9.5pt} pre{font-size:9pt;background:#f4f4f4;padding:6pt;white-space:pre-wrap}
+ul{padding-left:18pt} li{margin-bottom:3pt}</style></head><body><h1>Same Model, Different Words: How Prompt Phrasing Changes What Claude Produces</h1>
 <p><strong>Tiger Zhang</strong>
 September 2026</p>
 <h2>Abstract</h2>
-<p>The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment: twelve tasks across six domains (coding, writing, analysis, extraction, reasoning, and agentic planning), each written in ten prompt patterns that hold the underlying task fixed and vary only the wording, each run as a fresh subagent on three Claude models (Fable 5.1, Opus 5, Sonnet 5), for 360 runs. Outputs were scored by a blind judge on correctness, completeness, adherence, usefulness, and concision, plus objective checks where the task allowed them. Across 360 runs, the full-stack prompt (role, goal, context, constraints, format) scored 9.12 out of 10 against 5.46 for a bare command, and the ordering of patterns was the same on all three models. Format and constraints were the strongest single additions; a role or a chain-of-thought cue added almost nothing on its own; context helped only where the task depended on facts the model could not infer. Sonnet 5 with a full prompt outscored Fable 5.1 with a bare one, so wording moved output quality more than model choice did. The findings are packaged as a Claude Code skill that collects project context, grades a draft prompt out of 100, interviews the user in one batch, and produces three rewrites with the patterns named, and as a website with the pattern library, results, and a live grader.</p>
+<p>The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment: twelve tasks across six domains (coding, writing, analysis, extraction, reasoning, and agentic planning), each written in ten prompt patterns that hold the underlying task fixed and vary only the wording, each run as a fresh subagent on three Claude models (Fable 5.1, Opus 5, Sonnet 5), for 360 runs. Outputs were scored by a blind judge on correctness, completeness, adherence, usefulness, and concision, plus objective checks where the task allowed them. Across 360 runs, the full-stack prompt (role, goal, context, constraints, format) scored 9.12 out of 10 against 5.46 for a bare command, and the ordering of patterns was the same on all three models. Format and constraints were the strongest single additions; a role or a chain-of-thought cue added almost nothing on its own; context helped only where the task depended on facts the model could not infer. Sonnet 5 with a full prompt outscored Fable 5.1 with a bare one, so wording moved output quality more than model choice did. The findings are packaged as a Claude Code skill that collects project context, grades a draft prompt out of 100, interviews the user in one batch, and produces three rewrites with the patterns named, and as a website with the pattern library, results, and a live grader. The skill covers code, agent, and writing prompts, and was itself put through the same blind-graded procedure over five rounds, which raised its mean rewrite score from 92.6 to 96.1 and exposed one regression its own self-assessment had missed.</p>
 <h2>1. Introduction</h2>
 <p>Prompt engineering is programming in natural language. The instruction "write something about our product" and the instruction "you are a senior B2B copywriter; write a two-sentence LinkedIn ad for ops managers at mid-sized companies, confident but not salesy, ending with a call to action" go to the same model, and the difference in the result comes entirely from the words. Most people write the first kind. Two things make that costly now. Models are used for actions, not only text: they edit repositories, call tools, and send messages, so a vague prompt produces a vague action. And the models have changed under the advice: instructions that fixed lazy behaviour in 2024 now cause over-triggering, and the chain-of-thought cue that lifted arithmetic scores in 2022 mostly adds latency on models that reason on their own.</p>
 <p>This project has three parts. The research part collects what is known, from 52 papers and the current documentation of Anthropic, OpenAI, and Google, and adds a controlled experiment on the Claude family. The product part is a Claude Code skill, <code>/prompt-engineer</code>, that turns the findings into a repeatable workflow: read the project, grade the draft, ask the few questions that change the rewrite, rewrite three ways, and explain which patterns were used. The website presents the pattern library, the experiment results with a blind rating page, and a grader that runs the rubric in the browser.</p>
@@ -548,10 +542,45 @@ September 2026</p>
 <p>Two artifacts of running the study inside Claude Code affected the numbers, and we would rather report them than tidy them away. First, on code-1, subagents in the same batch sometimes wrote to the same scratch file, so four Fable runs were re-run one at a time, and several Opus and Sonnet runs returned summaries of a file instead of the code; those scored low on usefulness as delivered, which depresses the P0 to P3 cells in the code column. Second, the judge's Python was 3.9, and three otherwise correct solutions failed to import because of a <code>float | int</code> annotation; we re-ran those three with 3.10 semantics and corrected their objective checks. Neither artifact changes the ordering.</p>
 <h2>5. From findings to a tool</h2>
 <h3>5.1 The skill</h3>
-<p><code>/prompt-engineer</code> runs in Claude Code. It reads the project before judging: CLAUDE.md, README, manifests, recent commits, and any file the draft names. It grades the draft with a seven-dimension rubric out of 100 and shows one line of evidence per dimension. It asks three to six questions in one batch, skipping any the project already answers, then gives three rewrites: minimal (the two highest-value fixes), structured (the full hierarchy with project facts substituted for generic nouns), and interview or agentic (ask-first for chat; plan, verify, and define done for Claude Code). It names the patterns applied and the ones deliberately left out, and ends with what would push the score higher.</p>
+<p><code>/prompt-engineer</code> reads before it judges. In a repository that means CLAUDE.md, the README, manifests, recent commits, and any file the draft names; if the draft names a concept rather than a file, it finds the file that implements it. In a document folder it means the brief, the rubric, prior drafts, the feedback on them, and a sample of the user's own writing. It grades the draft with a seven-dimension rubric out of 100, one line of evidence per dimension. It asks three to six questions in one batch, skipping any the project already answers and saying what it inferred instead. Then it gives three rewrites: minimal (the two highest-value fixes), structured (the full hierarchy with project facts substituted for generic nouns), and interview or agentic. It names the patterns applied and the ones deliberately left out, and ends with what would push the score higher.</p>
+<p>The targets are code and prose alike: Claude Code in a repository, chat, an API system prompt, a subagent brief, and writing (essays, articles, letters, reports) either in chat or in a shared document folder. The target decides the shape of the rewrite. A system prompt gets no bracketed placeholders, because the file is loaded verbatim and a literal bracket reaching production is worse than a documented default. A subagent brief gets an absolute path and a return schema, because a subagent has no working directory and no memory of the conversation. A writing rewrite ends with a self-check reported under a separator so the piece itself copies clean.</p>
 <h3>5.2 Why project substitution is the hard part</h3>
 <p>Every guide says "add context". The gain comes from the specific context: the real test command, an existing test to imitate, the branch name, the rule in CLAUDE.md. A prompt that says "follow the style guide" is worse than one that says "match tests/test_dates.py". Generic advice cannot supply these; a tool running inside the project can. The skill's context step exists for this reason, and its rubric scores context by whether the facts are project-specific, not by whether a context section exists.</p>
-<h3>5.3 Website</h3>
+<h3>5.3 Testing the tool with the paper's own method</h3>
+<p>A tool built from a measurement should be measured the same way, so the skill was put through the procedure in Section 3. Eight drafts spanning five targets (a one-line bug fix, a vague feature request, "write docs", an API system prompt, a subagent brief, a scholarship essay, a history paper in a document folder, and a cover letter) were run through the skill, and each recommended rewrite was scored by an independent grader against the skill's own rubric, blind to the skill's self-grade. Five rounds followed, each fixing only what a grader had named and then re-testing.</p>
+<table>
+<thead>
+<tr>
+<th>Round</th>
+<th>Mean score</th>
+<th>Weakest draft</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>92.6</td>
+<td>85</td>
+</tr>
+<tr>
+<td>1</td>
+<td>94.1</td>
+<td>89</td>
+</tr>
+<tr>
+<td>2</td>
+<td>95.0</td>
+<td>90</td>
+</tr>
+<tr>
+<td>3 to 5</td>
+<td>96.1</td>
+<td>92</td>
+</tr>
+</tbody>
+</table>
+<p>Three results are worth reporting. First, the fixes that moved scores were not the ones that sounded most principled. Requiring every self-check to produce an inspectable artifact, a word count or a list of sentences over thirty words rather than a claim that the model had reread its work, was worth more than any rewording of the pattern advice. Second, replies got shorter as they got better; the bug-fix reply fell from 96 lines to 61 while its score rose. Third, round 1 caused a regression before it caused an improvement. A new rule placed a bracketed placeholder on the single fact a prompt turned on, which pushed that draft from 95 to 89; rounds 2 and 3 recovered it by requiring the keystone placeholder to sit at the top of the prompt and outside the acceptance criterion. That regression was invisible to the skill's own self-assessment and was caught only because a separate grader scored each rewrite. The lesson generalises beyond this tool: a prompt-improvement system that grades its own output will not find the cases where its rules fight each other.</p>
+<h3>5.4 Website</h3>
 <p>The site carries the pattern library with evidence strength, the results tables and charts, a blind side-by-side rating page whose scores are stored and can be merged with the judge scores, a grader that applies the rubric to a pasted prompt, and the paper.</p>
 <h2>6. Conclusions</h2>
 <p>Wording moves output quality more than model choice does, and the wording that works has a recognisable shape. Say what is wanted and for whom; give the facts the model cannot infer and only those; name the constraints and the failure they prevent; specify the format down to where the output goes; and, when the facts are missing, ask before writing. Do that and the cheapest model in the family beats the strongest one given a bare command. Add a role only for voice. Skip the chain-of-thought cue on current Claude models unless a bare answer is being asked for on a multi-step problem. Never stack emphasis.</p>
