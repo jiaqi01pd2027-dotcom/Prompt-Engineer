@@ -3,7 +3,7 @@
 
 Usage: python3 make_bundle.py write-1  -> judge/write-1/bundle.md + key.json
 """
-import json, pathlib, random, sys, re
+import json, pathlib, random, sys
 
 ROOT = pathlib.Path(__file__).parent
 MODELS = ["fable", "opus", "sonnet"]

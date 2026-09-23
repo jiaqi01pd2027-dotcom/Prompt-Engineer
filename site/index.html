@@ -386,7 +386,6 @@ returns 401") for a projected 90+.</pre>
 <script id="data" type="application/json">__DATA__</script>
 <script>
 const DATA = JSON.parse(document.getElementById('data').textContent);
-const NAMES = DATA.names;
 const PAT = ["P0","P1","P2","P3","P4","P5","P6","P7","P8","P9"];
 const LABEL = {P0:"Bare",P1:"Specific",P2:"+ Role",P3:"+ Context",P4:"+ Constraints",P5:"+ Format",P6:"+ Few-shot",P7:"+ Chain of thought",P8:"Full stack",P9:"Interview"};
 const S = DATA.summary || {};
@@ -573,7 +572,7 @@ const CARDS = [
 ];
 document.getElementById('cards').classList.add('collapsed');
 document.getElementById('more-cards').addEventListener('click',e=>{ document.getElementById('cards').classList.remove('collapsed'); e.target.remove(); });
-const MEAN={P1:7.09,P2:6.94,P3:7.13,P4:7.88,P5:8.40,P6:8.12,P7:6.99,P8:9.12,P9:8.75};
+const MEAN=Object.fromEntries(Object.entries(S.by_pattern||{}).map(([k,v])=>[k,v.mean_total]));
 document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3><span>${esc(c.t)} <span class="id">${c.id}</span></span><span class="str ${c.s}">${c.s}</span></h3>${MEAN[c.id]?`<div class="meter${c.s==='weak'?' weak':''}" title="mean judge score ${MEAN[c.id]} of 10"><i style="width:${MEAN[c.id]*10}%"></i></div>`:''}<p>${esc(c.d)}</p><pre>${esc(c.ph)}</pre><div class="hh"><div><b>Helps</b>${esc(c.h)}</div><div><b>Hurts</b>${esc(c.x)}</div></div><div class="ev">${esc(c.e)}</div></div>`).join("");
 
 /* ---------- grader ---------- */

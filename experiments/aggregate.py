@@ -6,7 +6,6 @@ ROOT = pathlib.Path(__file__).parent
 DIMS = ["correctness", "completeness", "adherence", "usefulness", "concision"]
 NAMES = {"P0":"bare","P1":"specific","P2":"role","P3":"context","P4":"constraints",
          "P5":"format","P6":"fewshot","P7":"cot","P8":"fullstack","P9":"interview"}
-DOMAIN = lambda t: t.split("-")[0]
 
 rows = []
 for jd in sorted((ROOT/"judge").glob("*/scores.json")):
@@ -19,7 +18,7 @@ for jd in sorted((ROOT/"judge").glob("*/scores.json")):
         total = sum(s[d] for d in DIMS) / len(DIMS)
         obj = s.get("objective") or {}
         objrate = (sum(1 for v in obj.values() if v is True) / len(obj)) if obj else None
-        rows.append({"task": task, "domain": DOMAIN(task), **meta, "total": round(total,2),
+        rows.append({"task": task, "domain": task.split("-")[0], **meta, "total": round(total,2),
                      **{d: s[d] for d in DIMS}, "objective_rate": objrate, "notes": s.get("notes","")})
 
 def group(keyf):
@@ -27,10 +26,10 @@ def group(keyf):
     for r in rows: g[keyf(r)].append(r)
     out = {}
     for k, rs in g.items():
+        obj = [r["objective_rate"] for r in rs if r["objective_rate"] is not None]
         out[k] = {"n": len(rs), "mean_total": round(st.mean(r["total"] for r in rs),2),
                   **{d: round(st.mean(r[d] for r in rs),2) for d in DIMS},
-                  "objective_rate": round(st.mean(r["objective_rate"] for r in rs if r["objective_rate"] is not None),2)
-                     if any(r["objective_rate"] is not None for r in rs) else None}
+                  "objective_rate": round(st.mean(obj),2) if obj else None}
     return out
 
 summary = {
