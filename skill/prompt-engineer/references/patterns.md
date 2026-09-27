@@ -173,6 +173,21 @@ code is wrong; do not change the test to pass.`
 - Anthropic: "give Claude a check it can run"; "show evidence rather than asserting
   success"; do not tell Opus 5 to double-check (over-verifies).
 
+Critic-loop variant (separate judge, numeric gate, bounded retries). Noted from a
+user-supplied prompt for a 3D water-balloon scene:
+
+> For each iteration, use a separate critic agent to take screenshots of the scene from
+> different angles and evaluate its realism and physics accuracy. It should provide a
+> score from 0 to 10. 4-7 means it's usable but it would not pass as live-action or a
+> high-end VFX still. 8 or above means it looks very convincing, exactly like a real
+> water balloon being shot.
+> Loop until the critic agent gives a score of 8 or higher. Below that, the builder gets
+> the ranked issue list and tries again, up to 3 rounds.
+
+What makes it work: the critic is a different agent from the builder (no self-grading),
+the score bands are defined in words so 8 means something, the retry feeds a ranked list
+rather than the raw score, and the loop has a hard cap.
+
 ## P11. Decompose and chain (moderate)
 
 One ask per prompt, or ordered steps with a stop condition. Inspect intermediate
