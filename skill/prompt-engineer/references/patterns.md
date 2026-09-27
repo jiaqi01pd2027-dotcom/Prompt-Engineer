@@ -148,7 +148,16 @@ work.
 
 Phrasing (chat): `Before writing, ask me up to 5 questions about anything that would
 change the result. Then write it.` (Claude Code): batched question tool, 3 to 6
-questions, recommended default first.
+questions, recommended default first. (Build larger than one sitting): interview in
+rounds until no decision is open, look up facts rather than asking them, then write
+the spec to a file (SPEC.md) naming files, out-of-scope items, and one end-to-end
+check; execute it in a fresh session.
+
+This is the most-used prompt found online (survey of September 2026, in the Prompt
+Engineer repo at research/popular-prompts.md). Anthropic's Claude Code docs and prompt
+library ship it, and the most-installed version on skills.sh has 1.2M installs. The
+copied versions all run in rounds and end in a file, which the one-shot chat phrasing
+above does not.
 
 Helps: any task where the user does not know what context matters; coding with
 under-specified issues (Ambig-SWE: up to 74% better with interaction; ClarifyGPT:
