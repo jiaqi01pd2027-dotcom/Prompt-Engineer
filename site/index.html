@@ -53,13 +53,13 @@ code,pre,textarea,.mono{font-family:var(--mono);font-size:.86em}
 pre{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;margin:0 0 1em;line-height:1.5}
 .eyebrow{font-family:var(--body);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;color:var(--ink-3)}
 .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px;max-width:1180px;margin:0 auto;padding:0 24px}
-@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr);gap:0}.rail{display:none}}
 .rail{position:sticky;top:0;align-self:start;height:100vh;padding:32px 0;display:flex;flex-direction:column;gap:6px}
 .rail .brand{font-family:var(--display);font-weight:800;font-size:1.05rem;margin-bottom:14px;color:var(--ink)}
 .rail a{color:var(--ink-2);text-decoration:none;font-size:.95rem;padding:5px 10px;border-left:2px solid transparent;border-radius:0 4px 4px 0}
 .rail a:hover,.rail a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
 .rail a.active{border-left-color:var(--accent);color:var(--ink)}
 .rail .foot{margin-top:auto;font-size:.82rem;color:var(--ink-3)}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr);gap:0}.rail{display:none}}
 main{padding:32px 0 96px;min-width:0}
 section{padding:56px 0;border-top:1px solid var(--line-2)}
 section:first-child{border-top:0;padding-top:24px}
@@ -93,7 +93,7 @@ figcaption{font-size:.9rem;color:var(--ink-2);margin-top:8px;max-width:var(--max
 .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
 .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--ground);font-size:.8rem;padding:6px 8px;border-radius:4px;transform:translate(-50%,calc(-100% - 10px));white-space:nowrap;opacity:0;transition:opacity .08s}
 .tip.on{opacity:1}
-.heat{display:grid;gap:2px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.heat{display:grid;gap:2px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px;overflow-x:auto}
 .heat div{padding:8px 6px;font-size:.85rem;text-align:center;border-radius:3px;font-variant-numeric:tabular-nums;min-width:0}
 .heat .h{background:transparent;color:var(--ink-3);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.05em}
 .heat .r{background:transparent;text-align:left;color:var(--ink-2);white-space:nowrap}
@@ -105,6 +105,8 @@ table.data th:first-child,table.data td:first-child{text-align:left}
 table.data th{color:var(--ink-3);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
 details.tbl{margin-top:8px}
 details.tbl summary{cursor:pointer;color:var(--ink-2);font-size:.9rem}
+details.tbl > div{overflow-x:auto}
+select{max-width:100%}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:20px}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
 .card h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
@@ -199,6 +201,24 @@ h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:3px;
 .status{font-size:.86rem;color:var(--ink-3)}
 .streaming{white-space:pre-wrap;font-size:.92rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;max-height:520px;overflow:auto}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ---------- in the wild ---------- */
+.feature{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:24px;max-width:960px}
+@media (max-width:760px){.feature{grid-template-columns:minmax(0,1fr)}}
+.feature .panel h3{margin:0 0 6px}
+.feature .panel p{margin:0 0 12px;font-size:.95rem;color:var(--ink-2)}
+.feature .panel pre{background:var(--ground);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin:0 0 4px;font-size:.8rem;max-height:none}
+.feature .stats{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
+.wild{max-width:960px;overflow-x:auto;margin-top:28px}
+.wild table{min-width:640px}
+.wild table.data th,.wild table.data td{text-align:left;vertical-align:top}
+.wild table.data .fam{text-align:center;width:5.2rem}
+.wild tr.top td{background:var(--accent-soft)}
+.wild tr.top td:nth-child(2){font-weight:600}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--accent);border:1.5px solid var(--accent);vertical-align:-1px}
+.dot.off{background:transparent;border-color:var(--ink-3)}
+.card .hot{align-self:flex-start;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--mark);color:var(--mark-ink);text-decoration:none}
+.card .hot:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 </style>
 
 <div class="layout">
@@ -208,6 +228,7 @@ h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;width:3px;
   <a href="#skill">Install the skill</a>
   <a href="#patterns">Cheat sheet</a>
   <a href="#findings">The evidence</a>
+  <a href="#popular">What people use</a>
   <a href="#rate">Rate outputs</a>
   <a href="#paper">The paper</a>
   <div class="foot">Tiger Zhang, 2026<br><a href="https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer">Source on GitHub</a></div>
@@ -345,6 +366,41 @@ returns 401") for a projected 90+.</pre>
   <div class="prose">
     <h3>How to read this</h3>
     <p>One run per cell means single-task numbers are noisy; read the pattern and domain averages, not one task. The judge is a Claude model scoring Claude outputs, so absolute scores are less trustworthy than the ordering. Objective checks (exact answers, JSON validity, word limits) back the ordering where the task allowed them. Human ratings from the <a href="#rate">rating page</a> are collected separately and never mixed into these charts.</p>
+  </div>
+</section>
+<section id="popular">
+  <div class="eyebrow">In the wild</div>
+  <h2>The prompt people use most</h2>
+  <p class="lede">We searched GitHub skill collections, vendor guides, Reddit and Hacker News, and widely viewed posts for the prompts people actually share. One prompt made the top five everywhere prompts get ranked: have the model interview you before it builds anything.</p>
+  <div class="feature">
+    <div class="panel">
+      <h3>Interview first</h3>
+      <p>Describe the idea in one line. The model asks questions in rounds until nothing is left open, writes a spec, and a fresh session builds from it.</p>
+      <pre id="interview-prompt">I want to build &lt;one-line description&gt;. Before any code, interview me.
+Ask in rounds of 3 to 5 numbered questions, each with your recommended answer.
+Cover how it works, what the user sees, edge cases, and tradeoffs. Skip the obvious, and skip anything you can learn from the code yourself.
+Keep going until no decision is open. Then write the spec to SPEC.md: the files and interfaces involved, what is out of scope, and one end-to-end check that proves it works.</pre>
+      <div class="row"><button id="copy-interview" class="primary">Copy prompt</button><span class="status" id="copy-status" role="status"></span></div>
+      <p class="note" id="wild-exp"></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">1.2M</div><div class="l">installs of grill-me, the most of any prompt on skills.sh</div></div>
+      <div class="stat"><div class="n">2.33M</div><div class="l">views of the post that brought it to Claude Code users</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">GitHub skill collections carry a version</div></div>
+      <div class="stat"><div class="n">25</div><div class="l">Reddit and Hacker News places, counting its one-line chat form</div></div>
+    </div>
+  </div>
+  <div class="wild">
+    <table class="data" aria-label="The ten most-used prompt templates and the source families each appears in">
+      <thead><tr><th>#</th><th>Template</th><th class="fam">GitHub</th><th class="fam">Viral posts</th><th class="fam">Vendor guides</th><th class="fam">Reddit, HN</th><th>Largest verified reach</th></tr></thead>
+      <tbody id="wild-rows"></tbody>
+    </table>
+  </div>
+  <p class="note">A filled dot means the template appears in that source family. Rows are ordered by families first, then verified reach; below first place the order is a judgement call.</p>
+  <div class="prose">
+    <h3>Where practice and the runs disagree</h3>
+    <p id="wild-role"></p>
+    <p>Sources and caveats are in the <a href="https://github.com/jiaqi01pd2027-dotcom/Prompt-Engineer/blob/main/research/popular-prompts.md">survey note</a> and in Section 6 of the paper. Every figure was re-read from its source on 27 and 28 September 2026.</p>
   </div>
 </section>
 <section id="rate">
@@ -561,7 +617,7 @@ const CARDS = [
  {id:"P13",t:"Project substitution",s:"strong",d:"Replace every generic noun with the project's own: the real test command, the real file, an existing example, the real audience, the branch. This is where most of the gain in Claude Code comes from.",ph:"Match tests/test_dates.py. Run `pytest -q`. Follow the no-mocks rule in CLAUDE.md.",h:"Anything run inside a project.",x:"Nothing; it costs only the minute spent looking.",e:"Gloaguen 2026: context files help only when they carry non-standard facts. Cheng and Mastropaolo 2026: copied defaults lower correctness. Anthropic: only add context Claude does not already have."},
  {id:"P5",t:"Output format with a shape",s:"strong",d:"Exact structure: sections, counts, a JSON schema, a file path, or one filled example.",ph:"Return only <shape>. Example: <one filled instance>.",h:"Extraction, classification, anything parsed or scanned.",x:"Creative writing when the format is imposed for no reason.",e:"Sclar et al. 2023: formatting alone moves up to 76 points. He et al. 2024: up to 40% on smaller models. Ours: best single addition at 8.40; on coding tasks it decided whether code landed in the reply at all."},
  {id:"P4",t:"Constraints that name the failure",s:"strong",d:"Length, tone, scope, and do-not items that say why. 'Do not ask them to retry; they already tried twice' beats the bare rule.",ph:"Under N words. Do not <X>, because <failure it causes>. Prefer <Y>.",h:"Adherence and concision; any reader who notices filler.",x:"Stacking many constraints; naming a forbidden word primes it.",e:"IFEval (Zhou 2023): GPT-4 missed one in four verifiable prompts. Rana 2026: 87% of violations are priming failures. Ours: adherence 7.50 vs 6.33, concision 7.75 vs 6.75 over the specific statement."},
- {id:"P9",t:"Interview first",s:"strong",d:"Tell the model to ask its questions before acting, or ask the user yourself and fold the answers in. Ask only when different answers would change the work.",ph:"Before writing, ask me up to 5 questions about anything that would change the result. Then write it.",h:"When the user does not know what context matters; under-specified coding tasks.",x:"Autonomous runs where nobody can answer; trivial tasks.",e:"ClarifyGPT (Mu 2023): +10 pass@1. Ambig-SWE (2025): up to 74% better with interaction. Anthropic: check in only when readings would differ materially."},
+ {id:"P9",t:"Interview first",s:"strong",hot:"Most-used prompt online",d:"Tell the model to ask its questions before acting, or ask the user yourself and fold the answers in. Ask only when different answers would change the work.",ph:"Before writing, ask me up to 5 questions about anything that would change the result. Then write it.",h:"When the user does not know what context matters; under-specified coding tasks.",x:"Autonomous runs where nobody can answer; trivial tasks.",e:"ClarifyGPT (Mu 2023): +10 pass@1. Ambig-SWE (2025): up to 74% better with interaction. Anthropic: check in only when readings would differ materially."},
  {id:"P3",t:"Context and the why",s:"strong",d:"Give the situation, the numbers, the files, the audience, and the reason behind each rule. A rule with a reason generalises to cases you did not list.",ph:"Background: <facts>. This matters because <reason>.",h:"Anything where the model would otherwise guess facts.",x:"Long generic overviews; facts buried mid-prompt.",e:"Liu et al. 2023 (lost in the middle); Gloaguen et al. 2026 (generic repo overviews add cost, not success). Anthropic: Claude generalises from the explanation. Ours: decisive where the task needed unknown facts (1.93 to 7.40 on the support reply), neutral elsewhere."},
  {id:"P6",t:"Few-shot examples",s:"moderate",d:"Two or three input/output pairs in the wanted voice, wrapped in tags, diverse enough not to be copied.",ph:"<example>Input: … Output: …</example> (2 to 3, varied)",h:"Style, house voice, label sets, ticket titles.",x:"Reasoning models; examples that get parroted; bad ordering.",e:"Min et al. 2022: examples teach format more than content. Lu et al. 2022: order is a hidden hyperparameter. Anthropic: 3 to 5, relevant, diverse."},
  {id:"P10",t:"Verification and done-criteria",s:"strong",d:"Say how the model can check its own work and demand evidence, not a claim.",ph:"Run <command>. Report the output. If it fails, say whether the test or the code is wrong; do not change the test to pass.",h:"Agentic and coding tasks.",x:"Opus 5 over-verifies when told to double-check.",e:"Reflexion (Shinn 2023): 91% vs 80% on HumanEval. OpenAI GPT-4.1 guide: +20 SWE-bench points from persistence and planning reminders. Anthropic: show evidence rather than asserting success."},
@@ -573,7 +629,7 @@ const CARDS = [
 document.getElementById('cards').classList.add('collapsed');
 document.getElementById('more-cards').addEventListener('click',e=>{ document.getElementById('cards').classList.remove('collapsed'); e.target.remove(); });
 const MEAN=Object.fromEntries(Object.entries(S.by_pattern||{}).map(([k,v])=>[k,v.mean_total]));
-document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3><span>${esc(c.t)} <span class="id">${c.id}</span></span><span class="str ${c.s}">${c.s}</span></h3>${MEAN[c.id]?`<div class="meter${c.s==='weak'?' weak':''}" title="mean judge score ${MEAN[c.id]} of 10"><i style="width:${MEAN[c.id]*10}%"></i></div>`:''}<p>${esc(c.d)}</p><pre>${esc(c.ph)}</pre><div class="hh"><div><b>Helps</b>${esc(c.h)}</div><div><b>Hurts</b>${esc(c.x)}</div></div><div class="ev">${esc(c.e)}</div></div>`).join("");
+document.getElementById('cards').innerHTML = CARDS.map(c=>`<div class="card"><h3><span>${esc(c.t)} <span class="id">${c.id}</span></span><span class="str ${c.s}">${c.s}</span></h3>${c.hot?`<a class="hot" href="#popular">${esc(c.hot)}</a>`:''}${MEAN[c.id]?`<div class="meter${c.s==='weak'?' weak':''}" title="mean judge score ${MEAN[c.id]} of 10"><i style="width:${MEAN[c.id]*10}%"></i></div>`:''}<p>${esc(c.d)}</p><pre>${esc(c.ph)}</pre><div class="hh"><div><b>Helps</b>${esc(c.h)}</div><div><b>Hurts</b>${esc(c.x)}</div></div><div class="ev">${esc(c.e)}</div></div>`).join("");
 
 /* ---------- grader ---------- */
 const RUBRIC = `Grade this draft prompt out of 100 using seven dimensions with these maxima: Goal and deliverable 20; Context 20; Constraints and negatives 15; Output format 15; Role and audience 10; Reasoning and verification 10; Scope and decomposition 10. For each give a score and one line of evidence quoting the draft or noting the absence. Do not pad with praise. Bands: 85-100 ship it; 65-84 good bones; 40-64 the model will guess; 0-39 a command, not a prompt. Do not penalise short prompts for trivial tasks, a missing role when no real expert exists, or a missing chain-of-thought cue (current Claude reasons on its own).
@@ -667,8 +723,30 @@ $('btn-quick').addEventListener('click',()=>{
     else { $('rate-status').textContent="Votes are kept in this browser only outside claude.ai."; try{ recount(JSON.parse(localStorage.getItem('pe-votes')||"[]").map(x=>({data:()=>x}))); }catch(e){} } })();
 })();
 
+/* ---------- in the wild ---------- */
+const WILD = [
+ ["Interview first, or ask clarifying questions until 95% confident",[1,1,1,1],"grill-me skill: 1.2M installs"],
+ ["Give the model a check it can run, and ask for evidence",[1,1,1,1],"Cherny thread: 8.23M views"],
+ ["Plan before writing code",[1,1,1,1],"Hacker News thread: 976 points"],
+ ["Simplicity and surgical changes",[1,1,1,1],"Karpathy-style CLAUDE.md: 215K stars"],
+ ["A separate critic loops until the work passes a bar",[1,1,1,1],"Gauntlet Loop demo: 5.05M views"],
+ ["Write each correction into CLAUDE.md",[1,1,1,1],"Cherny thread: 9.24M views"],
+ ["Brutal honesty, no praise",[1,1,0,1],"20+ places on Reddit"],
+ ["Terse output, no filler",[1,0,1,1],"caveman skill: 108K stars"],
+ ["Write the test first, then make it pass",[1,1,1,0],"7 GitHub collections"],
+ ["An explainer or motion-graphics video from one prompt",[1,1,0,0],"Remotion post: 18.85M views"]];
+const FAM = ["GitHub","viral posts","vendor guides","Reddit and Hacker News"];
+$('wild-rows').innerHTML = WILD.map(([t,f,r],i)=>`<tr${i?'':' class="top"'}><td>${i+1}</td><td>${esc(t)}</td>${f.map((on,j)=>`<td class="fam"><span class="dot${on?'':' off'}" title="${on?'Appears in':'Not found in'} ${FAM[j]}" aria-hidden="true"></span><span class="sr">${on?'yes':'no'}</span></td>`).join('')}<td>${esc(r)}</td></tr>`).join('');
+(function(){ const bp=S.by_pattern||{}; const m=k=>bp[k]?fmt(bp[k].mean_total):null;
+  if(m('P9')&&m('P8')) $('wild-exp').textContent = `In our ${S.n_runs||360} runs this pattern scored ${m('P9')} of 10, second only to the full stack at ${m('P8')}.`;
+  if(m('P1')&&m('P2')&&m('P6')) $('wild-role').textContent = `The most common line in shared prompts is the role opener, "You are a senior X". In our runs, adding it to a specific prompt moved the mean from ${m('P1')} to ${m('P2')}. The full stack, our best pattern, circulates as fill-in frameworks rather than fixed prompts. And Anthropic's Claude Code team now advises against examples in system prompts, while few-shot examples were our second-strongest single addition at ${m('P6')}. The runs tested task prompts, so both can hold.`;
+})();
+$('copy-interview').addEventListener('click',()=>{ const pre=$('interview-prompt');
+  const select=()=>{ const r=document.createRange(); r.selectNodeContents(pre); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); $('copy-status').textContent='Copy was blocked, so the prompt is selected. Press Ctrl+C or Cmd+C.'; };
+  try{ navigator.clipboard.writeText(pre.textContent).then(()=>{ $('copy-status').textContent='Copied'; }, select); }catch(e){ select(); } });
+
 /* ---------- abstract + rail ---------- */
-$('abstract').textContent = "The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment across six domains, ten prompt patterns, and three Claude models, scored blind. The findings are packaged as a skill for code and writing prompts, and as this site.";
+$('abstract').textContent = "The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment across six domains, ten prompt patterns, and three Claude models, scored blind. It also surveys the prompts people share online: the most-used one is the interview, the pattern the experiment ranked second. The findings are packaged as a skill for code and writing prompts, and as this site.";
 (function(){ const links=[...document.querySelectorAll('.rail a[href^="#"]')]; const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
   const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+e.target.id)); } }); },{rootMargin:"-30% 0px -60% 0px"}); secs.forEach(s=>io.observe(s)); })();
 </script>

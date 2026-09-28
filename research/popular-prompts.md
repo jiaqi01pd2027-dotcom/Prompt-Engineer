@@ -22,8 +22,9 @@ the model questions you until every decision is settled, then it writes the spec
 file and a fresh session builds from it. Its chat form is the older one-liner "ask me
 clarifying questions until you're 95% confident".
 
-It is the only template in the top five of all four source families, and it has the
-largest measured usage of any single prompt.
+It is the only template in the top five of all three source families that rank prompts,
+Anthropic's own guides include it, and it has the largest measured usage of any single
+prompt.
 
 - **Measured installs.** Matt Pocock's grill-me is the most-installed prompt on
   skills.sh at 1.2M. The one entry above it, find-skills, is a search utility.

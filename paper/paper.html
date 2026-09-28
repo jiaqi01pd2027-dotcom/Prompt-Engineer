@@ -9,10 +9,10 @@ ul{padding-left:18pt} li{margin-bottom:3pt}</style></head><body><h1>Same Model, 
 <p><strong>Tiger Zhang</strong>
 September 2026</p>
 <h2>Abstract</h2>
-<p>The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment: twelve tasks across six domains (coding, writing, analysis, extraction, reasoning, and agentic planning), each written in ten prompt patterns that hold the underlying task fixed and vary only the wording, each run as a fresh subagent on three Claude models (Fable 5.1, Opus 5, Sonnet 5), for 360 runs. Outputs were scored by a blind judge on correctness, completeness, adherence, usefulness, and concision, plus objective checks where the task allowed them. Across 360 runs, the full-stack prompt (role, goal, context, constraints, format) scored 9.12 out of 10 against 5.46 for a bare command, and the ordering of patterns was the same on all three models. Format and constraints were the strongest single additions; a role or a chain-of-thought cue added almost nothing on its own; context helped only where the task depended on facts the model could not infer. Sonnet 5 with a full prompt outscored Fable 5.1 with a bare one, so wording moved output quality more than model choice did. The findings are packaged as a Claude Code skill that collects project context, grades a draft prompt out of 100, interviews the user in one batch, and produces three rewrites with the patterns named, and as a website with the pattern library, results, and a live grader. The skill covers code, agent, and writing prompts, and was itself put through the same blind-graded procedure over five rounds, which raised its mean rewrite score from 92.6 to 96.1 and exposed one regression its own self-assessment had missed.</p>
+<p>The same language model gives a generic answer to one phrasing of a request and a usable one to another. This paper asks which phrasing choices matter, by how much, and whether the answer depends on the task or the model. We review the published literature and vendor guidance, then run a controlled experiment: twelve tasks across six domains (coding, writing, analysis, extraction, reasoning, and agentic planning), each written in ten prompt patterns that hold the underlying task fixed and vary only the wording, each run as a fresh subagent on three Claude models (Fable 5.1, Opus 5, Sonnet 5), for 360 runs. Outputs were scored by a blind judge on correctness, completeness, adherence, usefulness, and concision, plus objective checks where the task allowed them. Across 360 runs, the full-stack prompt (role, goal, context, constraints, format) scored 9.12 out of 10 against 5.46 for a bare command, and the ordering of patterns was the same on all three models. Format and constraints were the strongest single additions; a role or a chain-of-thought cue added almost nothing on its own; context helped only where the task depended on facts the model could not infer. Sonnet 5 with a full prompt outscored Fable 5.1 with a bare one, so wording moved output quality more than model choice did. A survey of the prompts people share, across GitHub, vendor guides, Reddit and Hacker News, and widely viewed posts, found that the most-used one is the interview, the pattern the experiment ranked second; the most common line in shared prompts, a role opener, added nothing in the experiment. The findings are packaged as a Claude Code skill that collects project context, grades a draft prompt out of 100, interviews the user in one batch, and produces three rewrites with the patterns named, and as a website with the pattern library, results, and a live grader. The skill covers code, agent, and writing prompts, and was itself put through the same blind-graded procedure over five rounds, which raised its mean rewrite score from 92.6 to 96.1 and exposed one regression its own self-assessment had missed.</p>
 <h2>1. Introduction</h2>
 <p>Prompt engineering is programming in natural language. The instruction "write something about our product" and the instruction "you are a senior B2B copywriter; write a two-sentence LinkedIn ad for ops managers at mid-sized companies, confident but not salesy, ending with a call to action" go to the same model, and the difference in the result comes entirely from the words. Most people write the first kind. Two things make that costly now. Models are used for actions, not only text: they edit repositories, call tools, and send messages, so a vague prompt produces a vague action. And the models have changed under the advice: instructions that fixed lazy behaviour in 2024 now cause over-triggering, and the chain-of-thought cue that lifted arithmetic scores in 2022 mostly adds latency on models that reason on their own.</p>
-<p>This project has three parts. The research part collects what is known, from 52 papers and the current documentation of Anthropic, OpenAI, and Google, and adds a controlled experiment on the Claude family. The product part is a Claude Code skill, <code>/prompt-engineer</code>, that turns the findings into a repeatable workflow: read the project, grade the draft, ask the few questions that change the rewrite, rewrite three ways, and explain which patterns were used. The website presents the pattern library, the experiment results with a blind rating page, and a grader that runs the rubric in the browser.</p>
+<p>This project has three parts. The research part collects what is known, from 52 papers and the current documentation of Anthropic, OpenAI, and Google, adds a controlled experiment on the Claude family, and checks the result against the prompts people actually share. The product part is a Claude Code skill, <code>/prompt-engineer</code>, that turns the findings into a repeatable workflow: read the project, grade the draft, ask the few questions that change the rewrite, rewrite three ways, and explain which patterns were used. The website presents the pattern library, the experiment results with a blind rating page, and a grader that runs the rubric in the browser.</p>
 <p>We are not proposing a new technique. The contribution is a ranking, with evidence, of the techniques people already use, measured on the models people use today, plus a tool that applies the ranking to the prompt in front of you using facts from the project it will run in. That last step, adapting the generic advice to one codebase or one document, is where most of the gain comes from. It is also where most guides stop, because a guide cannot open your repository.</p>
 <h2>2. What is known</h2>
 <h3>2.1 The hierarchy: goal, role, context, action, format</h3>
@@ -533,7 +533,7 @@ September 2026</p>
 <p>Context (P3) surprised us. It was decisive on the one task built to need it (write-1: 1.93 to 7.40 on its own) and nearly neutral elsewhere, and it lowered concision (6.61) because the models used the extra material to write more. Context is not free. It pays when it carries facts the model would otherwise guess, and it costs when it is background the model already has, because the model treats it as a cue to write more.</p>
 <p>Role (P2) scored 6.94, below the specific statement it was added to. It moved tone in the writing tasks and nothing else, in line with the persona studies in Section 2.2. Chain-of-thought (P7) raised correctness slightly (8.53, the highest of the single additions) and cut concision to 5.06, the lowest of any pattern, because the models did what they were asked and showed their working. On the reasoning tasks every run of every pattern reached the right answer, so the cue bought nothing there; it cost most on writing, where reasoning in the reply is noise.</p>
 <h3>4.3 Interview versus full stack</h3>
-<p>The interview form (P9) matched the full stack on correctness and completeness (9.28 and 9.31 against 9.33 and 9.39) and trailed on adherence and concision, because several outputs echoed the question-and-answer material or added a preamble. Where the facts were supplied it was as good as writing them into the prompt; on the vague product brief (agent-2) it was the best pattern, because the Q&amp;A format put the missing facts where the model looked for them. This is the simulated version: the model was handed the answers. The value of asking depends on the user being there to answer.</p>
+<p>The interview form (P9) matched the full stack on correctness and completeness (9.28 and 9.31 against 9.33 and 9.39) and trailed on adherence and concision, because several outputs echoed the question-and-answer material or added a preamble. Where the facts were supplied it was as good as writing them into the prompt; on the vague product brief (agent-2) it was the best pattern, because the Q&amp;A format put the missing facts where the model looked for them. This is the simulated version: the model was handed the answers. The value of asking depends on the user being there to answer. Section 6 shows it is also the prompt people share most.</p>
 <h3>4.4 Across models</h3>
 <p>The ranking held on all three models (Table 3): P8 first and P9 second on every model, P0 last on every model, and the same middle cluster. The gap changed. Fable 5.1 started higher on the bare prompt (6.07 against 5.20 and 5.10) and gained less from the full stack (+3.12 against +3.85 for Opus and +4.02 for Sonnet). Sonnet 5 with the full-stack prompt (9.12) outscored Fable 5.1 with the bare prompt (6.07) by three points. For a task that will be run many times, a better prompt on a cheaper model is a better deal than a bare prompt on the strongest one.</p>
 <h3>4.5 Where it did not matter</h3>
@@ -581,21 +581,114 @@ September 2026</p>
 </table>
 <p>Three results are worth reporting. First, the fixes that moved scores were not the ones that sounded most principled. Requiring every self-check to produce an inspectable artifact, a word count or a list of sentences over thirty words rather than a claim that the model had reread its work, was worth more than any rewording of the pattern advice. Second, replies got shorter as they got better; the bug-fix reply fell from 96 lines to 61 while its score rose. Third, round 1 caused a regression before it caused an improvement. A new rule placed a bracketed placeholder on the single fact a prompt turned on, which pushed that draft from 95 to 89; rounds 2 and 3 recovered it by requiring the keystone placeholder to sit at the top of the prompt and outside the acceptance criterion. That regression was invisible to the skill's own self-assessment and was caught only because a separate grader scored each rewrite. The lesson generalises beyond this tool: a prompt-improvement system that grades its own output will not find the cases where its rules fight each other.</p>
 <h3>5.4 Website</h3>
-<p>The site carries the pattern library with evidence strength, the results tables and charts, a blind side-by-side rating page whose scores are stored and can be merged with the judge scores, a grader that applies the rubric to a pasted prompt, and the paper.</p>
-<h2>6. Conclusions</h2>
-<p>Wording moves output quality more than model choice does, and the wording that works has a recognisable shape. Say what is wanted and for whom; give the facts the model cannot infer and only those; name the constraints and the failure they prevent; specify the format down to where the output goes; and, when the facts are missing, ask before writing. Do that and the cheapest model in the family beats the strongest one given a bare command. Add a role only for voice. Skip the chain-of-thought cue on current Claude models unless a bare answer is being asked for on a multi-step problem. Never stack emphasis.</p>
+<p>The site carries the pattern library with evidence strength, the results tables and charts, the survey of the prompts people use most (Section 6), a blind side-by-side rating page whose scores are stored and can be merged with the judge scores, a grader that applies the rubric to a pasted prompt, and the paper.</p>
+<h2>6. What people actually use</h2>
+<p>The experiment measures what each pattern does to the output. It says nothing about what people actually type. To compare the two, we surveyed the prompts people shared in the year to September 2026 in four places: GitHub prompt and skill collections, the vendors' own guides, Reddit and Hacker News, and widely viewed posts on X, LinkedIn, Substack, and YouTube. A prompt counted as used when it recurred across independent sources, or when a platform reported installs for that one prompt. Repository stars measure a whole collection rather than any prompt in it, so they only broke ties. Every star count, install count, post metric, and Hacker News score below was re-read from its source on 27 and 28 September 2026.</p>
+<h3>6.1 The most-used prompt</h3>
+<p>The interview is the most-used prompt. The user describes an idea in a line; the model questions them until every decision is settled, writes the result to a spec file, and a fresh session builds from that file. Its older chat form is one sentence asking the model to keep asking clarifying questions until it is 95% confident it can do the task.</p>
+<p>It is the only template in the top five of all three sources that can be ranked, and Anthropic's own guides include it. Packaged as the grill-me skill (Pocock 2026), it is the most-installed prompt on the skills.sh leaderboard, with 1.2 million installs; the one entry above it is a tool for finding other skills. Seven GitHub skill collections carry a version. The post that brought it to Claude Code users (Shihipar 2025) drew 2.33 million views, and Anthropic later added the prompt to its Claude Code best-practices page and its prompt library. On Reddit and Hacker News the 95% form turned up in fourteen places, and interview or Socratic variants in eleven more.</p>
+<p>This is P9. In the experiment it scored 8.75, second only to the full stack at 9.12, and it was the best pattern on the vague product brief. So the prompt practitioners converged on is the one our blind judge ranked highest after the full stack. The popular versions also do two things our runs did not test. They ask in rounds until nothing is left open, and they finish by writing a file that a new session executes. The skill's interview step already batched its questions, put a recommended answer on each, and looked facts up instead of asking for them; after the survey, its pattern reference gained the rounds-and-file form for builds too large for one sitting.</p>
+<h3>6.2 The rest of the top ten</h3>
+<p>Table 5 orders templates by how many of the four source families carry them, then by the largest reach we could verify. First place is clear on both counts. Below it the order is a judgement call.</p>
+<p><strong>Table 5. The ten most-used prompt templates, September 2026</strong> (families: GitHub collections, viral posts, vendor guides, Reddit and Hacker News).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Template</th>
+<th>Families (of 4)</th>
+<th>Largest verified reach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Interview first, or ask clarifying questions until 95% confident</td>
+<td>4</td>
+<td>1.2M installs (Pocock 2026)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Give the model a check it can run and ask for evidence</td>
+<td>4</td>
+<td>8.23M views (Cherny 2026a)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Plan before writing code</td>
+<td>4</td>
+<td>976 points (Hacker News 2026)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Simplicity and surgical changes</td>
+<td>4</td>
+<td>215K stars (Chang 2026)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A separate critic loops until the work passes a bar</td>
+<td>4</td>
+<td>5.05M views (Shumer 2026)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Write each correction into CLAUDE.md</td>
+<td>4</td>
+<td>9.24M views (Cherny 2026b)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Brutal honesty, no praise</td>
+<td>3</td>
+<td>20+ Reddit places</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Terse output, no filler</td>
+<td>3</td>
+<td>108K stars (caveman 2026)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Write the test first, then make it pass</td>
+<td>3</td>
+<td>7 GitHub collections</td>
+</tr>
+<tr>
+<td>10</td>
+<td>An explainer or motion-graphics video from one prompt</td>
+<td>2</td>
+<td>18.85M views (Remotion 2026)</td>
+</tr>
+</tbody>
+</table>
+<p>The audiences differ. On Reddit, where most posters use chat models for everyday work, anti-flattery prompts are the most reposted family, found in more than twenty places. On GitHub and X, where the posters mostly run coding agents, the leading templates are procedures: interview me, verify, plan, loop until a critic passes the work, write the correction down. Most of them are one or two sentences long. The older "act as X" collections still hold large star counts (171K for the best known), but none of their prompts recur anywhere else.</p>
+<h3>6.3 Where practice and measurement disagree</h3>
+<p>The most common single line in shared prompts is the role opener, "You are a senior X". It appears in nearly every collection and in fifteen Reddit and Hacker News threads. In our runs, adding a role to an otherwise specific prompt moved the mean from 7.09 to 6.94. It is cheap to write, which may be why it spreads, but on these tasks it did not help.</p>
+<p>The full stack, our best pattern, does circulate, though as a fill-in framework rather than a fixed prompt. The most-upvoted post of the year on r/PromptEngineering is one such framework (context, task, constraints, format), and structured frameworks of this kind turned up in ten places.</p>
+<p>Advice from Anthropic's Claude Code team points the other way on examples. In July 2026 Cat Wu and Thariq Shihipar said that examples in a system prompt are no longer best practice for current models, that lists of things not to do lower quality, and that Claude Code's own system prompt had shrunk by 80% (Willison 2026). In our runs, few-shot examples were the second-strongest single addition overall, at 8.12, and in the top three on every model. The runs used task prompts and the advice concerns system prompts, so both can be true. Testing examples inside a system prompt is the obvious next experiment.</p>
+<h3>6.4 Limits of the survey</h3>
+<p>Stars and installs are proxies. Only skills.sh counts installs for a single prompt, and an install is not a use. Reddit's pages were closed to automated reading and its RSS feeds carry no vote counts, so we re-checked the subreddit ranking only for r/PromptEngineering, and other upvote figures are as reported in press coverage. Place counts are lower bounds, and the four searches counted places in slightly different ways. The note behind this section, with every source and caveat, is <code>research/popular-prompts.md</code> in the repository.</p>
+<h2>7. Conclusions</h2>
+<p>Wording moves output quality more than model choice does, and the wording that works has a recognisable shape. Say what is wanted and for whom; give the facts the model cannot infer and only those; name the constraints and the failure they prevent; specify the format down to where the output goes; and, when the facts are missing, ask before writing. Do that and the cheapest model in the family beats the strongest one given a bare command. Add a role only for voice. Skip the chain-of-thought cue on current Claude models unless a bare answer is being asked for on a multi-step problem. Never stack emphasis. People who share prompts have reached much of this on their own. The most-used prompt online is the interview, though the line they add most often, the role, did the least here.</p>
 <p>For anyone using Claude Code, the practical version is shorter. Most of the gain is in substitution, which is tedious and nobody does it in a hurry: the real test command instead of "the tests", an existing file instead of "the style guide", the branch name instead of "recent changes". A prompt cannot contain what its author did not bother to look up. The <code>/prompt-engineer</code> skill exists to do the looking up, grade what was written, ask the three questions that would change the answer, and hand back a prompt that carries the project's own facts. The rating page on the site collects the human judgement this paper lacks; the next version should add other model families, longer inputs, and a second judge.</p>
 <h2>References</h2>
 <ul>
 <li>Agarwal, R., et al. (2024). Many-Shot In-Context Learning. NeurIPS 2024. arXiv:2404.11018.</li>
-<li>Anthropic (2026). Prompting best practices; Prompting Claude Fable 5.1; Agent Skills best practices; Claude Code best practices. platform.claude.com and code.claude.com, read September 2026.</li>
+<li>Anthropic (2026). Prompting best practices; Prompting Claude Fable 5.1; Agent Skills best practices; Claude Code best practices; Claude Code prompt library. platform.claude.com and code.claude.com, read September 2026.</li>
 <li>Anthropic (2024 to 2025). Building effective agents; Writing tools for agents; Effective context engineering for AI agents; Equipping agents for the real world with Agent Skills. anthropic.com/engineering.</li>
 <li>Basil, S., Shapiro, I., Shapiro, D., Mollick, E., Mollick, L., &amp; Meincke, L. (2025). Playing Pretend: Expert Personas Don't Improve Factual Accuracy. Wharton Generative AI Labs.</li>
 <li>Bsharat, S. M., Myrzakhan, A., &amp; Shen, Z. (2023). Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4. arXiv:2312.16171.</li>
+<li>caveman (2026). A skill for terse output. GitHub, github.com/JuliusBrussee/caveman.</li>
+<li>Chang, F. (2026). andrej-karpathy-skills: a CLAUDE.md derived from Andrej Karpathy's notes on LLM coding. GitHub, github.com/forrestchang/andrej-karpathy-skills.</li>
 <li>Cheng, Z., &amp; Mastropaolo, A. (2026). An Empirical Study on the Effects of System Prompts in Instruction-Tuned Models for Code Generation. arXiv:2602.15228.</li>
+<li>Cherny, B. (2026a). Post on X describing how he uses Claude Code, 2 January 2026. x.com/bcherny/status/2007179832300581177.</li>
+<li>Cherny, B. (2026b). Post on X with tips for using Claude Code, 31 January 2026. x.com/bcherny/status/2017742741636321619.</li>
 <li>DeepSeek-AI (2025). DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning. arXiv:2501.12948.</li>
 <li>Dobariya, O., &amp; Kumar, A. (2025). Mind Your Tone: Investigating How Prompt Politeness Affects LLM Accuracy. arXiv:2510.04950.</li>
 <li>Gloaguen, T., Mündler, N., Müller, M., Raychev, V., &amp; Vechev, M. (2026). Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents? arXiv:2602.11988.</li>
+<li>Hacker News (2026). How I use Claude Code: Separation of planning and execution. news.ycombinator.com/item?id=47106686, 22 February 2026.</li>
 <li>He, J., et al. (2024). Does Prompt Formatting Have Any Impact on LLM Performance? arXiv:2411.10541.</li>
 <li>Khattab, O., et al. (2023). DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines. ICLR 2024. arXiv:2310.03714.</li>
 <li>Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., &amp; Iwasawa, Y. (2022). Large Language Models are Zero-Shot Reasoners. NeurIPS 2022. arXiv:2205.11916.</li>
@@ -610,17 +703,23 @@ September 2026</p>
 <li>Min, S., et al. (2022). Rethinking the Role of Demonstrations: What Makes In-Context Learning Work? EMNLP 2022. arXiv:2202.12837.</li>
 <li>Mu, F., et al. (2023). ClarifyGPT: Empowering LLM-based Code Generation with Intention Clarification. arXiv:2310.10996.</li>
 <li>OpenAI (2025). GPT-4.1 prompting guide; GPT-5 prompting guide; Reasoning best practices. developers.openai.com.</li>
+<li>Pocock, M. (2026). skills, including grill-me and grilling. GitHub, github.com/mattpocock/skills.</li>
 <li>Rana, S. (2026). Semantic Gravity Wells: Why Negative Constraints Backfire. arXiv:2601.08070.</li>
+<li>Remotion (2026). Post on X announcing Agent Skills for making videos with Claude Code, 20 January 2026. x.com/Remotion/status/2013626968386765291.</li>
 <li>Saravia, E., et al. Prompt Engineering Guide. promptingguide.ai, read September 2026.</li>
 <li>Schulhoff, S., et al. (2024). The Prompt Report: A Systematic Survey of Prompt Engineering Techniques. arXiv:2406.06608.</li>
 <li>Sclar, M., Choi, Y., Tsvetkov, Y., &amp; Suhr, A. (2023). Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design. ICLR 2024. arXiv:2310.11324.</li>
+<li>Shihipar, T. (2025). Post on X on spec-based development with Claude Code, 28 December 2025. x.com/trq212/status/2005315275026260309.</li>
 <li>Shinn, N., et al. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. NeurIPS 2023. arXiv:2303.11366.</li>
+<li>Shumer, M. (2026). Posts on X introducing the Gauntlet Loop, 25 to 27 July 2026. x.com/mattshumer_/status/2081100592689324502.</li>
+<li>skills.sh (2026). Agent skills leaderboard. skills.sh, read 27 September 2026.</li>
 <li>Sprague, Z., et al. (2024). To CoT or not to CoT? Chain-of-thought helps mainly on math and symbolic reasoning. ICLR 2025. arXiv:2409.12183.</li>
 <li>Suzgun, M., &amp; Kalai, A. T. (2024). Meta-Prompting: Enhancing Language Models with Task-Agnostic Scaffolding. arXiv:2401.12954.</li>
 <li>Truong, T. H., Baldwin, T., Verspoor, K., &amp; Cohn, T. (2023). Language models are not naysayers. *SEM 2023. arXiv:2306.08189.</li>
 <li>Vijayvargiya, S., Zhou, X., Yerukola, A., Sap, M., &amp; Neubig, G. (2025). Ambig-SWE: Interactive Agents to Overcome Underspecificity in Software Engineering. ICLR 2026. arXiv:2502.13069.</li>
 <li>Wang, X., et al. (2022). Self-Consistency Improves Chain of Thought Reasoning in Language Models. ICLR 2023. arXiv:2203.11171.</li>
 <li>Wei, J., et al. (2022). Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. NeurIPS 2022. arXiv:2201.11903.</li>
+<li>Willison, S. (2026). A Fireside Chat with Cat and Thariq from the Claude Code team. simonwillison.net, 21 July 2026.</li>
 <li>Yang, C., et al. (2023). Large Language Models as Optimizers. ICLR 2024. arXiv:2309.03409.</li>
 <li>Yang, C., Shi, Y., Ma, Q., Liu, M. X., Kästner, C., &amp; Wu, T. (2025). What Prompts Don't Say: Understanding and Managing Underspecification in LLM Prompts. arXiv:2505.13360.</li>
 <li>Yao, S., et al. (2022). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR 2023. arXiv:2210.03629.</li>
