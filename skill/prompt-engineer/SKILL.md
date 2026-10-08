@@ -39,9 +39,8 @@ evidence; open `references/patterns.md` only when the user asks why a pattern wo
 
 ### 1. Capture the draft and the target
 
-Take the prompt from the arguments, the last message, or a file the user points at. If
-there is no draft yet, ask for the one-line goal and treat that as the draft (it will
-grade low; that is fine).
+Take the prompt from the arguments, the last message, or a file the user points at. With
+no draft yet, ask for the one-line goal and treat that as the draft; a low grade is fine.
 
 Establish where it will run, because the rewrite shape depends on it:
 Claude Code in this repo, claude.ai chat, an API system prompt or template, a
@@ -103,7 +102,8 @@ sending: X" and keep it out of the acceptance criterion, which has to stay check
 A done condition resting on an unfilled blank cannot be met. The exception is a file
 the project loads as-is (a system prompt, a template): a literal bracket reaching
 production is worse than a stated default, so write your best default in the block and
-list it under "Before deploying, confirm:" after it.
+list every one under "Before deploying, confirm:" after it. A default that is not on
+that list is an invented fact wearing a better name.
 
 - **A. Minimal.** The draft with only the two highest-value fixes, as short as those
   fixes allow; for a draft under fifteen words, up to three sentences. For people who
@@ -118,8 +118,8 @@ list it under "Before deploying, confirm:" after it.
 
 Every writing rewrite ends with a self-check the model reports after the piece, under
 a separator so the piece copies clean. Name the constraints most likely to break, not
-the safe ones: quote the banned words and openers back, give the word and paragraph
-counts, list each rubric line. Every item must produce an artifact the reader can look
+the safe ones: banned words and openers quoted back, word and paragraph counts, each
+rubric line. Every item must produce an artifact the reader can look
 at, never an attestation: "list every sentence over 35 words", not "confirm you read it
 aloud". A check the model can satisfy by claiming it did is worth nothing, and a check
 confirming what it was never going to get wrong is decoration.

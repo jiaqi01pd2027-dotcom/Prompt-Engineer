@@ -280,3 +280,42 @@ lines, source files, feedback), specific deliverable as a file (P1, P5), closed 
 list (P3), constraints with reasons (P4), self-check against the rubric (P10). Not
 applied: role (the writer is the student), interview beyond two questions (the folder
 answered the rest).
+
+---
+
+## Starter prompts the user has saved
+
+Hand these back as-is when the request matches, substituting the topic, length, and
+tooling for the project at hand.
+
+### Motion-graphics explainer video (saved 2026-09-27)
+
+```
+Create a motion graphics explainer video. It should be minimalist, white on black, 16:9,
+around a minute long.
+
+The topic is how we first figured out the Earth's circumference. It should be easy to
+understand, but also go in depth on the mathematical concepts behind it. Make sure you
+explain with diagrams or other visuals. You can use any tool you prefer to create the
+explainer video. Save it in MP4 format.
+
+Include a voiceover using Gemini TTS. Here's an example of how to use gemini TTS:
+
+# To run this code you need to install the following dependencies:
+# pip install google-genai
+
+import mimetypes
+import os
+import re
+import struct
+from google import genai
+from google.genai import types
+<paste the rest of a working Gemini TTS snippet here>
+```
+
+Why it scores well: deliverable and format pinned in the first line (P1, P5: minimalist,
+white on black, 16:9, one minute, MP4), audience and depth both stated (P3), visuals made
+a requirement not a suggestion (P4), tool choice left open where it does not matter, and
+the one API the model cannot guess is supplied as a runnable example (P6). To reuse: swap
+the topic sentence, keep everything else, and paste your own complete TTS snippet so the
+model never has to invent the API.

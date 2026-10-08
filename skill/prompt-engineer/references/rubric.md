@@ -29,8 +29,10 @@ evidence per dimension quoting the prompt (or noting the absence).
   instead of applying it. An API prompt a program parses is not an agentic target:
   score dimension 6 on whether the prompt asks the model to check its own output before
   emitting, and apply no penalty.
-- Over-specification: if the prompt is more than ~400 words and half of it is
-  restating obvious things, subtract up to 5 for "noise the model must wade through".
+- Over-specification: if a third or more of the prompt is politeness, praise, or
+  restating the obvious, subtract up to 5 for noise the model must wade through. Judge
+  the proportion, not the length; a 250-word prompt that is half throat-clearing earns
+  the deduction as surely as a 600-word one.
 - Contradictions: subtract 5 per contradictory instruction pair (e.g. "be brief" and
   "cover everything in depth").
 - Absolutes: "always"/"never" applied to style rather than safety can over-trigger in

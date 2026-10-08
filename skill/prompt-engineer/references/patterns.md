@@ -148,7 +148,16 @@ work.
 
 Phrasing (chat): `Before writing, ask me up to 5 questions about anything that would
 change the result. Then write it.` (Claude Code): batched question tool, 3 to 6
-questions, recommended default first.
+questions, recommended default first. (Build larger than one sitting): interview in
+rounds until no decision is open, look up facts rather than asking them, then write
+the spec to a file (SPEC.md) naming files, out-of-scope items, and one end-to-end
+check; execute it in a fresh session.
+
+This is the most-used prompt found online (survey of September 2026, in the Prompt
+Engineer repo at research/popular-prompts.md). Anthropic's Claude Code docs and prompt
+library ship it, and the most-installed version on skills.sh has 1.2M installs. The
+copied versions all run in rounds and end in a file, which the one-shot chat phrasing
+above does not.
 
 Helps: any task where the user does not know what context matters; coding with
 under-specified issues (Ambig-SWE: up to 74% better with interaction; ClarifyGPT:
@@ -172,6 +181,21 @@ code is wrong; do not change the test to pass.`
   +20 points SWE-bench from persistence, tool-use, and planning reminders.
 - Anthropic: "give Claude a check it can run"; "show evidence rather than asserting
   success"; do not tell Opus 5 to double-check (over-verifies).
+
+Critic-loop variant (separate judge, numeric gate, bounded retries). Noted from a
+user-supplied prompt for a 3D water-balloon scene:
+
+> For each iteration, use a separate critic agent to take screenshots of the scene from
+> different angles and evaluate its realism and physics accuracy. It should provide a
+> score from 0 to 10. 4-7 means it's usable but it would not pass as live-action or a
+> high-end VFX still. 8 or above means it looks very convincing, exactly like a real
+> water balloon being shot.
+> Loop until the critic agent gives a score of 8 or higher. Below that, the builder gets
+> the ranked issue list and tries again, up to 3 rounds.
+
+What makes it work: the critic is a different agent from the builder (no self-grading),
+the score bands are defined in words so 8 means something, the retry feeds a ranked list
+rather than the raw score, and the loop has a hard cap.
 
 ## P11. Decompose and chain (moderate)
 
